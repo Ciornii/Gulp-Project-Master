@@ -1,0 +1,110 @@
+.gallery {
+    text-align: center;
+    padding: 100px 0 150px 0;
+
+    @media only screen and (max-width: 425px) {
+        width: 100%;
+        padding: 40px 0 80px 0;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 40px;
+        background: url("../../icons/waves.png") center no-repeat;
+        background-size: 80px;
+        margin-bottom: 40px;
+    }
+
+    &-title {
+        font-size: 38px;
+        color: $main-color;
+        font-weight: 400;
+        margin-bottom: 70px;
+
+        @media only screen and (max-width: 1150px) {
+            font-size: 32px;
+        }
+
+        @media only screen and (max-width: 425px) {
+            font-size: 26px;
+        }
+
+        @media only screen and (max-width: 375px) {
+            margin-bottom: 40px;
+        }
+
+        @media only screen and (max-width: 320px) {
+            font-size: 22px;
+        }
+    }
+
+
+    .gallery-inner {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+
+        @media only screen and (max-width: 425px) {
+            flex-wrap: wrap;
+        }
+
+        .column {
+            padding: 0 15px;
+
+            @media only screen and (max-width: 1150px) {
+                padding: 0 10px;
+            }
+
+            @media only screen and (max-width: 835px) {
+                padding: 0 5px;
+            }
+
+            @media only screen and (max-width: 425px) {
+                width: 100%;
+            }
+        }
+
+        .block {
+            margin-top: 30px;
+            background-color: black;
+
+            @media only screen and (max-width: 1150px) {
+                margin-top: 20px;
+            }
+
+            @media only screen and (max-width: 835px) {
+                margin-top: 10px;
+            }
+
+            img {
+                vertical-align: middle;
+                width: 100%;
+                height: auto;
+                transition: opacity .2s linear;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+
+    }
+
+    .popup {
+        position: fixed;
+        z-index: 4;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+
+        img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    }
+}

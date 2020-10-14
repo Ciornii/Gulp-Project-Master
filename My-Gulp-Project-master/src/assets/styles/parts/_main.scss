@@ -1,0 +1,114 @@
+.main {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: url("../../img/bg/main-bg.png") center center/ cover no-repeat;
+    text-align: center;
+    padding-top: 140px;
+    overflow: hidden;
+
+    &-text {
+        position: absolute;
+        top: 30vh;
+
+        .main-title {
+            color: $main-color;
+            //margin-top: 70px;
+            font-size: 72px;
+            text-transform: uppercase;
+            line-height: 1.111;
+            text-align: left;
+            text-shadow: 1px 1px 50px #ffffff;
+            font-weight: 200;
+
+
+
+            @media only screen and (max-width: 1024px) {
+                font-size: 58px;
+            }
+
+            @media only screen and (max-width: 425px) {
+                font-size: 47px;
+            }
+
+            @media only screen and (max-width: 340px) {
+                font-size: 37px;
+            }
+
+
+            &:after {
+                content: "";
+                display: block;
+                width: 200px;
+                height: 4px;
+                background-color: #0c9688;
+                margin-top: 4px;
+                margin-left: 2px;
+
+                @media only screen and (max-width: 1024px) {
+                    width: 150px;
+                    height: 3px;
+                }
+
+                @media only screen and (max-width: 340px) {
+                    width: 100px;
+                }
+            }
+        }
+
+        .main-descr {
+            color: $main-color;
+            margin-top: 40px;
+            margin-left: 2px;
+            font-weight: bold;
+            font-size: 22px;
+            text-align: left;
+            text-shadow: 1px 1px 50px #ffffff;
+
+            @media only screen and (max-width: 1024px) {
+                font-size: 17px;
+                margin-top: 25px;
+            }
+
+            @media only screen and (max-width: 320px) {
+                font-size: 15px;
+                margin-top: 20px;
+            }
+        }
+    }
+
+
+
+    .clouds {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            bottom: 0;
+            max-width: 100%;
+            animation: animate calc(20s * var(--i)) linear infinite;
+            transition: all 10s;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    }
+
+    .mist {
+        position: absolute;
+        bottom: -5px;
+        width: 100%;
+    }
+}

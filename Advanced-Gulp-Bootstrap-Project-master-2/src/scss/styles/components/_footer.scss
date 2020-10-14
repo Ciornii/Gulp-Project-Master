@@ -1,0 +1,96 @@
+.footer {
+  color: white;
+  background-color: $main-color;
+  display: block;
+
+  
+  .copyright {
+    min-height: 2.87rem;
+    background-color: #141414;
+    padding-top: 0.7rem;
+
+    @media only screen and (max-width: 469px) {
+      min-height: 5.7rem
+    }
+
+    .left {
+      float: left;
+      display: block;
+      //text
+      font-size: 13px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.85;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+
+      @media only screen and (max-width: 469px) {
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .right {
+      float: right;
+      display: block;
+      position: relative;
+      top: 2px;
+
+      @media only screen and (max-width: 469px) {
+        text-align: center;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      font-size: 11px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.82;
+      letter-spacing: 0.55px;
+      text-align: left;
+      color: #ffffff;
+
+      a {
+        font-size: 11px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.82;
+        letter-spacing: 0.55px;
+        text-align: left;
+        color: #ffffff;
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      div {
+        display: inline-block;
+      }
+
+      .heart {
+        display: inline-block;
+        position: relative;
+        top: 1px;
+        color: $main-color;
+        font-size: 17px;
+        margin: 0 4px;
+        animation: beat 1.5s infinite;
+
+        @media only screen and (max-width: 425px) {
+          font-size: 16px;
+        }
+      }
+
+      @keyframes beat {
+        50% {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}

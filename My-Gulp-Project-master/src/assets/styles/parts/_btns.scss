@@ -1,0 +1,122 @@
+.btn , a.btn{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 15px 30px;
+    min-width: 150px;
+    background-color: transparent;
+    border: 2px solid $green;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $green;
+    transition: all .1s linear;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 10px $green;
+    }
+
+    @media only screen and (max-width: 768px) {
+        font-size: 15px;
+        padding: 13px 24px;
+    }
+}
+
+.btn--fill {
+    background-color: $green;
+    color: white;
+}
+
+.btn-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: box-shadow .2s linear;
+
+    svg {
+        position: absolute;
+        width: 37% !important;
+        height: 40%;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -55%);
+        fill: white;
+    }
+
+    @media only screen and (max-width: 1023px) {
+        display: block;
+    }
+}
+
+a.btn--insta {
+    margin-top: 100px;
+    padding: 15px 30px 15px 70px;
+    max-width: 206px;
+
+    @media only screen and (max-width: 768px) {
+        padding-left: 60px;
+        max-width: 170px;
+    }
+
+    @media only screen and (max-width: 425px) {
+        margin-top: 70px;
+    }
+
+    svg {
+        width: 25px;
+        position: absolute;
+        left: 25px;
+        bottom: -48px;
+        fill: $green;
+
+        @media only screen and (max-width: 768px) {
+            width: 22px;
+            bottom: -52px;
+            left: 22px;
+        }
+    }
+}
+
+.pageup {
+    opacity: 1;
+    width: 37px;
+    height: 37px;
+    position: fixed;
+    bottom: 15px;
+    right: 2%;
+    //z-index: 30;
+    background-color: #0b8578;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 1s all;
+    transition: transform .1s;
+    opacity: 0;
+
+    &:hover {
+        -webkit-transform: translateY(-2px);
+        -ms-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+
+    svg {
+        width: 19px;
+        height: 24px;
+        fill: white;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        top: 49%;
+        left: 52%;
+        transform: translate(-49%, -52%);
+    }
+}

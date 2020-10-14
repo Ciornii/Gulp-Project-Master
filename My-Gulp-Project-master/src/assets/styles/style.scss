@@ -1,0 +1,68 @@
+@import 'base/vars';
+@import 'base/animate';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Montserrat',
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#preloader {
+  width: 101%;
+  height: 101%;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+
+  img {
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+  }
+}
+
+
+@import 'parts/btns';
+@import 'parts/header';
+@import 'parts/main';
+@import 'parts/info';
+@import 'parts/counter';
+@import 'parts/timer';
+@import 'parts/gallery';
+@import 'parts/reviews';
+@import 'parts/consultation';
+@import 'parts/footer';
+@import 'parts/menu';
+@import 'parts/modals&forms';

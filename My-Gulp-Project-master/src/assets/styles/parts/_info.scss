@@ -1,0 +1,226 @@
+.info {
+    margin-top: 50px;
+    width: 100%;
+    min-height: 580px;
+    padding: 50px;
+    padding-bottom: 150px;
+
+    @media only screen and (max-width: 1023px) {
+        padding-bottom: 50px;
+    }
+
+    @media only screen and (max-width: 425px) {
+        padding: 0;
+    }
+
+    &-title {
+        font-size: 42px;
+        color: $main-color;
+        text-align: center;
+        font-weight: 400;
+
+        @media only screen and (max-width: 425px) {
+            font-size: 36px;
+        }
+    }
+
+    span {
+        margin-left: 50px;
+    }
+
+    &-text {
+        margin: 20px auto 70px auto;
+        color: $main-color;
+        font-weight: 300;
+        max-width: 900px;
+        text-align: center;
+
+        @media only screen and (max-width: 1023px) {
+            margin-bottom: 0px;
+            max-width: 100%;
+        }
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 40px;
+        background: url("../../icons/waves.png") center no-repeat;
+        background-size: 80px;
+        margin-bottom: 20px;
+    }
+
+    .tablinks-wrapper {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+
+        @media only screen and (max-width: 1023px) {
+           margin-top: 80px;
+        }
+
+        .tablink {
+            color: $main-color;
+            font-weight: 700;
+            font-size: 22px;
+            cursor: pointer;
+
+            &:after {
+                content: "";
+                display: block;
+                width: 0%;
+                height: 3px;
+                background-color: $green;
+                margin-top: 4px;
+                transition: 0.4s;
+            }
+
+            &:hover {
+                &:after {
+                    width: 60%;
+                }
+            }
+
+            @media only screen and (max-width: 633px) {
+                font-size: 17px;
+            }
+            @media only screen and (max-width: 465px) {
+                font-size: 15px;
+            }
+            @media only screen and (max-width: 375px) {
+                font-size: 14px;
+            }
+            @media only screen and (max-width: 320px) {
+                font-size: 13px;
+            }
+        }
+
+        .tablink--active {
+            color: $green;
+            
+            &:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: $green;
+                margin-top: 4px;
+                transition: 0.4s;
+            }
+
+            &:hover {
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .tabcontent {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 70px;
+        transition: 0.3s;
+
+        @media only screen and (max-width: 425px) {
+            padding-top: 40px;
+        }
+
+        .description {
+            width: 50%;
+
+            @media only screen and (max-width: 1023px) {
+                width: 100%;
+                order: 2;
+                margin-top: 60px;
+            }
+
+            @media only screen and (max-width: 425px) {
+                margin-top: 30px;
+            }
+
+            &-title {
+                font-size: 30px;
+                color: $main-color;
+                font-weight: 400;
+                margin-top: 25px;
+
+                @media only screen and (max-width: 1023px) {
+                    text-align: center;
+                }
+            }
+
+            &-text {
+                margin-top: 25px;
+                color: $main-color;
+                font-weight: 300;
+                padding-right: 80px;
+
+                @media only screen and (max-width: 1023px) {
+                    margin-bottom: 60px;
+                    padding-right: 0;
+                    text-align: center;
+                }
+            }
+
+            .btn {
+                float: left;
+                margin-top: 50px;
+
+                @media only screen and (max-width: 1023px) {
+                    float: none;
+                    text-align: center;
+                    margin-top: -20px;
+                    margin-bottom: 70px;
+                }
+            }
+        }
+
+        .video {
+            width: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: auto;
+            cursor: pointer;
+
+            &:hover .btn-video {
+                box-shadow: 0 0 10px white;
+            }
+
+            &:hover .img-wrapper img {
+                opacity: 0.6;
+            }
+
+            @media only screen and (max-width: 1023px) {
+                width: 522px;
+                display: block;
+                margin: 0 auto;
+                order: 1;
+            }
+
+            .img-wrapper {
+                background-color: black;
+
+                img {
+                    width: 100%;
+                    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+                    opacity: 0.8;
+                    transition: opacity .2s linear;
+                    margin-bottom: -5px;
+                }
+            }
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: flex;
+    }
+}
