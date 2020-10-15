@@ -1,0 +1,96 @@
+@mixin responsive_img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+// @include responsive_img;
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------//
+
+
+// @function calculateRem($size) {
+//     $remSize: $size / 16px;
+//     @return $remSize * 1rem;
+// }
+
+// @mixin font-size($size) {
+//     font-size: $size;
+//     font-size: calculateRem($size);
+// }
+
+// @include font-size(16px);
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------//
+
+// Define vertical, horizontal, or both position
+@mixin center_absolute($position) {
+    position: absolute;
+
+    @if $position=='vertical' {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @else if $position=='horizontal' {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translate(-50%);
+    }
+
+    @else if $position=='both' {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+// @include center_absolute(both);
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------//
+
+@mixin center_block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// @include center_block;
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------//
+
+@mixin text-shorten {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//  @include text-shorten();
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------//
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// @include clearfix;

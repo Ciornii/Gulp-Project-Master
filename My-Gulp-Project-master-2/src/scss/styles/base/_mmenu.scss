@@ -1,0 +1,79 @@
+.mmenu {
+  position: fixed;
+  display: block;
+  width: 35%;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(66, 66, 66, 0.95);
+  top: 0px;
+  right: -100%;
+  overflow-y: hidden; // hide vertical
+  transition: all 1s ease;
+  z-index: 9999;
+
+  @media only screen and (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media only screen and (max-width: 559px) {
+    width: 60%;
+  }
+
+  ul {
+    clear: both;
+    padding: 0px 0px 25px 50px;
+    color: white;
+    display: list-item;
+    margin-top: 74px;
+    list-style: none;
+
+    @media only screen and (max-width: 425px) {
+      padding-left: 25px;
+    }
+
+    li {
+      padding: 11px 0px;
+      margin: 0;
+
+      @media only screen and (max-width: 320px) {
+        padding: 9px 0px;
+      }
+
+      a {
+        color: #fff;
+        @include font-size(19px);
+        font-weight: 400;
+        text-transform: uppercase;
+
+        &:hover {
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  .menu-toggle {
+    width: 20px;
+    height: 20px;
+    margin-top: 26px;
+    margin-left: 50px;
+
+    @media only screen and (max-width: 425px) {
+      margin-left: 25px;
+    }
+
+    svg {
+      cursor: pointer;
+      width: 14px;
+      height: 14px;
+      fill: white;
+      font-size: 24px;
+    }
+  }
+}
+
+.mmenu-hide {
+  right: 0px;
+  position: fixed;
+  top: 0px;
+}

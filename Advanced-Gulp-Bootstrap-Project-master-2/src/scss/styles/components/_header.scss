@@ -1,0 +1,141 @@
+/**
+ * = Navigation bars
+ */
+
+.header-global {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 6.18rem;
+    background-color: white;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(131, 131, 131, 0.2);
+    box-shadow: 0px 2px 5px 0px rgba(131, 131, 131, 0.2);
+
+    .navbar {
+        position: relative;
+        width: 100%;
+        height: 6.18rem;
+        padding: 0;
+
+        @media screen and (max-width: 425px) {
+            height: 70px;
+        }
+
+        .logo {
+            position: relative;
+        
+            img {
+                max-height: 6.18rem;
+
+                @media screen and (max-width: 425px) {
+                    max-height: 70px;
+                }
+            }
+        }
+
+        .menu {
+            position: relative;
+            display: flex;
+
+            @media screen and (max-width: 996px) {
+                display: none;
+            }
+
+            ul {
+                position: absolute;
+                right: -1px;
+                display: flex;
+                position: relative;
+                top: -3px;
+                margin-bottom: 0;
+
+                li {
+                    display: inline;
+                    margin-left: 37px;
+
+                    &:hover>a:before {
+                        width: 100%;
+                        border-color: $main-color;
+                    }
+
+                    a {
+                        position: relative;
+                        text-transform: uppercase;
+                        font-size: 14px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        letter-spacing: normal;
+                        color: #272727;
+                        white-space: nowrap;
+
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            bottom: -3px;
+                            left: 0;
+                            right: 0;
+                            width: 0;
+                            border-bottom: 1px solid white;
+                            margin: 0 auto;
+                            -webkit-transition: all .4s ease;
+                            -moz-transition: all .4s ease;
+                            -ms-transition: all .4s ease;
+                            -o-transition: all .4s ease;
+                            transition: all .4s ease;
+                        }
+                    }
+                }
+            }
+        }
+
+        .burger {
+            display: none;
+            width: 28px;
+            height: 16px;
+            @include center_absolute(vertical);
+            right: 1.87rem;
+            cursor: pointer;
+            overflow: hidden;
+            margin-top: -3px;
+
+            @media screen and (max-width: 996px) {
+                display: block;
+            }
+
+            svg {
+                fill: $main-color;
+                width: 26px;
+                @include center_absolute(both);
+            }
+        }
+    }
+
+
+
+
+    // --------------------------------- navbar-scroll 
+
+    .navbar--scroll {
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 70px;
+        background-color: white;
+        top: -80px;
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(131, 131, 131, 0.2);
+        box-shadow: 0px 2px 5px 0px rgba(131, 131, 131, 0.2);
+        transition: all .3s;
+        z-index: 997;
+        padding: 0px;
+
+        .logo {
+            position: relative;
+
+            img {
+                max-height: 70px;
+            }
+        }
+    }
+}
