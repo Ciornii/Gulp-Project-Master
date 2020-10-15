@@ -7,10 +7,11 @@
   .copyright {
     min-height: 2.87rem;
     background-color: #141414;
-    padding-top: 0.7rem;
+    padding-top: 0.6rem;
 
     @media only screen and (max-width: 469px) {
-      min-height: 5.7rem
+      min-height: 5.5rem;
+      padding-top: 1rem;
     }
 
     .left {
@@ -41,7 +42,6 @@
       @media only screen and (max-width: 469px) {
         text-align: center;
         width: 100%;
-        margin-top: 1rem;
       }
 
       font-size: 11px;
@@ -75,7 +75,7 @@
       .heart {
         display: inline-block;
         position: relative;
-        top: 1px;
+        top: 2px;
         color: $main-color;
         font-size: 17px;
         margin: 0 4px;
@@ -88,7 +88,7 @@
 
       @keyframes beat {
         50% {
-          transform: scale(1.2);
+          transform: scale(1.1);
         }
       }
     }

@@ -93,11 +93,12 @@
         .burger {
             display: none;
             width: 28px;
-            height: 20px;
+            height: 16px;
             @include center_absolute(vertical);
             right: 1.87rem;
             cursor: pointer;
             overflow: hidden;
+            margin-top: -3px;
 
             @media screen and (max-width: 996px) {
                 display: block;
@@ -131,10 +132,6 @@
 
         .logo {
             position: relative;
-
-            @media screen and (max-width: 425px) {
-                margin-top: 7px;
-            }
 
             img {
                 max-height: 70px;
