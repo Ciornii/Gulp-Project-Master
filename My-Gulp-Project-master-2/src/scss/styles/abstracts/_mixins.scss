@@ -1,3 +1,27 @@
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+// --------------------------------
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// @include font-size(16px);
+
+@mixin min-height($size) {
+    min-height: $size;
+    min-height: calculateRem($size);
+}
+
+//@include min-height(500px);
+
+//-----------------------------------------------------------------------------------------------------------------------------------//
+
+
 @mixin responsive_img {
     display: block;
     width: 100%;
@@ -10,24 +34,6 @@
 
 //-----------------------------------------------------------------------------------------------------------------------------------//
 
-
-@function calculateRem($size) {
-    $remSize: $size / 16px;
-    @return $remSize * 1rem;
-}
-
-@mixin font-size($size) {
-    font-size: $size;
-    font-size: calculateRem($size);
-}
-
-// @include font-size(16px);
-
-
-
-//-----------------------------------------------------------------------------------------------------------------------------------//
-
-// Define vertical, horizontal, or both position
 @mixin center_absolute($position) {
     position: absolute;
 
@@ -55,7 +61,6 @@
 }
 
 // @include center_absolute(both);
-
 
 
 
@@ -94,3 +99,21 @@
 }
 
 // @include clearfix;
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------//
+
+@mixin replace-text($image, $x: 50%, $y: 50%) {
+    text-indent: -99999em;
+    overflow: hidden;
+    text-align: left;
+
+    background: {
+        image: $image;
+        repeat: no-repeat;
+        position: $x $y;
+    }
+}
+
+// @include replace-text(url("/images/mail.svg"), 0);
