@@ -1,0 +1,143 @@
+// ------------------------------------------------------- text
+// @include font-size(16px);
+// @include text-shorten;
+// ------------------------------------------------------- position
+// @include center_absolute(both);
+// @include center_block;
+// ------------------------------------------------------- dimensions
+// @include min-height(500px);
+// @include height(500px);
+// @include height(500px);
+// ------------------------------------------------------- images and backgrounds
+// @include responsive_img;
+// @include replace-text(url("/images/mail.svg"), 0);
+// ------------------------------------------------------- others
+// @include clearfix;
+
+
+
+// ------------------------------------------------------------------------------------------------------------------
+
+
+
+// ------------------------------------------------------- text
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// @include font-size(16px);
+
+
+@mixin text-shorten {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//  @include text-shorten;
+
+
+
+// ------------------------------------------------------- position
+@mixin center_absolute($position) {
+    position: absolute;
+
+    @if $position=='vertical' {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @else if $position=='horizontal' {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translate(-50%);
+    }
+
+    @else if $position=='both' {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+// @include center_absolute(both);
+
+
+@mixin center_block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// @include center_block;
+
+
+
+// ------------------------------------------------------- dimensions
+@mixin min-height($size) {
+    min-height: $size;
+    min-height: calculateRem($size);
+}
+
+//@include min-height(500px);
+
+
+@mixin height($size) {
+    height: $size;
+    height: calculateRem($size);
+}
+
+//@include height(500px);
+
+
+@mixin height($size) {
+    height: $size;
+    height: calculateRem($size);
+}
+
+//@include height(500px);
+
+
+
+// ------------------------------------------------------- images and backgrounds
+@mixin responsive_img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+// @include responsive_img;
+
+
+@mixin replace-text($image, $x: 50%, $y: 50%) {
+    text-indent: -99999em;
+    overflow: hidden;
+    text-align: left;
+
+    background: {
+        image: $image;
+        repeat: no-repeat;
+        position: $x $y;
+    }
+}
+
+// @include replace-text(url("/images/mail.svg"), 0);
+
+
+
+// ------------------------------------------------------- others
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// @include clearfix;

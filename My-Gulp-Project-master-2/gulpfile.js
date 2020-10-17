@@ -22,7 +22,8 @@ const eslint = require('gulp-eslint');
 const paths = {
     dist: {
         base: './dist/',
-        css: './dist/css',
+        css: './dist/styles',
+        js: './dist/js/',
         html: './dist/pages',
         assets: './dist/assets',
         img: './dist/assets/img',
@@ -34,11 +35,12 @@ const paths = {
     },
     src: {
         base: './src/',
-        css: './src/css',
+        css: './src/styles',
+        js: './src/js',
         html: './src/pages/**/*.html',
         assets: './src/assets/**/*.*',
         partials: './src/partials/**/*.html',
-        scss: './src/scss',
+        scss: './src/styles',
         node_modules: './node_modules/',
         vendor: './vendor'
     }
@@ -46,7 +48,7 @@ const paths = {
 
 // Compile SCSS
 gulp.task('scss', function () {
-    return gulp.src([paths.src.scss + '/styles/**/*.scss', paths.src.scss + '/style.scss'])
+    return gulp.src([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'])
         .pipe(wait(500))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -153,7 +155,7 @@ gulp.task('clean:dist', function () {
 
 // Compile and copy scss/css
 gulp.task('copy:dist:css', function () {
-    return gulp.src([paths.src.scss + '/styles/**/*.scss', paths.src.scss + '/style.scss'])
+    return gulp.src([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'])
         .pipe(wait(500))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -213,7 +215,7 @@ gulp.task('copy:dist:fonts', function () {
 
 // minify js
 gulp.task('minify:js', function () {
-    return gulp.src(['src/assets/js/**/*.js', '!src/js/main.js'])
+    return gulp.src([paths.src.js + '/**/*.js', paths.src.js + '/main.js'])
         .pipe(plumber())
         // .pipe(eslint())
         // .pipe(eslint.format())
@@ -239,7 +241,7 @@ gulp.task('minify:js', function () {
                 new DuplicatePackageCheckerPlugin()
             ]
         }))
-        .pipe(gulp.dest(paths.dist.assets + '/js'))
+        .pipe(gulp.dest(paths.dist.js))
 })
 
 // serve
@@ -248,7 +250,7 @@ gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'vendor', 'cop
         server: paths.dist.base
     });
 
-    gulp.watch([paths.src.scss + '/styles/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
+    gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.assets], gulp.series('assets'));
     gulp.watch([paths.src.vendor], gulp.series('vendor'));
@@ -260,7 +262,7 @@ gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 
         server: paths.dist.base
     });
 
-    gulp.watch([paths.src.scss + '/styles/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
+    gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.assets], gulp.series('assets'));
     gulp.watch([paths.src.vendor], gulp.series('vendor'));
