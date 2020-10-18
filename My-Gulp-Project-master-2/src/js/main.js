@@ -1,23 +1,21 @@
-"use strict";
-const d = document;
-d.addEventListener("DOMContentLoaded", function (event) {
-
+document.addEventListener("DOMContentLoaded", function (event) {
+    'use strict';
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
-    var preloader = d.querySelector('.preloader');
+    const preloader = document.querySelector('.preloader');
     if (preloader) {
         setTimeout(function () {
             preloader.classList.add('show');
 
             setTimeout(function () {
-                d.querySelector('.loader-element').classList.add('hide');
+                document.querySelector('.loader-element').classList.add('hide');
             }, 200);
         }, 1000);
     }
 
+
     // --------------------------------------------------------------------------------------------------------
     // -------------------------------------------------------------------  Slide Down a NavBar on Scroll
-
     window.onscroll = function () {
         scrollFunction();
     };
@@ -30,7 +28,6 @@ d.addEventListener("DOMContentLoaded", function (event) {
             navbar.style.top = "-80px";
         }
     }
-
 
 
     // --------------------------------------------------------------------------------------------------------
@@ -66,4 +63,9 @@ d.addEventListener("DOMContentLoaded", function (event) {
             upElem.classList.remove('fadeIn');
         }
     });
+});
+
+
+window.addEventListener('load', () => {
+
 });

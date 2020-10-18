@@ -23,8 +23,8 @@ const paths = {
     dist: {
         base: './dist/',
         css: './dist/styles',
-        js: './dist/js/',
-        html: './dist/pages',
+        js: './dist/js',
+        html: './dist/',
         assets: './dist/assets',
         img: './dist/assets/img',
         vendor: './dist/vendor'
@@ -37,9 +37,9 @@ const paths = {
         base: './src/',
         css: './src/styles',
         js: './src/js',
-        html: './src/pages/**/*.html',
+        html: './src/html/pages/**/*.html',
         assets: './src/assets/**/*.*',
-        partials: './src/partials/**/*.html',
+        partials: './src/html/partials/**/*.html',
         scss: './src/styles',
         node_modules: './node_modules/',
         vendor: './vendor'
@@ -64,7 +64,7 @@ gulp.task('index', function () {
     return gulp.src([paths.src.base + '*.html'])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/partials/',
+            basepath: './src/html/partials/',
             context: {
                 environment: 'development'
             }
@@ -77,7 +77,7 @@ gulp.task('html', function () {
     return gulp.src([paths.src.html])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/partials/',
+            basepath: './src/html/partials/',
             context: {
                 environment: 'development'
             }
@@ -89,6 +89,12 @@ gulp.task('html', function () {
 gulp.task('assets', function () {
     return gulp.src([paths.src.assets])
         .pipe(gulp.dest(paths.dist.assets))
+        .pipe(browserSync.stream());
+});
+
+gulp.task('js', function () {
+    return gulp.src([paths.src.js + '/main.js'])
+        .pipe(gulp.dest(paths.dist.js))
         .pipe(browserSync.stream());
 });
 
@@ -125,7 +131,7 @@ gulp.task('minify:html', function () {
         }))
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/partials/',
+            basepath: './src/html/partials/',
             context: {
                 environment: 'production'
             }
@@ -140,7 +146,7 @@ gulp.task('minify:html:index', function () {
         }))
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/partials/',
+            basepath: './src/html/partials/',
             context: {
                 environment: 'production'
             }
@@ -171,7 +177,7 @@ gulp.task('copy:dist:html', function () {
     return gulp.src([paths.src.html])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/partials/',
+            basepath: './src/html/partials/',
             context: {
                 environment: 'production'
             }
@@ -184,7 +190,7 @@ gulp.task('copy:dist:html:index', function () {
     return gulp.src([paths.src.base + '*.html'])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/partials/',
+            basepath: './src/html/partials/',
             context: {
                 environment: 'production'
             }
@@ -198,6 +204,11 @@ gulp.task('copy:dist:assets', function () {
         .pipe(gulp.dest(paths.dist.assets))
 });
 
+// Copy js
+gulp.task('copy:dist:js', function () {
+    return gulp.src(paths.src.js + '/main.js')
+        .pipe(gulp.dest(paths.dist.js))
+});
 
 // Copy node_modules to vendor
 gulp.task('copy:dist:vendor', function () {
@@ -242,27 +253,32 @@ gulp.task('minify:js', function () {
             ]
         }))
         .pipe(gulp.dest(paths.dist.js))
+    //.pipe(browserSync.stream());
 })
 
+
+
 // serve
-gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'vendor', 'copy:dist:fonts', 'minify:js', function () {
+gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'vendor', 'js', 'copy:dist:fonts', 'minify:js', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
+    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/main.js'], gulp.series('js'));
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.assets], gulp.series('assets'));
     gulp.watch([paths.src.vendor], gulp.series('vendor'));
 }));
 
 // build
-gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor', 'copy:dist:fonts', 'minify:js', function () {
+gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'copy:dist:js', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor', 'copy:dist:fonts', 'minify:js', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
+    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/main.js'], gulp.series('js'));
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.assets], gulp.series('assets'));
     gulp.watch([paths.src.vendor], gulp.series('vendor'));
