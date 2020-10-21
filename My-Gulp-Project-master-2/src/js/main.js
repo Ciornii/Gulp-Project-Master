@@ -1,5 +1,10 @@
+import moduleTest from './modules/moduleTest';
+
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
+
+    moduleTest();
+
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
     const preloader = document.querySelector('.preloader');
