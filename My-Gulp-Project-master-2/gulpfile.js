@@ -93,6 +93,12 @@ gulp.task('assets', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('js:libs', function () {
+    return gulp.src([paths.src.js + '/libs/*.js'])
+        .pipe(gulp.dest([paths.dist.js + '/libs']))
+        .pipe(browserSync.stream());
+});
+
 gulp.task('vendor', function () {
     return gulp.src(npmDist(), {
             base: paths.src.node_modules
@@ -199,6 +205,12 @@ gulp.task('copy:dist:assets', function () {
         .pipe(gulp.dest(paths.dist.assets))
 });
 
+// Copy js libs
+gulp.task('copy:dist:js:libs', function () {
+    return gulp.src([paths.src.js + '/libs/*.js'])
+        .pipe(gulp.dest([paths.dist.js + '/libs']))
+});
+
 // Copy node_modules to vendor
 gulp.task('copy:dist:vendor', function () {
     return gulp.src(npmDist(), {
@@ -215,7 +227,7 @@ gulp.task('copy:dist:fonts', function () {
 
 // Minify js
 gulp.task('minify:js', function () {
-    return gulp.src([paths.src.js + '/**/*.js', paths.src.js + '/main.js'])
+    return gulp.src([paths.src.js + '/modules/*.js', paths.src.js + '/main.js'])
         .pipe(plumber())
         // .pipe(eslint())
         // .pipe(eslint.format())
@@ -248,28 +260,31 @@ gulp.task('minify:js', function () {
 
 
 // serve
-gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'vendor', 'copy:dist:fonts', 'minify:js', function () {
-    browserSync.init({
-        server: paths.dist.base
-    });
+gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'js:libs', 'vendor', 'copy:dist:fonts', 'minify:js',
+    function () {
+        browserSync.init({
+            server: paths.dist.base
+        });
 
-    gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
-    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
-    gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
-    gulp.watch([paths.src.assets], gulp.series('assets'));
-    gulp.watch([paths.src.vendor], gulp.series('vendor'));
-}));
+        gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
+        gulp.watch([paths.src.js + '/modules/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
+        gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
+        gulp.watch([paths.src.assets], gulp.series('assets'));
+        gulp.watch([paths.src.js + '/libs/*.js'], gulp.series('js:libs'));
+        gulp.watch([paths.src.vendor], gulp.series('vendor'));
+    }));
 
 // build
-gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor', 'copy:dist:fonts', 'minify:js', function () {
+gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'copy:dist:js:libs', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor', 'copy:dist:fonts', 'minify:js', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
-    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
+    gulp.watch([paths.src.js + '/modules/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.assets], gulp.series('assets'));
+    gulp.watch([paths.src.js + '/libs/*.js'], gulp.series('js:libs'));
     gulp.watch([paths.src.vendor], gulp.series('vendor'));
 }));
 

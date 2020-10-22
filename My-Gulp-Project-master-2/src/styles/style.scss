@@ -1,20 +1,20 @@
-@import "scss/base/normalize";
-@import "scss/base/reset";
-@import "scss/base/fonts";
-@import "scss/base/animations";
+@import "scss/vendors/libs/normalize";
+@import "scss/vendors/libs/reset";
+@import "scss/general/base/fonts";
+@import "scss/vendors/libs/animations";
 //
-@import "scss/abstracts/variables";
-@import "scss/abstracts/functions";
-@import "scss/abstracts/mixins";
-@import "scss/abstracts/utilities";
+@import "scss/general/abstracts/variables";
+@import "scss/general/abstracts/functions";
+@import "scss/general/abstracts/mixins";
+@import "scss/general/abstracts/utilities";
 //
-@import "scss/base/general";
+@import "scss/general/base/general";
 //
-@import "scss/components/btns";
+@import "scss/general/components/btns";
 //
 @import "scss/layout/preloader";
 @import "scss/layout/header";
 @import "scss/layout/mmenu";
 @import "scss/layout/footer";
 //
-@import "scss/pages/hero";
+@import "scss/layout/pages/hero";
