@@ -1,0 +1,28 @@
+//@import 'var';
+
+.btn-grey {
+  font-family: "DIN Next LT Pro Bold";
+  font-size: 19px;
+  color: $black;
+  line-height: 59px;
+  width: 100%;
+  max-width: 396px;
+  border: 1px solid $grey;
+  background-color: $grey1;
+  display: block;
+  text-align: center;
+  @include transition();
+  @include minmax($sm-small,1440px) {
+    font-size: 16px;
+  }
+  @include max($xs) {
+    font-size: 16px;
+    line-height: 48px;
+  }
+  &:hover, &:focus {
+    background-color: $grey;
+    color: $white;
+  }
+
+
+}

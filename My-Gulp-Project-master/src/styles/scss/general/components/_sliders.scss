@@ -1,0 +1,101 @@
+.owl-carousel {
+
+     .owl-nav {
+          display: block;
+          position: relative;
+          width: 100%;
+          max-width: 1170px;
+          margin: 0 auto;
+          padding: 0 30px;
+
+          @media only screen and (max-width: 425px) {
+               padding: 0 15px;
+          }
+
+          button.owl-prev,
+          button.owl-next {
+               background-color: $main-color;
+               width: 2.87rem;
+               height: 2.87rem;
+               border-radius: 6px;
+               margin: 0;
+               padding: 0;
+               outline: none;
+               transition: all .1s;
+               @include center_absolute(vertical);
+
+               span {
+                    display: none;
+               }
+
+               &:hover {
+                    background-color: $main-color_hover;
+               }
+          }
+
+          button.owl-prev {
+               left: 0;
+
+               &::before {
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    content: "\f104";
+                    @include center_absolute(both);
+                    color: #fff;
+                    font-size: 18px;
+               }
+
+          }
+
+          button.owl-next {
+               right: 0;
+
+               &::before {
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    content: "\f105";
+                    @include center_absolute(both);
+                    color: #fff;
+                    font-size: 18px;
+               }
+          }
+     }
+}
+
+.owl-theme {
+     .owl-dots {
+          .owl-dot {
+               outline: none;
+
+               span {
+                    width: 10px;
+                    height: 10px;
+                    margin: 5px 7px;
+                    background: $main-color;
+               }
+          }
+
+          .owl-dot:hover {
+               span {
+                    background: $main-color_hover;
+               }
+          }
+
+          .owl-dot.active {
+               span {
+                    background: $main-color_hover;
+                    box-shadow: 0 0 1px 2px #333;
+               }
+          }
+     }
+}

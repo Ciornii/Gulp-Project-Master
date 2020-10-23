@@ -1,25 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<meta name="description" content="The purpose of a meta description is to reflect the essence of a page, but with more details and context."/>
-	<title>Mountaineering Tours & Trips</title>
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="assets/styles/css/style.min.css">
+    @@include('./_head.html', {
+    "path": ".",
+    "title": ""
+    })
 </head>
 
 <body>
-	
+    <div class="main-wrapper">
+        @@include('./_header.html', {
+        "path": "."
+        })
+        <main>
 
-	
+            @@include('./_preloader.html', {
+            "path": "."
+            })
 
-	<script src="main.js"></script>
+            <section class="hero">
+                <div class="container">
+                    <h1>My gulp project starter</h1>
+                </div>
+            </section>
+
+
+
+        </main>
+
+        <a href="#up" class="pageUp animate__animated fadeOut">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+
+        @@include('./_footer.html', {
+        "path": "."
+        })
+
+    </div> <!-- main-wrapper -->
+
+    @@include('./_scripts.html', {
+    "path": "."
+    })
 </body>
+
 </html>

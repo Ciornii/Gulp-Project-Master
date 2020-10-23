@@ -1,0 +1,200 @@
+//@import 'var';
+.margin-bottom-200 {
+  margin-bottom: 200px;
+  @include max($sm) {
+    margin-bottom: 50px;
+  }
+}
+.btn-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.before-image {
+  position: absolute;
+  width: 15%;
+  height: 600px;
+  left: 10px;
+  bottom: 25%;
+  display: flex;
+  flex-direction: column;
+  @include max($md) {
+    bottom: 0;
+  }
+  @include max($sm) {
+    width: 15%;
+    left: -5%;
+    bottom: 40px;
+  }
+  @include max($xs) {
+    width: 26%;
+    left: -12%;
+  }
+  img {
+    margin: auto 0;
+    @include max(992px) {
+      margin-bottom: 0;
+
+    }
+  }
+  @include minmax(992px, 1600px) {
+    width: 10%;
+  }
+}
+.after-image {
+  position: absolute;
+  width: 50vw;
+  height: 344px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  @include max($sm) {
+    width: 100vw;
+  }
+  img {
+    margin: auto 0 0 auto;
+  }
+}
+
+.content-about {
+  @include col();
+  @include size(12);
+  position: relative;
+  max-width: 1088px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 150px;
+  color: $black1;
+  @include minmax($lg, 1600px) {
+    max-width: 892px;
+  }
+  @include minmax($md, $lg-small) {
+    max-width: 700px;
+  }
+  @include max($md) {
+    max-width: 667px;
+    margin-bottom: 330px;
+  }
+  @include max($xs) {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  @include max(401px) {
+    margin-bottom: 230px;
+  }
+  .visible-sm {
+    margin-bottom: 50px;
+    a {
+      color: $blue2;
+      font-size: 16px;
+    }
+  }
+
+  h1,h2, h3,h4,h5,h6 {
+    font-family: 'DIN Next LT Pro Bold';
+    margin-bottom: 48px;
+  }
+
+  h1 {
+    font-size: 20px;
+    line-height: 19px;
+    @include minmax($sm-small,1440px) {
+      font-size: 16px;
+      line-height: 15px;
+    }
+
+  }
+
+  font-size: 22px;
+  line-height: 31px;
+  @include minmax($sm-small,1440px) {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+  @include max($sm) {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+  p {
+    margin-bottom: 30px;
+    font-family: "DIN Next LT Pro Light";
+  }
+
+  a {
+    color: $blue;
+    text-decoration: underline;
+    font-family: "DIN Next LT Pro Bold";
+    &:hover, &:focus {
+      color: $blue1;
+    }
+  }
+}
+
+.visible-sm {
+  @include min($sm-small) {
+    display: none;
+  }
+}
+.hidden-sm {
+  @include max($sm) {
+    display: none;
+  }
+}
+
+.yellow-top {
+  position: absolute;
+  background-image: url("../assets/img/cubs/yellow.svg");
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 21px;
+  top: -40px;
+  right: 2px;
+}
+
+.orange-top {
+  position: absolute;
+  background-image: url("../assets/img/cubs/red.svg");
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 21px;
+  top: 10%;
+  left: 0;
+}
+
+.blue-right {
+  position: absolute;
+  background-image: url("../assets/img/cubs/dark-blue-half.svg");
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 21px;
+  top: 20%;
+  right: 0;
+}
+
+.green-left {
+  position: absolute;
+  background-image: url("../assets/img/cubs/green.svg");
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 21px;
+  top: 30%;
+  left: -10px;
+}
+
+.yellow-bottom {
+  position: absolute;
+  background-image: url("../assets/img/cubs/yellow.svg");
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 21px;
+  top: 58%;
+  right: 10px;
+
+}
