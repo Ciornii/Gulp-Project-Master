@@ -10,6 +10,8 @@ var sass = require('gulp-sass');
 var wait = require('gulp-wait');
 var sourcemaps = require('gulp-sourcemaps');
 var fileinclude = require('gulp-file-include');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 const plumber = require('gulp-plumber');
 const webpack = require('webpack-stream');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
@@ -31,6 +33,7 @@ const paths = {
     },
     base: {
         base: './',
+        node: './node_modules'
     },
     src: {
         base: './src/',
@@ -47,12 +50,12 @@ const paths = {
 gulp.task('scss', function () {
     return gulp.src([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'])
         .pipe(wait(500))
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['> 0%, last 2 versions']
         }))
-        .pipe(sourcemaps.write('.'))
+        //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.dist.css))
         .pipe(browserSync.stream());
 });
@@ -89,19 +92,13 @@ gulp.task('assets', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('js:libs', function () {
-    return gulp.src([paths.src.js + '/libs/*.js'])
-        .pipe(gulp.dest([paths.dist.js + '/libs']))
-        .pipe(browserSync.stream());
-});
-
 // Beautify CSS
 gulp.task('beautify:css', function () {
     return gulp.src([
             paths.dev.css + '/style.css'
         ])
         .pipe(cssbeautify())
-        .pipe(gulp.dest(paths.dev.css))
+        .pipe(gulp.dest(paths.dist.css));
 });
 
 // Minify CSS
@@ -110,7 +107,7 @@ gulp.task('minify:css', function () {
             paths.dist.css + '/style.css'
         ])
         .pipe(cleanCss())
-        .pipe(gulp.dest(paths.dist.css))
+        .pipe(gulp.dest(paths.dist.css));
 });
 
 // Minify Html
@@ -126,7 +123,7 @@ gulp.task('minify:html', function () {
                 environment: 'production'
             }
         }))
-        .pipe(gulp.dest(paths.dist.html))
+        .pipe(gulp.dest(paths.dist.html));
 });
 
 gulp.task('minify:html:index', function () {
@@ -141,7 +138,7 @@ gulp.task('minify:html:index', function () {
                 environment: 'production'
             }
         }))
-        .pipe(gulp.dest(paths.dist.base))
+        .pipe(gulp.dest(paths.dist.base));
 });
 
 // Clean
@@ -153,13 +150,13 @@ gulp.task('clean:dist', function () {
 gulp.task('copy:dist:css', function () {
     return gulp.src([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'])
         .pipe(wait(500))
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['> 0%, last 2 versions']
         }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(paths.dist.css))
+        //.pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(paths.dist.css));
 });
 
 // Copy Html
@@ -185,30 +182,27 @@ gulp.task('copy:dist:html:index', function () {
                 environment: 'production'
             }
         }))
-        .pipe(gulp.dest(paths.dist.base))
+        .pipe(gulp.dest(paths.dist.base));
 });
 
 // Copy assets
 gulp.task('copy:dist:assets', function () {
     return gulp.src(paths.src.assets)
-        .pipe(gulp.dest(paths.dist.assets))
-});
-
-// Copy js libs
-gulp.task('copy:dist:js:libs', function () {
-    return gulp.src([paths.src.js + '/libs/*.js'])
-        .pipe(gulp.dest([paths.dist.js + '/libs']))
+        .pipe(gulp.dest(paths.dist.assets));
 });
 
 // Copy Fonts
 gulp.task('copy:dist:fonts', function () {
     return gulp.src(['src/assets/fonts/**/*'])
-        .pipe(gulp.dest(paths.dist.assets + '/fonts'))
+        .pipe(gulp.dest(paths.dist.assets + '/fonts'));
 });
 
 // Minify js
 gulp.task('minify:js', function () {
-    return gulp.src([paths.src.js + '/modules/*.js', paths.src.js + '/main.js'])
+    return gulp.src([
+            paths.src.js + '/modules/*.js',
+            paths.src.js + '/main.js'
+        ])
         .pipe(plumber())
         // .pipe(eslint())
         // .pipe(eslint.format())
@@ -217,7 +211,6 @@ gulp.task('minify:js', function () {
             output: {
                 filename: '[name].js',
             },
-            devtool: "source-map",
             module: {
                 rules: [{
                     test: /\.m?js$/,
@@ -239,9 +232,24 @@ gulp.task('minify:js', function () {
         .on("end", browserSync.reload);
 })
 
+// JS libs and plugins
+gulp.task('js:libs', function () {
+    return gulp
+        .src([
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/owl.carousel/dist/owl.carousel.min.js',
+            'node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js'
+        ])
+        .pipe(concat('libs.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest([paths.dist.js]))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
 
 // serve
-gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'js:libs', 'copy:dist:fonts', 'minify:js',
+gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'copy:dist:fonts', 'js:libs', 'minify:js',
     function () {
         browserSync.init({
             server: paths.dist.base
@@ -251,11 +259,10 @@ gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'js:libs', 'co
         gulp.watch([paths.src.js + '/modules/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
         gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
         gulp.watch([paths.src.assets], gulp.series('assets'));
-        gulp.watch([paths.src.js + '/libs/*.js'], gulp.series('js:libs'));
     }));
 
 // build
-gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'copy:dist:js:libs', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:fonts', 'minify:js', function () {
+gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:fonts', 'js:libs', 'minify:js', function () {
     browserSync.init({
         server: paths.dist.base
     });
@@ -264,7 +271,6 @@ gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 
     gulp.watch([paths.src.js + '/modules/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.assets], gulp.series('assets'));
-    gulp.watch([paths.src.js + '/libs/*.js'], gulp.series('js:libs'));
 }));
 
 // Default
