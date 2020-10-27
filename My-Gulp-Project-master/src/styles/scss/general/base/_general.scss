@@ -55,18 +55,10 @@ textarea {
      font-family: $main-font;
 }
 
-.container {
-     width: 100%;
-     max-width: 1170px;
-     margin: 0 auto;
-     padding: 0 30px;
-     //border: 1px solid blue;
-
-     @media only screen and (max-width: 425px) {
-          padding: 0 15px;
-     }
-}
-
 .main-wrapper {
      overflow: hidden;
 }
+
+// .container {
+//      border: 1px solid blue;
+// }

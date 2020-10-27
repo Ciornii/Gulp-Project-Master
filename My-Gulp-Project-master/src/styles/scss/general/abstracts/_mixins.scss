@@ -11,6 +11,12 @@
 // ------------------------------------------------------- images and backgrounds
 // @include responsive_img;
 // @include replace-text(url("/images/mail.svg"), 0);
+// ------------------------------------------------------- Media queries
+// @include media-max();
+// @include media-maxH();
+// @include media-min();
+// @include media-minH();
+// @include media-minmax();
 // ------------------------------------------------------- others
 // @include clearfix;
 
@@ -43,21 +49,21 @@
 @mixin center_absolute($position) {
     position: absolute;
 
-    @if $position=='vertical' {
+    @if $position=="vertical" {
         top: 50%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
 
-    @else if $position=='horizontal' {
+    @else if $position=="horizontal" {
         left: 50%;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
         transform: translate(-50%);
     }
 
-    @else if $position=='both' {
+    @else if $position=="both" {
         top: 50%;
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
@@ -130,6 +136,137 @@
 // @include replace-text(url("/images/mail.svg"), 0);
 
 
+@mixin cover-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+// @include cover-background;
+
+
+// ------------------------------------------------------- Media queries
+@mixin media-max($media) {
+    @media only screen and (max-width: $media) {
+        @content;
+    }
+}
+
+@mixin media-maxH($media) {
+    @media only screen and (max-height: $media) {
+        @content;
+    }
+}
+
+@mixin media-min($media) {
+    @media only screen and (min-width: $media) {
+        @content;
+    }
+}
+
+@mixin media-minH($media) {
+    @media only screen and (min-height: $media) {
+        @content;
+    }
+}
+
+@mixin media-minmax($min, $max) {
+    @media only screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+
+
+//---------------------------------------------------------
+$breakpoint-small: 600px;
+$breakpoint-med-small: 960px;
+$breakpoint-med: 1175px;
+
+@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
+    @if $size=="small" {
+        @media screen and ($type + -width: $breakpoint-small) {
+            @content;
+        }
+    }
+
+    @else if $size=="med-small" {
+        @media screen and ($type + -width: $breakpoint-med-small) {
+            @content;
+        }
+    }
+
+    @else if $size=="med" {
+        @media screen and ($type + -width: $breakpoint-med) {
+            @content;
+        }
+    }
+
+    @else if $size=="large" {
+        @media screen and ($type + -width: $breakpoint-med) {
+            @content;
+        }
+    }
+
+    @else if $size=="custom" {
+        @media screen and ($type + -width: $pixels + px) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+.foo {
+    @include screen(large) {
+        width: 20%;
+    }
+
+    @include screen(med) {
+        width: 40%;
+    }
+
+    @include screen(med-small) {
+        width: 60%;
+    }
+
+    @include screen(small) {
+        width: 80%;
+    }
+
+    @include screen(custom, max, 400) {
+        width: 100%;
+    }
+}
+
+// ---------------------------------------------------------
+$breakpoints: ("phone": 400px,
+    "phone-wide": 480px,
+    "phablet": 560px,
+    "tablet-small": 640px,
+    "tablet": 768px,
+    "tablet-wide": 1024px,
+    "desktop": 1248px,
+    "desktop-wide": 1440px);
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @if $type==max {
+            $width: $width - 1px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// @include mq('tablet-wide')
+
 
 // ------------------------------------------------------- others
 @mixin clearfix {
@@ -141,3 +278,68 @@
 }
 
 // @include clearfix;
+
+
+// -------------------------------------------------
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    >.inner-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+//  @include aspect-ratio(4, 3);
+
+
+// -------------------------------------------------
+@mixin fade($type) {
+
+    @if $type=='hide' {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 1s, opacity 1s;
+    }
+
+    @else if $type=='show' {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 1s, opacity 1s;
+    }
+
+}
+
+// @include fade(hide);
+
+
+// -------------------------------------------------
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name))+1;
+    }
+
+    @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+
+$z-indexes: ("outdated-browser",
+    "modal",
+    "site-header",
+    "page-wrapper",
+    "site-footer"
+);
+
+// z-index: z('site-header');
