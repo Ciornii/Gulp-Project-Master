@@ -1,4 +1,31 @@
+// -------------------------------------------------------
+// From px to rem
 @function calculateRem($size) {
    $remSize: $size / 16px;
    @return $remSize * 1rem;
 }
+
+// -------------------------------------------------------
+// Half-numbers
+@function h($num) {
+   @return $num / 2;
+}
+
+// .example {
+//    width: $element-width;
+//    height: h($element-width);
+// }
+
+// -------------------------------------------------------
+// Photoshop letter spacing in CSS
+@function ls-basic($value) {
+   @return $value / 1000 * 1em;
+}
+
+// Example
+// .button {
+//    letter-spacing: ls-basic(-5);
+// }
+
+// -------------------------------------------------------
+// 
