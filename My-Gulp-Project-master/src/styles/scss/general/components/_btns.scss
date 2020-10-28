@@ -31,18 +31,13 @@
     }
 
     &::after {
-        display: inline-block;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        font-family: "Font Awesome 5 Free";
-        // font-weight: 400;
+        @include fontAwesome;
         // content: "\f073";
+        // font-weight: 400;
+        font-size: 14px;
         color: #fff;
         @include center_absolute(vertical);
         right: 1.56rem;
-        font-size: 14px;
     }
 }
 

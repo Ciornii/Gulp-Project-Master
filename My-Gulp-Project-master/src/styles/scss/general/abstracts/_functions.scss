@@ -1,13 +1,35 @@
-// -------------------------------------------------------
-// From px to rem
+/**
+ * Functions
+ */
+
+// ------------------------------------------------------- Half-numbers
+// width: $element-width;
+// height: h($element-width);
+
+// ------------------------------------------------------- Photoshop letter spacing in CSS
+// letter-spacing: ls-basic(-5);
+
+// ------------------------------------------------------- z-indexes
+// z-index: z('site-header');
+
+// $z-indexes: ("outdated-browser",
+//    "modal",
+//    "site-header",
+//    "page-wrapper",
+//    "site-footer"
+// );
+
+
+
+
+// ------------------------------------------------------- From px to rem
 @function calculateRem($size) {
    $remSize: $size / 16px;
    @return $remSize * 1rem;
 }
 
 
-// -------------------------------------------------------
-// Half-numbers
+// ------------------------------------------------------- Half-numbers
 @function h($num) {
    @return $num / 2;
 }
@@ -18,17 +40,33 @@
 // }
 
 
-// -------------------------------------------------------
-// Photoshop letter spacing in CSS
+// ------------------------------------------------------- Photoshop letter spacing in CSS
 @function ls-basic($value) {
    @return $value / 1000 * 1em;
 }
 
-// Example
-// .button {
+// .example {
 //    letter-spacing: ls-basic(-5);
 // }
 
 
-// -------------------------------------------------------
-// 
+// ------------------------------------------------------- z-indexes
+@function z($name) {
+   @if index($z-indexes, $name) {
+      @return (length($z-indexes) - index($z-indexes, $name))+1;
+   }
+
+   @else {
+      @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+      @return null;
+   }
+}
+
+$z-indexes: ("outdated-browser",
+   "modal",
+   "site-header",
+   "page-wrapper",
+   "site-footer"
+);
+
+// z-index: z('site-header');

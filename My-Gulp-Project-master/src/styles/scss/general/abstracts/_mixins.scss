@@ -1,8 +1,14 @@
+/**
+ * Mixins
+ */
+
 // ------------------------------------------------------- text
 // @include font-size(16px);
 // @include text-shorten;
 // ------------------------------------------------------- position
 // @include center_absolute(both);
+// @include align(true, false, relative);
+// @include full-absolute();
 // @include center_block;
 // ------------------------------------------------------- dimensions
 // @include min-height(500px);
@@ -11,18 +17,19 @@
 // ------------------------------------------------------- images and backgrounds
 // @include responsive_img;
 // @include replace-text(url("/images/mail.svg"), 0);
+// @include cover-background;
 // ------------------------------------------------------- Media queries
 // @include media-max();
-// @include media-maxH();
 // @include media-min();
-// @include media-minH();
 // @include media-minmax();
+// @include mq('tablet-wide')
 // ------------------------------------------------------- others
 // @include clearfix;
+// @include fontAwesome;
+// @include aspect-ratio(4, 3);
+// @include fade(hide);
+// @include cs-button($backgroundColor, $triangleColor, $hasStar: false, $height: 30, $beforeWidth: 30%);
 
-
-
-// ------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -32,17 +39,11 @@
     font-size: calculateRem($size);
 }
 
-// @include font-size(16px);
-
-
 @mixin text-shorten {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
-//  @include text-shorten;
-
 
 
 // ------------------------------------------------------- position
@@ -72,8 +73,31 @@
     }
 }
 
-// @include center_absolute(both);
+@mixin align($vertical: true, $horizontal: false, $position: relative) {
+    @if $position {
+        position: $position;
+    }
 
+    @if $vertical {
+        top: 50%;
+    }
+
+    @if $horizontal {
+        left: 50%;
+    }
+
+    @if $vertical and $horizontal {
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    @else if $vertical {
+        transform: translateY(-50%);
+    }
+
+    @else {
+        transform: translateX(-50%);
+    }
+}
 
 @mixin center_block {
     display: block;
@@ -81,8 +105,13 @@
     margin-right: auto;
 }
 
-// @include center_block;
-
+@mixin full-absolute($position: absolute) {
+    bottom: 0;
+    left: 0;
+    position: $position;
+    right: 0;
+    top: 0;
+}
 
 
 // ------------------------------------------------------- dimensions
@@ -91,24 +120,15 @@
     min-height: calculateRem($size);
 }
 
-//@include min-height(500px);
-
-
 @mixin height($size) {
     height: $size;
     height: calculateRem($size);
 }
 
-//@include height(500px);
-
-
 @mixin height($size) {
     height: $size;
     height: calculateRem($size);
 }
-
-//@include height(500px);
-
 
 
 // ------------------------------------------------------- images and backgrounds
@@ -117,9 +137,6 @@
     width: 100%;
     height: auto;
 }
-
-// @include responsive_img;
-
 
 @mixin replace-text($image, $x: 50%, $y: 50%) {
     text-indent: -99999em;
@@ -133,27 +150,16 @@
     }
 }
 
-// @include replace-text(url("/images/mail.svg"), 0);
-
-
 @mixin cover-background {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-// @include cover-background;
-
 
 // ------------------------------------------------------- Media queries
 @mixin media-max($media) {
     @media only screen and (max-width: $media) {
-        @content;
-    }
-}
-
-@mixin media-maxH($media) {
-    @media only screen and (max-height: $media) {
         @content;
     }
 }
@@ -164,84 +170,12 @@
     }
 }
 
-@mixin media-minH($media) {
-    @media only screen and (min-height: $media) {
-        @content;
-    }
-}
-
 @mixin media-minmax($min, $max) {
     @media only screen and (min-width: $min) and (max-width: $max) {
         @content;
     }
 }
 
-
-
-//---------------------------------------------------------
-$breakpoint-small: 600px;
-$breakpoint-med-small: 960px;
-$breakpoint-med: 1175px;
-
-@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
-    @if $size=="small" {
-        @media screen and ($type + -width: $breakpoint-small) {
-            @content;
-        }
-    }
-
-    @else if $size=="med-small" {
-        @media screen and ($type + -width: $breakpoint-med-small) {
-            @content;
-        }
-    }
-
-    @else if $size=="med" {
-        @media screen and ($type + -width: $breakpoint-med) {
-            @content;
-        }
-    }
-
-    @else if $size=="large" {
-        @media screen and ($type + -width: $breakpoint-med) {
-            @content;
-        }
-    }
-
-    @else if $size=="custom" {
-        @media screen and ($type + -width: $pixels + px) {
-            @content;
-        }
-    }
-
-    @else {
-        @content;
-    }
-}
-
-.foo {
-    @include screen(large) {
-        width: 20%;
-    }
-
-    @include screen(med) {
-        width: 40%;
-    }
-
-    @include screen(med-small) {
-        width: 60%;
-    }
-
-    @include screen(small) {
-        width: 80%;
-    }
-
-    @include screen(custom, max, 400) {
-        width: 100%;
-    }
-}
-
-// ---------------------------------------------------------
 $breakpoints: ("phone": 400px,
     "phone-wide": 480px,
     "phablet": 560px,
@@ -265,8 +199,6 @@ $breakpoints: ("phone": 400px,
     }
 }
 
-// @include mq('tablet-wide')
-
 
 // ------------------------------------------------------- others
 @mixin clearfix {
@@ -277,10 +209,15 @@ $breakpoints: ("phone": 400px,
     }
 }
 
-// @include clearfix;
+@mixin fontAwesome {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+}
 
-
-// -------------------------------------------------
 @mixin aspect-ratio($width, $height) {
     position: relative;
 
@@ -300,10 +237,6 @@ $breakpoints: ("phone": 400px,
     }
 }
 
-//  @include aspect-ratio(4, 3);
-
-
-// -------------------------------------------------
 @mixin fade($type) {
 
     @if $type=='hide' {
@@ -320,26 +253,89 @@ $breakpoints: ("phone": 400px,
 
 }
 
-// @include fade(hide);
+@mixin cs-button($backgroundColor, $triangleColor, $hasStar: false, $height: 30, $beforeWidth: 30%) {
+    background-color: $backgroundColor;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    font-family: 'myriad-boldCond';
+    font-size: 1.7rem;
+    height: if($height !=30, #{ $height }px, 30px);
+    line-height: normal;
+    outline: 0;
+    overflow: hidden;
+    padding: if($hasStar==true, 0 #{ $height - 15 }px 0 20px, 0 15px);
+    position: relative;
+    text-align: center;
+    transition: background-color .4s cubic-bezier(.25, .8, .25, 1);
 
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
 
-// -------------------------------------------------
-@function z($name) {
-    @if index($z-indexes, $name) {
-        @return (length($z-indexes) - index($z-indexes, $name))+1;
+    &:before {
+        background-color: $triangleColor;
+        content: '';
+        left: -30%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        transform: skew(-26deg);
+        transform-origin: bottom;
+        transition: background-color .4s cubic-bezier(.25, .8, .25, 1);
+        width: $beforeWidth;
     }
 
-    @else {
-        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
-        @return null;
+    &:hover:not([disabled]),
+    &:focus:not([disabled]) {
+        background-color: $triangleColor;
+        color: #fff;
+
+        span[class*='icon-'] {
+            color: $backgroundColor;
+        }
+
+        &:before {
+            background-color: $backgroundColor;
+        }
+    }
+
+    &[disabled] {
+        background-color: $button-dark-gray;
+        color: $gray;
+        cursor: default;
+
+        &:before {
+            background-color: $button-light-gray;
+        }
+    }
+
+    i {
+        font-size: 1.8rem;
+        height: 1.8rem;
+        margin-right: 5px;
+        width: 1.8rem;
+
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+    }
+
+    span[class*='icon-'] {
+        color: $triangleColor;
+        font-size: #{ $height }px;
+        height: #{ $height }px;
+        line-height: #{ $height }px;
+        position: absolute;
+        right: -9px;
+        top: 0;
+        transition: color .4s cubic-bezier(.25, .8, .25, 1);
+        width: #{ $height }px;
+    }
+
+    // FF fix - content not aligned properly
+    >div {
+        @include flexbox();
+        @include align-items(center);
     }
 }
-
-$z-indexes: ("outdated-browser",
-    "modal",
-    "site-header",
-    "page-wrapper",
-    "site-footer"
-);
-
-// z-index: z('site-header');
