@@ -22,14 +22,14 @@
                padding: 0;
                outline: none;
                transition: all .1s;
-               @include center_absolute(vertical);
+               @include align-center(vertical);
 
                span {
                     display: none;
                }
 
                &:hover {
-                    background-color: $main-color_hover;
+                    background-color: darken($main-color, 5%);
                }
           }
 
@@ -37,15 +37,10 @@
                left: 0;
 
                &::before {
-                    display: inline-block;
-                    font-style: normal;
-                    font-variant: normal;
-                    text-rendering: auto;
-                    -webkit-font-smoothing: antialiased;
-                    font-family: "Font Awesome 5 Free";
+                    @include fontAwesome;
                     font-weight: 900;
                     content: "\f104";
-                    @include center_absolute(both);
+                    @include align-center(both);
                     color: #fff;
                     font-size: 18px;
                }
@@ -56,15 +51,10 @@
                right: 0;
 
                &::before {
-                    display: inline-block;
-                    font-style: normal;
-                    font-variant: normal;
-                    text-rendering: auto;
-                    -webkit-font-smoothing: antialiased;
-                    font-family: "Font Awesome 5 Free";
+                    @include fontAwesome;
                     font-weight: 900;
                     content: "\f105";
-                    @include center_absolute(both);
+                    @include align-center(both);
                     color: #fff;
                     font-size: 18px;
                }
@@ -87,13 +77,13 @@
 
           .owl-dot:hover {
                span {
-                    background: $main-color_hover;
+                    background: darken($main-color, 5%);
                }
           }
 
           .owl-dot.active {
                span {
-                    background: $main-color_hover;
+                    background: darken($main-color, 5%);
                     box-shadow: 0 0 1px 2px #333;
                }
           }

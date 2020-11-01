@@ -2,6 +2,7 @@
   color: white;
   background-color: $main-color;
   display: block;
+  z-index: z('site-footer');
 
   .copyright {
     min-height: 2.87rem;

@@ -1,0 +1,84 @@
+.test {
+   position: relative;
+   min-height: 1000px;
+   width: 100%;
+
+
+   h1 {
+      margin-top: 35vh;
+      text-align: center;
+      color: black;
+      @include font-size(48px);
+   }
+
+   .img {
+      @include min-height(500px);
+      width: 100%;
+      border: 1px solid blue;
+      position: relative;
+   }
+
+   .test__inner {
+      border: 1px solid black;
+      //min-height: 800px;
+      position: relative;
+      padding: 5px;
+
+      //@include flex-center;
+      @include row-flex;
+
+      .block {
+         background-color: #333;
+         transition: all .2s;
+         margin: 10px auto;
+         max-height: 366px;
+        // max-width: 100px;
+         @include aspect-ratio(1, 1.5);
+
+         @include col;
+         @include col-2;
+        
+         
+         @include mq(1024px) {
+            @include col-2;
+         }
+         @include mq(768px) {
+            @include col-3;
+         }
+         @include mq(640px) {
+            @include col-4;
+         }
+         @include mq(560px) {
+            @include col-6;
+         }
+         @include mq(375px) {
+            @include col-12;
+         }
+        
+      }
+
+      .block1 {
+         background-color: blue;
+      }
+
+      .block2 {
+         background-color: yellow;
+      }
+
+      .block3 {
+         background-color: red;
+      }
+
+      .block4 {
+         background-color: rgb(63, 63, 63);
+      }
+
+      .block5 {
+         background-color: rgb(1, 230, 58);
+      }
+
+      .block6 {
+         background-color: rgb(255, 0, 221);
+      }
+   }
+}

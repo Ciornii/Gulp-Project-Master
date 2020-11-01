@@ -1,4 +1,4 @@
-.btn-main {
+.btn {
     position: relative;
     display: block;
     background-color: $main-color;
@@ -36,7 +36,7 @@
         // font-weight: 400;
         font-size: 14px;
         color: #fff;
-        @include center_absolute(vertical);
+        @include align-center(vertical);
         right: 1.56rem;
     }
 }
@@ -59,7 +59,7 @@
     opacity: 0;
 
     &:hover {
-        background-color: $main-color_hover;
+        background-color: darken($main-color, 5%);
     }
 
     i {

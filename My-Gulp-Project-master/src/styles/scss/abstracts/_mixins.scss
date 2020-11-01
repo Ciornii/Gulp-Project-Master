@@ -1,0 +1,177 @@
+/**
+ * Mixins
+ */
+
+// ------------------------------------------------------- text
+// @include font-size(16px);
+// @include text-shorten;
+// ------------------------------------------------------- dimensions
+// @include min-height(500px);
+// @include height(500px);
+// @include aspect-ratio(1, 1);
+// ------------------------------------------------------- position
+// @include align-center(both);
+// @include align-center(horizontal);
+// @include align-center(vertical);
+// @include center_block;
+// ------------------------------------------------------- images and backgrounds
+// @include responsive_img;
+// @include cover-background;
+// ------------------------------------------------------- others
+// @include clearfix;
+// @include fontAwesome;
+// ------------------------------------------------------- Media queries
+// @include mq(768px) {}
+// @include mq(768px, min) {}
+
+// @include mq(1440px) {
+//     desktop
+// }
+// @include mq(1248px) {
+//     laptop
+// }
+// @include mq(1024px) {
+//     tablet-large
+// }
+// @include mq(768px) {
+//     tablet
+// }
+// @include mq(640px) {
+//     tablet-small
+// }
+// @include mq(560px) {
+//     phablet
+// }
+// @include mq(480px) {
+//     phone-wide
+// }
+// @include mq(414px) {
+//     phone
+// }
+// @include mq(375px) {
+//     phone-small
+// }
+// @include mq(320px) {
+//     iphone5
+// }
+
+
+
+
+
+// ------------------------------------------------------- text
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+@mixin text-shorten {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+// ------------------------------------------------------- dimensions
+@mixin min-height($size) {
+    min-height: $size;
+    min-height: calculateRem($size);
+}
+
+@mixin height($size) {
+    height: $size;
+    height: calculateRem($size);
+}
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    >.inner-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+// ------------------------------------------------------- position
+@mixin align-center($position) {
+    position: absolute;
+
+    @if $position=="vertical" {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @else if $position=="horizontal" {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translate(-50%);
+    }
+
+    @else if $position=="both" {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin center_block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+// ------------------------------------------------------- images and backgrounds
+@mixin responsive_img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@mixin cover-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+// ------------------------------------------------------- Media queries
+@mixin mq($width, $type: max) {
+    @media only screen and (#{$type}-width: $width) {
+        @content;
+    }
+}
+
+
+// ------------------------------------------------------- others
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin fontAwesome {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+}

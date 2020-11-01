@@ -2,12 +2,12 @@
  * Functions
  */
 
+// ------------------------------------------------------- From px to rem
+// calculateRem($size) 
+
 // ------------------------------------------------------- Half-numbers
 // width: $element-width;
 // height: h($element-width);
-
-// ------------------------------------------------------- Photoshop letter spacing in CSS
-// letter-spacing: ls-basic(-5);
 
 // ------------------------------------------------------- z-indexes
 // z-index: z('site-header');
@@ -37,16 +37,6 @@
 // .example {
 //    width: $element-width;
 //    height: h($element-width);
-// }
-
-
-// ------------------------------------------------------- Photoshop letter spacing in CSS
-@function ls-basic($value) {
-   @return $value / 1000 * 1em;
-}
-
-// .example {
-//    letter-spacing: ls-basic(-5);
 // }
 
 
