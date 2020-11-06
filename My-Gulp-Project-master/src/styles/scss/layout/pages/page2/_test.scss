@@ -58,27 +58,27 @@
       }
 
       .block1 {
-         background-color: blue;
+        @include gradient-horizontal(rgb(211, 32, 32),rgb(17, 75, 182));
       }
 
       .block2 {
-         background-color: yellow;
+         @include gradient-vertical(rgb(211, 32, 32),rgb(17, 75, 182));
       }
 
       .block3 {
-         background-color: red;
+         @include gradient-directional(rgb(211, 32, 32),rgb(17, 75, 182), 120deg);
       }
 
       .block4 {
-         background-color: rgb(63, 63, 63);
+         @include gradient-horizontal-three-colors(rgb(211, 32, 32),rgb(17, 75, 182), 50%, rgb(13, 228, 199));
       }
 
       .block5 {
-         background-color: rgb(1, 230, 58);
+         @include  gradient-radial(rgb(211, 32, 32),rgb(17, 75, 182));
       }
 
       .block6 {
-         background-color: rgb(255, 0, 221);
+         @include  gradient-striped();
       }
    }
 }

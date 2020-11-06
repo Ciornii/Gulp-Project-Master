@@ -20,6 +20,10 @@
 // ------------------------------------------------------- others
 // @include clearfix;
 // @include fontAwesome;
+// @include resizable(vertical);
+// @include tab-focus();
+// @include opacity(0.7);
+// @include pagination-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) ;
 // ------------------------------------------------------- Media queries
 // @include mq(768px) {}
 // @include mq(768px, min) {}
@@ -140,6 +144,7 @@
 @mixin responsive_img {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -159,12 +164,15 @@
 
 
 // ------------------------------------------------------- others
-@mixin clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 @mixin fontAwesome {
@@ -175,3 +183,46 @@
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
 }
+
+@mixin resizable($direction) {
+  resize: $direction;
+  overflow: auto; 
+}
+
+@mixin tab-focus() {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: 0px;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
+@mixin pagination-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
+  > li {
+    > a,
+    > span {
+      padding: $padding-vertical $padding-horizontal;
+      font-size: $font-size;
+    }
+    &:first-child {
+      > a,
+      > span {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+}
+
+
