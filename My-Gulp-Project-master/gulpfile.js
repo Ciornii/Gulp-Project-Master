@@ -261,7 +261,7 @@ gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'copy:dist:fon
         });
 
         gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
-        gulp.watch([paths.src.js + '/modules/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
+        gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
         gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
         gulp.watch([paths.src.assets], gulp.series('assets'));
     }));
@@ -273,7 +273,7 @@ gulp.task('build', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 
     });
 
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('scss'));
-    gulp.watch([paths.src.js + '/modules/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
+    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('minify:js'));
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.assets], gulp.series('assets'));
 }));
