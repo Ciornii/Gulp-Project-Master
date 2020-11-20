@@ -200,7 +200,7 @@ gulp.task('copy:dist:fonts', function () {
 // Minify js
 gulp.task('minify:js', function () {
     return gulp.src([
-            paths.src.js + '/modules/*.js',
+            paths.src.js + '/**/*.js',
             paths.src.js + '/main.js'
         ])
         .pipe(plumber())
@@ -211,6 +211,7 @@ gulp.task('minify:js', function () {
             output: {
                 filename: '[name].js',
             },
+            devtool: "source-map",
             module: {
                 rules: [{
                     test: /\.m?js$/,
@@ -218,7 +219,11 @@ gulp.task('minify:js', function () {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['@babel/preset-env']
+                            presets: [['@babel/preset-env', {
+                                debug: true,
+                                corejs: 3,
+                                useBuiltIns: "usage"
+                            }]]
                         }
                     }
                 }]
