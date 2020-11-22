@@ -1,6 +1,6 @@
 const moduleTest = () => {
    console.log('hello');
-   //alert('hello s');
+   //alert('hello');
 }
 
 export default moduleTest;

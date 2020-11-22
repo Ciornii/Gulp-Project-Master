@@ -1,1 +1,1 @@
-# Gulp + SCSS + Bootstrap starter project
+# Gulp + Webpack + SCSS project starter
