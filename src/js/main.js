@@ -3,8 +3,9 @@ import moduleTest from './modules/moduleTest';
 document.addEventListener("DOMContentLoaded", function (event) {
     'use strict';
 
-    moduleTest();
-
+    moduleTest('test-title');
+   
+    
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
     const preloader = document.querySelector('.preloader');
