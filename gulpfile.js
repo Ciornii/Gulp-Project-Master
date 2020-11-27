@@ -13,7 +13,8 @@ const autoprefixer = require('gulp-autoprefixer'),
       concat = require('gulp-concat'),
       uglify = require('gulp-uglify'),
       plumber = require('gulp-plumber'),
-      webpack = require('webpack-stream'),
+      webpack = require('webpack'); 
+      webpackStream = require('webpack-stream');
       CircularDependencyPlugin = require('circular-dependency-plugin'),
       DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin"),
       eslint = require('gulp-eslint'),
@@ -175,23 +176,6 @@ gulp.task('minify:css', function () {
 
 
 // ----------------------------------------------------------------------------------------------------------
-// --------------------------------------------------   JS libs
-// Concat and minify JS libs and plugins
-gulp.task('js:libs', function () {
-    return gulp
-        .src([
-            'node_modules/jquery/dist/jquery.min.js',
-            'node_modules/owl.carousel/dist/owl.carousel.min.js',
-            'node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js'
-        ])
-        .pipe(concat('libs.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest([paths.dist.js]))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
-});
-
 // --------------------------------------------------   JS development
 // Bundle and minify js
 gulp.task('js:main', function () {
@@ -200,12 +184,21 @@ gulp.task('js:main', function () {
             paths.src.js + '/main.js'
         ])
         .pipe(plumber())
-        .pipe(webpack({
+        .pipe(webpackStream({
             mode: 'development',
             output: {
                 filename: '[name].js',
             },
-            devtool: "source-map"
+            devtool: "source-map",
+            plugins: [
+                new CircularDependencyPlugin(),
+                new DuplicatePackageCheckerPlugin(),
+                new webpack.ProvidePlugin({
+                    $: "jquery",
+                    jQuery: "jquery",
+                    "window.jQuery": "jquery"
+                    })
+            ]
         }))
         .pipe(gulp.dest(paths.dist.js))
         .on("end", browserSync.reload);
@@ -219,7 +212,7 @@ gulp.task('js:main:build', function () {
             paths.src.js + '/main.js'
         ])
         .pipe(plumber())
-        .pipe(webpack({
+        .pipe(webpackStream({
             mode: 'production',
             output: {
                 filename: '[name].js',
@@ -242,7 +235,12 @@ gulp.task('js:main:build', function () {
             },
             plugins: [
                 new CircularDependencyPlugin(),
-                new DuplicatePackageCheckerPlugin()
+                new DuplicatePackageCheckerPlugin(),
+                new webpack.ProvidePlugin({
+                    $: "jquery",
+                    jQuery: "jquery",
+                    "window.jQuery": "jquery"
+                    })
             ]
         }))
         .pipe(gulp.dest(paths.dist.js))
@@ -285,7 +283,7 @@ gulp.task('compress:img', function () {
 // --------------------------------------------------  Tasks 
 
 // serve
-gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'compile:scss', 'js:libs', 'js:main', function () {
+gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'compile:scss', 'js:main', function () {
     browserSync.init({
         server: paths.dist.base
     });
@@ -300,7 +298,7 @@ gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'comp
 
 // build
 gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 
- 'copy:img', 'copy:fonts', 'compile:scss', 'minify:css', 'js:libs', 'js:main:build', function () {
+ 'copy:img', 'copy:fonts', 'compile:scss', 'minify:css', 'js:main:build', function () {
     browserSync.init({
         server: paths.dist.base
     });

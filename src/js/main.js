@@ -1,3 +1,7 @@
+import $ from 'jquery'; window.jQuery = $; window.$ = $;
+import 'owl.carousel';
+import SmoothScroll from 'smooth-scroll';
+
 import moduleTest from './modules/moduleTest';
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -5,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     moduleTest('test-title');
    
-    
     // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Preloader
     const preloader = document.querySelector('.preloader');
