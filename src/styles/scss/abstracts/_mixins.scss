@@ -5,6 +5,7 @@
 // ------------------------------------------------------- text
 // @include font-size(16px);
 // @include text-shorten;
+// text-img(../url, 120px);
 // ------------------------------------------------------- dimensions
 // @include min-height(500px);
 // @include height(500px);
@@ -14,6 +15,7 @@
 // @include align-center(horizontal);
 // @include align-center(vertical);
 // @include center_block;
+// @include absolute;
 // ------------------------------------------------------- images and backgrounds
 // @include responsive_img;
 // @include cover-background;
@@ -73,6 +75,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+@mixin text-img($url, $height: 100px) {
+  background: url($url) no-repeat 0 0;
+  background-size: contain;
+  height: $height;
+  text-indent: -9999999px;
 }
 
 
@@ -137,6 +146,14 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+@mixin absolute {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 
