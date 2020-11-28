@@ -5,13 +5,9 @@ const autoprefixer = require('gulp-autoprefixer'),
       htmlmin = require('gulp-htmlmin'),
       cssbeautify = require('gulp-cssbeautify'),
       gulp = require('gulp'),
-      npmDist = require('gulp-npm-dist'),
       sass = require('gulp-sass'),
       wait = require('gulp-wait'),
-      sourcemaps = require('gulp-sourcemaps'),
       fileinclude = require('gulp-file-include'),
-      concat = require('gulp-concat'),
-      uglify = require('gulp-uglify'),
       plumber = require('gulp-plumber'),
       webpack = require('webpack'); 
       webpackStream = require('webpack-stream');
@@ -296,7 +292,7 @@ gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'copy
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
-    gulp.watch([paths.src.img + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
+    gulp.watch([paths.src.icons + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main'));
@@ -312,7 +308,7 @@ gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:i
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
-    gulp.watch([paths.src.img + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
+    gulp.watch([paths.src.icons + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss', 'minify:css'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main:build'));
