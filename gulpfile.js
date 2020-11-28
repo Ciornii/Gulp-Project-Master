@@ -43,12 +43,12 @@ const paths = {
         html: './src/html/pages/**/*.html',
         assets: './src/assets/**/*.*',
         fonts: './src/assets/fonts',
+        icons: './src/assets/icons',
         img: './src/assets/img',
         partials: './src/html/partials/**/*.html',
         scss: './src/styles'
     }
 };
-
 
 // Clean
 gulp.task('clean:dist', function () {
@@ -256,6 +256,12 @@ gulp.task('copy:fonts', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('copy:icons', function () {
+    return gulp.src([paths.src.icons + '/*', paths.src.icons + '/**/*'])
+        .pipe(gulp.dest(paths.dist.assets + '/icons'))
+        .pipe(browserSync.stream());
+});
+
 gulp.task('copy:img', function () {
     return gulp.src([paths.src.img + '/*', paths.src.img + '/**/*'])
         .pipe(gulp.dest(paths.dist.assets + '/img'))
@@ -283,13 +289,14 @@ gulp.task('compress:img', function () {
 // --------------------------------------------------  Tasks 
 
 // serve
-gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'compile:scss', 'js:main', function () {
+gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'js:main', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
+    gulp.watch([paths.src.img + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main'));
@@ -298,13 +305,14 @@ gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'comp
 
 // build
 gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 
- 'copy:img', 'copy:fonts', 'compile:scss', 'minify:css', 'js:main:build', function () {
+ 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build', function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index'));
     gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
+    gulp.watch([paths.src.img + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
     gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
     gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss', 'minify:css'));
     gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main:build'));
