@@ -142,7 +142,7 @@ gulp.task('minify:html:index', function () {
 // ----------------------------------------------------------------------------------------------------------
 // --------------------------------------------------   Styles
 gulp.task('compile:scss', function () {
-    return gulp.src([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'])
+    return gulp.src([paths.src.scss + '/style.scss'])
         .pipe(wait(500))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
