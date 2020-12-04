@@ -1,26 +1,36 @@
-// -------------------------------------------- Fonts
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-$main-font: 'Roboto',
-sans-serif;
-// $font-family: Helvetica,
-// Arial,
-// sans-serif;
-// $mainFont-extraLight: 'ExtraLight',
-// $font-family;
-// $mainFont-light: 'Akrobat Light',
-// $font-family;
-// $mainFont-regular: 'Akrobat Regular',
-// $font-family;
-// $mainFont-semiBold: 'Akrobat SemiBold',
-// $font-family;
-// $mainFont-bold: 'Akrobat Bold',
-// $font-family;
-// $mainFont-extraBold: 'Akrobat ExtraBold Regular',
-// $font-family;
-// $mainFont-black: 'Akrobat Black',
-// $font-family;
+/**
+ * Variables
+ */
 
-// --------------------------------------------- Colors
+// ============================================================================= Fonts
+// @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+//$main-font: "Roboto", sans-serif;
+
+// ============================================================================= Colors
 $main-color: #ffc400;
-$secondary-color: #0d86be;
 $border-color: #e4e4e4;
+
+// background-color: palette(gray, light);
+$palettes: (
+  gray: (
+    base: #a5a5a5,
+    light: #f9f3f3,
+    lighter: #f6f6f6,
+    medium: #6c6c6f,
+    dark: #3c3d40,
+  ),
+  black: (
+    base: #000000,
+    light: #282b33,
+    medium: #010101,
+  ),
+  red: (
+    base: #d52c20,
+    light: #e14337,
+    dark: #bd2015,
+  ),
+  green: (
+    base: #12a65b,
+    light: #3c763d,
+  ),
+);

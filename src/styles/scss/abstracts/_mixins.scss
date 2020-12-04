@@ -2,31 +2,33 @@
  * Mixins
  */
 
-// ------------------------------------------------------- text
-// @include font-size(16px);
-// @include text-shorten;
-// text-img(../url, 120px);
-// ------------------------------------------------------- dimensions
+// ============================================================================= Dimensions
 // @include min-height(500px);
 // @include height(500px);
 // @include aspect-ratio(1, 1);
-// ------------------------------------------------------- position
+// ============================================================================= Position
 // @include align-center(both);
 // @include align-center(horizontal);
 // @include align-center(vertical);
 // @include center_block;
 // @include absolute;
-// ------------------------------------------------------- images and backgrounds
+// ============================================================================= Images and Backgrounds
 // @include responsive_img;
 // @include cover-background;
-// ------------------------------------------------------- others
+// ============================================================================= Text
+// @include font-size(16px);
+// @include text-shorten;
+// text-img(../url, 120px);
+// ============================================================================= Fonts
+// @include font-face($file, $folder, $weight: normal, $style: normal);
+// ============================================================================= Others
 // @include clearfix;
 // @include fontAwesome;
 // @include resizable(vertical);
 // @include tab-focus();
 // @include opacity(0.7);
 // @include pagination-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) ;
-// ------------------------------------------------------- Media queries
+// ============================================================================= Media queries
 // @include mq(768px) {}
 // @include mq(768px, min) {}
 
@@ -61,91 +63,63 @@
 //     iphone5
 // }
 
-
-
-
-
-// ------------------------------------------------------- text
-@mixin font-size($size) {
-    font-size: $size;
-    font-size: calculateRem($size);
-}
-
-@mixin text-shorten {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-@mixin text-img($url, $height: 100px) {
-  background: url($url) no-repeat 0 0;
-  background-size: contain;
-  height: $height;
-  text-indent: -9999999px;
-}
-
-
-// ------------------------------------------------------- dimensions
+// ============================================================================= Dimensions
 @mixin min-height($size) {
-    min-height: $size;
-    min-height: calculateRem($size);
+  min-height: $size;
+  min-height: calculateRem($size);
 }
 
 @mixin height($size) {
-    height: $size;
-    height: calculateRem($size);
+  height: $size;
+  height: calculateRem($size);
 }
 
 @mixin aspect-ratio($width, $height) {
-    position: relative;
+  position: relative;
 
-    &:before {
-        display: block;
-        content: "";
-        width: 100%;
-        padding-top: ($height / $width) * 100%;
-    }
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
 
-    >.inner-box {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
+  > .inner-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
-// ------------------------------------------------------- position
+// ============================================================================= Position
 @mixin align-center($position) {
-    position: absolute;
+  position: absolute;
 
-    @if $position=="vertical" {
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-
-    @else if $position=="horizontal" {
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translate(-50%);
-    }
-
-    @else if $position=="both" {
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
+  @if $position== "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position== "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position== "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
 }
 
 @mixin center_block {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @mixin absolute {
@@ -156,31 +130,61 @@
   top: 0;
 }
 
-
-// ------------------------------------------------------- images and backgrounds
+// ============================================================================= Images and Backgrounds
 @mixin responsive_img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 @mixin cover-background {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
+// ============================================================================= Text
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
 
-// ------------------------------------------------------- Media queries
+@mixin text-shorten {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-img($url, $height: 100px) {
+  background: url($url) no-repeat 0 0;
+  background-size: contain;
+  height: $height;
+  text-indent: -9999999px;
+}
+
+// ============================================================================= Fonts
+@mixin font-face($file, $folder, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: "#{$file}";
+    src: url('../assets/fonts/#{$folder}/#{$file}.eot');
+    src: url('../assets/fonts/#{$folder}/#{$file}.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/#{$folder}/#{$file}.woff') format('woff'),
+         url('../assets/fonts/#{$folder}/#{$file}.ttf') format('truetype'),
+         url('../assets/fonts/#{$folder}/#{$file}.svg?#webfont') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// ============================================================================= Media queries
 @mixin mq($width, $type: max) {
-    @media only screen and (#{$type}-width: $width) {
-        @content;
-    }
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
 }
 
-
-// ------------------------------------------------------- others
+// ============================================================================= others
 @mixin clearfix() {
   &:before,
   &:after {
@@ -193,17 +197,17 @@
 }
 
 @mixin fontAwesome {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
 }
 
 @mixin resizable($direction) {
   resize: $direction;
-  overflow: auto; 
+  overflow: auto;
 }
 
 @mixin tab-focus() {
@@ -218,7 +222,12 @@
   filter: #{alpha(opacity=$opacity-ie)};
 }
 
-@mixin pagination-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
+@mixin pagination-size(
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $border-radius
+) {
   > li {
     > a,
     > span {
@@ -241,5 +250,3 @@
     }
   }
 }
-
-

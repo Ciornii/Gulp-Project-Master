@@ -6,20 +6,10 @@
 // calculateRem($size) 
 
 // ------------------------------------------------------- Half-numbers
-// width: $element-width;
-// height: h($element-width);
-
-// ------------------------------------------------------- z-indexes
-// z-index: z('site-header');
-
-// $z-indexes: ("outdated-browser",
-//    "modal",
-//    "site-header",
-//    "page-wrapper",
-//    "site-footer"
-// );
-
-
+// .example {
+//    width: $element-width;
+//    height: h($element-width);
+// }
 
 
 // ------------------------------------------------------- From px to rem
@@ -28,35 +18,8 @@
    @return $remSize * 1rem;
 }
 
-
 // ------------------------------------------------------- Half-numbers
 @function h($num) {
    @return $num / 2;
 }
 
-// .example {
-//    width: $element-width;
-//    height: h($element-width);
-// }
-
-
-// ------------------------------------------------------- z-indexes
-@function z($name) {
-   @if index($z-indexes, $name) {
-      @return (length($z-indexes) - index($z-indexes, $name))+1;
-   }
-
-   @else {
-      @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
-      @return null;
-   }
-}
-
-$z-indexes: ("outdated-browser",
-   "modal",
-   "site-header",
-   "page-wrapper",
-   "site-footer"
-);
-
-// z-index: z('site-header');

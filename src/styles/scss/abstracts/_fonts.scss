@@ -1,0 +1,24 @@
+
+/**
+ * Fonts
+ */
+
+@include font-face(Akrobat-Thin, akrobat);
+@include font-face(Akrobat-ExtraLight, akrobat);
+@include font-face(Akrobat-Light, akrobat);
+@include font-face(Akrobat-Regular, akrobat);
+@include font-face(Akrobat-SemiBold, akrobat);
+@include font-face(Akrobat-Bold, akrobat);
+@include font-face(Akrobat-ExtraBold, akrobat);
+@include font-face(Akrobat-Black, akrobat);
+
+$font-family: Helvetica, Arial, sans-serif;
+
+$mainFont-thin: 'Akrobat-Thin', $font-family;
+$mainFont-extraLight: 'Akrobat-ExtraLight', $font-family;
+$mainFont-light: 'Akrobat-Light', $font-family;
+$mainFont-regular: 'Akrobat-Regular', $font-family;
+$mainFont-semiBold: 'Akrobat-SemiBold', $font-family;
+$mainFont-bold: 'Akrobat-Bold', $font-family;
+$mainFont-extraBold: 'Akrobat-ExtraBold', $font-family;
+$mainFont-black: 'Akrobat-Black', $font-family;
