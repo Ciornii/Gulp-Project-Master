@@ -2,66 +2,8 @@
  * Mixins
  */
 
-// ============================================================================= Dimensions
-// @include min-height(500px);
-// @include height(500px);
-// @include aspect-ratio(1, 1);
-// ============================================================================= Position
-// @include align-center(both);
-// @include align-center(horizontal);
-// @include align-center(vertical);
-// @include center_block;
-// @include absolute;
-// ============================================================================= Images and Backgrounds
-// @include responsive_img;
-// @include cover-background;
-// ============================================================================= Text
-// @include font-size(16px);
-// @include text-shorten;
-// text-img(../url, 120px);
-// ============================================================================= Fonts
-// @include font-face($file, $folder, $weight: normal, $style: normal);
-// ============================================================================= Others
-// @include clearfix;
-// @include fontAwesome;
-// @include resizable(vertical);
-// @include tab-focus();
-// @include opacity(0.7);
-// @include pagination-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) ;
-// ============================================================================= Media queries
-// @include mq(768px) {}
-// @include mq(768px, min) {}
-
-// @include mq(1440px) {
-//     desktop
-// }
-// @include mq(1248px) {
-//     laptop
-// }
-// @include mq(1024px) {
-//     tablet-large
-// }
-// @include mq(768px) {
-//     tablet
-// }
-// @include mq(640px) {
-//     tablet-small
-// }
-// @include mq(560px) {
-//     phablet
-// }
-// @include mq(480px) {
-//     phone-wide
-// }
-// @include mq(414px) {
-//     phone
-// }
-// @include mq(375px) {
-//     phone-small
-// }
-// @include mq(320px) {
-//     iphone5
-// }
+@import './mixins/gradients';
+@import './mixins/others';
 
 // ============================================================================= Dimensions
 @mixin min-height($size) {
@@ -216,37 +158,64 @@
   outline-offset: 0px;
 }
 
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: ($opacity * 100);
-  filter: #{alpha(opacity=$opacity-ie)};
-}
 
-@mixin pagination-size(
-  $padding-vertical,
-  $padding-horizontal,
-  $font-size,
-  $border-radius
-) {
-  > li {
-    > a,
-    > span {
-      padding: $padding-vertical $padding-horizontal;
-      font-size: $font-size;
-    }
-    &:first-child {
-      > a,
-      > span {
-        border-top-left-radius: $border-radius;
-        border-bottom-left-radius: $border-radius;
-      }
-    }
-    &:last-child {
-      > a,
-      > span {
-        border-top-right-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-      }
-    }
-  }
-}
+// ============================================================================= Dimensions
+// @include min-height(500px);
+// @include height(500px);
+// @include aspect-ratio(1, 1);
+// ============================================================================= Position
+// @include align-center(both);
+// @include align-center(horizontal);
+// @include align-center(vertical);
+// @include center_block;
+// @include absolute;
+// ============================================================================= Images and Backgrounds
+// @include responsive_img;
+// @include cover-background;
+// ============================================================================= Text
+// @include font-size(16px);
+// @include text-shorten;
+// text-img(../url, 120px);
+// ============================================================================= Fonts
+// @include font-face($file, $folder, $weight: normal, $style: normal);
+// ============================================================================= Others
+// @include clearfix;
+// @include fontAwesome;
+// @include resizable(vertical);
+// @include tab-focus();
+// @include opacity(0.7);
+// @include pagination-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) ;
+// ============================================================================= Media queries
+// @include mq(768px) {}
+// @include mq(768px, min) {}
+
+// @include mq(1440px) {
+//     desktop
+// }
+// @include mq(1248px) {
+//     laptop
+// }
+// @include mq(1024px) {
+//     tablet-large
+// }
+// @include mq(768px) {
+//     tablet
+// }
+// @include mq(640px) {
+//     tablet-small
+// }
+// @include mq(560px) {
+//     phablet
+// }
+// @include mq(480px) {
+//     phone-wide
+// }
+// @include mq(414px) {
+//     phone
+// }
+// @include mq(375px) {
+//     phone-small
+// }
+// @include mq(320px) {
+//     iphone5
+// }

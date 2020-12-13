@@ -7,13 +7,12 @@
 @import "../../node_modules/owl.carousel/dist/assets/owl.carousel.min";
 @import "../../node_modules/owl.carousel/dist/assets/owl.theme.default.min";
 // Abstracts
-@import "scss/abstracts/variables";
+
 @import "scss/abstracts/functions";
 @import "scss/abstracts/mixins";
-@import "scss/abstracts/fonts";
+@import "scss/abstracts/variables";
 @import "scss/abstracts/smart-grid";
 @import "scss/abstracts/utilities";
-@import "scss/abstracts/gradients";
 // General
 @import "scss/global";
 // Reusable
