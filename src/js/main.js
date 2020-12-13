@@ -24,22 +24,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     // --------------------------------------------------------------------------------------------------------
-    // -------------------------------------------------------------------  Slide Down a NavBar on Scroll
-    window.onscroll = function () {
-        scrollFunction();
-    };
-
-    function scrollFunction() {
-        const navbar = document.querySelector(".navbar--scroll");
-        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 500) {
-            navbar.style.top = "0";
-        } else {
-            navbar.style.top = "-80px";
-        }
-    }
-
-
-    // --------------------------------------------------------------------------------------------------------
     // ------------------------------------------------------------------- Mobile Menu
 
     let menuToggle = document.querySelectorAll('.menu-toggle svg'),
