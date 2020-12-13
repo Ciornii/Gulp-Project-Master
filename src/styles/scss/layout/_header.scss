@@ -34,7 +34,7 @@
                 height: 70px;
             }
 
-            .navbar__inner__logo {
+            .navbar__logo {
 
                 img {
                     max-height: 6.18rem;
@@ -45,7 +45,7 @@
                 }
             }
 
-            .navbar__inner__menu {
+            .navbar__menu {
                 position: relative;
                 display: flex;
                 top: -3px;
@@ -99,7 +99,7 @@
             }
         }
 
-        .navbar__inner__burger {
+        .navbar__burger {
             display: none;
             width: 28px;
             height: 16px;
@@ -117,36 +117,6 @@
                 fill: $main-color;
                 width: 26px;
                 @include align-center(both);
-            }
-        }
-    }
-
-
-    // --------------------------------- navbar-scroll 
-
-    .navbar--scroll {
-        position: fixed;
-        width: 100%;
-        height: 70px;
-        background-color: white;
-        top: -80px;
-        box-shadow: 0px 2px 5px 0px rgba(131, 131, 131, 0.2);
-        transition: all .3s;
-        z-index: 997;
-        padding: 0px;
-
-        .navbar__inner {
-            height: 70px;
-
-            .navbar__inner__logo {
-
-                @media screen and (max-width: 425px) {
-                    margin-top: 7px;
-                }
-
-                img {
-                    max-height: 70px;
-                }
             }
         }
     }
