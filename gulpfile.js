@@ -15,18 +15,22 @@ const autoprefixer = require('gulp-autoprefixer'),
       DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin"),
       eslint = require('gulp-eslint'),
       rename = require("gulp-rename"),
+      svgSprite = require('gulp-svg-sprite');
       imagemin = require('gulp-imagemin');
+      tinypng = require('gulp-tinypng-compress');
+      
 
 
-// ----------------------------------------------------------------------------------------------------------
-// -------------------------------------------   Define paths   
+// =======================================================================================================
+// ===================================================   Define paths   
 const paths = {
     dist: {
         base: './dist/',
-        css: './dist/styles',
-        js: './dist/js',
         html: './dist/',
-        assets: './dist/assets'
+        assets: './dist/assets',
+        img: './dist/assets/img',
+        css: './dist/assets/styles',
+        js: './dist/assets/js'
     },
     base: {
         base: './',
@@ -34,15 +38,14 @@ const paths = {
     },
     src: {
         base: './src/',
-        css: './src/styles',
-        js: './src/js',
         html: './src/html/pages/**/*.html',
         assets: './src/assets/**/*.*',
         fonts: './src/assets/fonts',
-        icons: './src/assets/icons',
         img: './src/assets/img',
+        svg: './src/assets/svg',
         partials: './src/html/partials/**/*.html',
-        scss: './src/styles'
+        scss: './src/styles',
+        js: './src/js'
     }
 };
 
@@ -51,8 +54,8 @@ gulp.task('clean:dist', function () {
     return del([paths.dist.base]);
 });
 
-// ----------------------------------------------------------------------------------------------------------
-// --------------------------------------------------   HTML development
+// =======================================================================================================
+// ===================================================   HTML development
 gulp.task('html', function () {
     return gulp.src([paths.src.html])
         .pipe(fileinclude({
@@ -79,7 +82,7 @@ gulp.task('index', function () {
         .pipe(browserSync.stream());
 });
 
-// --------------------------------------------------   HTML production
+// ===================================================   HTML production
 gulp.task('copy:dist:html', function () {
     return gulp.src([paths.src.html])
         .pipe(fileinclude({
@@ -139,10 +142,10 @@ gulp.task('minify:html:index', function () {
 });
 
 
-// ----------------------------------------------------------------------------------------------------------
-// --------------------------------------------------   Styles
+// =======================================================================================================
+// ===================================================   Styles
 gulp.task('compile:scss', function () {
-    return gulp.src([paths.src.scss + '/style.scss'])
+    return gulp.src(paths.src.scss + '/style.scss')
         .pipe(wait(500))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
@@ -153,32 +156,25 @@ gulp.task('compile:scss', function () {
 });
 
 gulp.task('beautify:css', function () {
-    return gulp.src([
-            paths.dev.css + '/style.css'
-        ])
+    return gulp.src(paths.dist.css + '/style.css')
         .pipe(cssbeautify())
         .pipe(gulp.dest(paths.dist.css))
         .pipe(browserSync.stream());
 });
 
 gulp.task('minify:css', function () {
-    return gulp.src([
-            paths.dist.css + '/style.css'
-        ])
+    return gulp.src(paths.dist.css + '/style.css')
         .pipe(cleanCss())
         .pipe(gulp.dest(paths.dist.css))
         .pipe(browserSync.stream());
 });
 
 
-// ----------------------------------------------------------------------------------------------------------
-// --------------------------------------------------   JS development
+// =======================================================================================================
+// ===================================================   JS development
 // Bundle and minify js
 gulp.task('js:main', function () {
-    return gulp.src([
-            paths.src.js + '/**/*.js',
-            paths.src.js + '/main.js'
-        ])
+    return gulp.src(paths.src.js + '/**/*.js')
         .pipe(plumber())
         .pipe(webpackStream({
             mode: 'development',
@@ -200,13 +196,10 @@ gulp.task('js:main', function () {
         .on("end", browserSync.reload);
 })
 
-// --------------------------------------------------   JS production
+// ===================================================   JS production
 // Bundle and minify js
 gulp.task('js:main:build', function () {
-    return gulp.src([
-            paths.src.js + '/**/*.js',
-            paths.src.js + '/main.js'
-        ])
+    return gulp.src(paths.src.js + '/**/*.js')
         .pipe(plumber())
         .pipe(webpackStream({
             mode: 'production',
@@ -244,28 +237,47 @@ gulp.task('js:main:build', function () {
 })
 
 
-// ----------------------------------------------------------------------------------------------------------
-// --------------------------------------------------   Assets  
+// =======================================================================================================
+// ===================================================   Assets  
 gulp.task('copy:fonts', function () {
-    return gulp.src([paths.src.fonts + '/*', paths.src.fonts + '/**/*'])
+    return gulp.src(paths.src.fonts + '/**/*')
         .pipe(gulp.dest(paths.dist.assets + '/fonts'))
         .pipe(browserSync.stream());
 });
 
-gulp.task('copy:icons', function () {
-    return gulp.src([paths.src.icons + '/*', paths.src.icons + '/**/*'])
-        .pipe(gulp.dest(paths.dist.assets + '/icons'))
+gulp.task('copy:svg', function () {
+    return gulp.src(paths.src.svg + '/**/*.svg')
+        .pipe(svgSprite({
+            mode: {
+                stack: {
+                    sprite: "../sprite.svg"
+                }
+            }
+        }))
+        .pipe(gulp.dest(paths.dist.img))
         .pipe(browserSync.stream());
 });
 
 gulp.task('copy:img', function () {
-    return gulp.src([paths.src.img + '/*', paths.src.img + '/**/*'])
-        .pipe(gulp.dest(paths.dist.assets + '/img'))
+    return gulp.src(paths.src.img + '/**/*')
+        .pipe(gulp.dest(paths.dist.img))
         .pipe(browserSync.stream());
 });
 
-gulp.task('compress:img', function () {
-    return  gulp.src([paths.src.img + '/*', paths.src.img + '/**/*'])
+gulp.task('tinypng', function () {
+    gulp.src(paths.dist.img + '/**/*.{png,jpg,jpeg}')
+        .pipe(tinypng({
+            key: '',
+            sigFile: './dist/img/.tinypng-sigs',
+            parallel: true,
+            parallelMax: 50,
+            log: true
+        }))
+        .pipe(gulp.dest(paths.dist.img));
+});
+
+gulp.task('imagemin', function () {
+    return  gulp.src(paths.dist.img + '/**/*.{png,jpg,jpeg}')
     .pipe(imagemin([
         imagemin.gifsicle({interlaced: true}),
         imagemin.mozjpeg({quality: 75, progressive: true}),
@@ -277,42 +289,27 @@ gulp.task('compress:img', function () {
             ]
         })
     ]))
-    .pipe(gulp.dest(paths.dist.assets + '/img'));
+    .pipe(gulp.dest(paths.dist.img));
 });
 
 
-// ----------------------------------------------------------------------------------------------------------
-// --------------------------------------------------  Tasks 
+// =======================================================================================================
+// ===================================================  Tasks 
 
-// serve
-gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'js:main', function () {
+gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 'copy:fonts', 'copy:img', 'copy:svg', 'compile:scss', 'minify:css', 'js:main:build'));
+
+gulp.task('serve', gulp.series( 'html', 'index', 'copy:img', 'copy:fonts', 'copy:svg', 'compile:scss', 'js:main', 
+function () {
     browserSync.init({
         server: paths.dist.base
     });
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
-    gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
-    gulp.watch([paths.src.icons + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
-    gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
-    gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss'));
-    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main'));
+    gulp.watch(paths.src.fonts + '/**/*', gulp.series('copy:fonts'));
+    gulp.watch(paths.src.icons + '/**/*', gulp.series('copy:svg'));
+    gulp.watch(paths.src.img + '/**/*', gulp.series('copy:img'));
+    gulp.watch(paths.src.scss + '/**/*', gulp.series('compile:scss'));
+    gulp.watch(paths.src.js + '/**/*', gulp.series('js:main'));
 }));
 
-
-// build
-gulp.task('build', gulp.series('clean:dist', 'copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index', 
- 'copy:img', 'copy:fonts', 'copy:icons', 'compile:scss', 'minify:css', 'js:main:build', function () {
-    browserSync.init({
-        server: paths.dist.base
-    });
-
-    gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('copy:dist:html', 'copy:dist:html:index', 'minify:html', 'minify:html:index'));
-    gulp.watch([paths.src.fonts + '/*', paths.src.fonts + '/**/*'], gulp.series('copy:fonts'));
-    gulp.watch([paths.src.icons + '/*', paths.src.icons + '/**/*'], gulp.series('copy:icons'));
-    gulp.watch([paths.src.img + '/*', paths.src.img + '/**/*'], gulp.series('copy:img'));
-    gulp.watch([paths.src.scss + '/scss/**/*.scss', paths.src.scss + '/style.scss'], gulp.series('compile:scss', 'minify:css'));
-    gulp.watch([paths.src.js + '/**/*.js', paths.src.js + '/*.js', paths.src.js + '/main.js'], gulp.series('js:main:build'));
-}));
-
-// default
 gulp.task('default', gulp.series('serve'));
