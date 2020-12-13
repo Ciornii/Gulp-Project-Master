@@ -2,11 +2,11 @@
     position: relative;
     display: block;
     background-color: $main-color;
-    width: 14rem;
-    height: 3.75rem;
     border-radius: 30px;
     margin-top: 3rem;
     transition: all .1s;
+    padding: 0 3rem;
+    max-width: 15rem;
     // text
     font-size: 14px;
     font-weight: bold;
