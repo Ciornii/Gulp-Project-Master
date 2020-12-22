@@ -147,6 +147,26 @@
   font-family: "Font Awesome 5 Free";
 }
 
+@mixin customScroll($size: 6px, $radius: 0px){
+ 
+  * {
+    scrollbar-color:  #c1c1c1  #f1f1f1;
+    scrollbar-width: thin;
+  }
+   
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+  ::-webkit-scrollbar-thumb {
+      background-color: #c1c1c1;
+      border-radius: $radius;
+  }
+  ::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+  }
+}
+
 @mixin resizable($direction) {
   resize: $direction;
   overflow: auto;
@@ -181,10 +201,8 @@
 // ============================================================================= Others
 // @include clearfix;
 // @include fontAwesome;
+// @include customScroll($size: 6px, $radius: 0px);
 // @include resizable(vertical);
-// @include tab-focus();
-// @include opacity(0.7);
-// @include pagination-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) ;
 // ============================================================================= Media queries
 // @include mq(768px) {}
 // @include mq(768px, min) {}
