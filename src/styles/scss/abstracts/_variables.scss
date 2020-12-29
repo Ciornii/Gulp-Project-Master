@@ -6,22 +6,28 @@
 $main-color: #ffc400;
 $border-color: #e4e4e4;
 
-// background-color: palette(gray, light);
+// background-color: palette(main, base);
 $palettes: (
-  gray: (
+  main: (
+    base: #f37934,
+    light: lighten(#f37934,5%),
+    dark: darken(#f37934,5%),
+  ),
+  grey: (
     base: #a5a5a5,
     light: #f9f3f3,
-    lighter: #f6f6f6,
-    medium: #6c6c6f,
-    dark: #3c3d40,
+    dark: #565656,
+    bg: #f5f5f5,
+    text: #6e6e6e,
+    icons: #e0e0e0,
+    border: #dadada,
   ),
   black: (
     base: #000000,
-    light: #282b33,
-    medium: #010101,
+    text: #242424,
   ),
   red: (
-    base: #d52c20,
+    base: #d14841,
     light: #e14337,
     dark: #bd2015,
   ),
@@ -29,6 +35,9 @@ $palettes: (
     base: #12a65b,
     light: #3c763d,
   ),
+  blue: (
+    links: #2c82c9,
+  )
 );
 
 

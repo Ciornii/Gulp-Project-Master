@@ -11,6 +11,9 @@
 //    height: h($element-width);
 // }
 
+// ------------------------------------------------------- Color palette
+// background-color: palette(main, base);
+
 
 // ------------------------------------------------------- From px to rem
 @function calculateRem($size) {
@@ -23,3 +26,7 @@
    @return $num / 2;
 }
 
+// ------------------------------------------------------- Color palette
+@function palette($palette, $tone: 'base') {
+   @return map-get(map-get($palettes, $palette), $tone);
+}
