@@ -43,7 +43,7 @@ const paths = {
         fonts: './src/assets/fonts',
         img: './src/assets/img',
         svg: './src/assets/svg',
-        partials: './src/html/partials/**/*.html',
+        partials: './src/partials/**/*.html',
         scss: './src/styles',
         js: './src/js'
     }
@@ -60,7 +60,7 @@ gulp.task('html', function () {
     return gulp.src([paths.src.html])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'development'
             }
@@ -73,7 +73,7 @@ gulp.task('index', function () {
     return gulp.src([paths.src.base + '*.html'])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'development'
             }
@@ -87,7 +87,7 @@ gulp.task('copy:dist:html', function () {
     return gulp.src([paths.src.html])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'production'
             }
@@ -103,7 +103,7 @@ gulp.task('minify:html', function () {
         }))
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'production'
             }
@@ -116,7 +116,7 @@ gulp.task('copy:dist:html:index', function () {
     return gulp.src([paths.src.base + '*.html'])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'production'
             }
@@ -132,7 +132,7 @@ gulp.task('minify:html:index', function () {
         }))
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: './src/html/partials/',
+            basepath: './src/partials/',
             context: {
                 environment: 'production'
             }
@@ -246,7 +246,7 @@ gulp.task('copy:fonts', function () {
 });
 
 gulp.task('copy:svg', function () {
-    return gulp.src(paths.src.svg + '/**/*.svg')
+    return gulp.src(paths.src.svg + '/**/*')
         .pipe(svgSprite({
             mode: {
                 stack: {
@@ -306,7 +306,7 @@ function () {
 
     gulp.watch([paths.src.html, paths.src.base + '*.html', paths.src.partials], gulp.series('html', 'index'));
     gulp.watch(paths.src.fonts + '/**/*', gulp.series('copy:fonts'));
-    gulp.watch(paths.src.icons + '/**/*', gulp.series('copy:svg'));
+    gulp.watch(paths.src.svg + '/**/*', gulp.series('copy:svg'));
     gulp.watch(paths.src.img + '/**/*', gulp.series('copy:img'));
     gulp.watch(paths.src.scss + '/**/*', gulp.series('compile:scss'));
     gulp.watch(paths.src.js + '/**/*', gulp.series('js:main'));

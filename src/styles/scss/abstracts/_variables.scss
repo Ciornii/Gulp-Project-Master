@@ -3,8 +3,6 @@
  */
 
 // ============================================================================= Colors
-$main-color: #ffc400;
-$border-color: #e4e4e4;
 
 // background-color: palette(main, base);
 $palettes: (
@@ -17,7 +15,8 @@ $palettes: (
     base: #a5a5a5,
     light: #f9f3f3,
     dark: #565656,
-    bg: #f5f5f5,
+    bg:#f9f9f9,
+    bg-darken: #f3f3f3,
     text: #6e6e6e,
     icons: #e0e0e0,
     border: #dadada,
@@ -42,22 +41,22 @@ $palettes: (
 
 
 // ============================================================================= Fonts
-@include font-face(Akrobat-Thin, akrobat);
-@include font-face(Akrobat-ExtraLight, akrobat);
-@include font-face(Akrobat-Light, akrobat);
-@include font-face(Akrobat-Regular, akrobat);
-@include font-face(Akrobat-SemiBold, akrobat);
-@include font-face(Akrobat-Bold, akrobat);
-@include font-face(Akrobat-ExtraBold, akrobat);
-@include font-face(Akrobat-Black, akrobat);
+@include font-face(Montserrat-Thin, montserrat);
+@include font-face(Montserrat-ExtraLight, montserrat);
+@include font-face(Montserrat-Light, montserrat);
+@include font-face(Montserrat-Regular, montserrat);
+@include font-face(Montserrat-SemiBold, montserrat);
+@include font-face(Montserrat-Bold, montserrat);
+@include font-face(Montserrat-ExtraBold, montserrat);
+@include font-face(Montserrat-Black, montserrat);
 
-$font-family: Helvetica, Arial, sans-serif;
+$font-family: Helvetica, Arial, sans-serif, cursive;
 
-$mainFont-thin: 'Akrobat-Thin', $font-family;
-$mainFont-extraLight: 'Akrobat-ExtraLight', $font-family;
-$mainFont-light: 'Akrobat-Light', $font-family;
-$mainFont-regular: 'Akrobat-Regular', $font-family;
-$mainFont-semiBold: 'Akrobat-SemiBold', $font-family;
-$mainFont-bold: 'Akrobat-Bold', $font-family;
-$mainFont-extraBold: 'Akrobat-ExtraBold', $font-family;
-$mainFont-black: 'Akrobat-Black', $font-family;
+$mainFont-thin: 'Montserrat-Thin', $font-family;
+$mainFont-extraLight: 'Montserrat-ExtraLight', $font-family;
+$mainFont-light: 'Montserrat-Light', $font-family;
+$mainFont-regular: 'Montserrat-Regular', $font-family;
+$mainFont-semiBold: 'Montserrat-SemiBold', $font-family;
+$mainFont-bold: 'Montserrat-Bold', $font-family;
+$mainFont-extraBold: 'Montserrat-ExtraBold', $font-family;
+$mainFont-black: 'Montserrat-Black', $font-family;

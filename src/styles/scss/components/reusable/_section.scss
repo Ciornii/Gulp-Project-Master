@@ -1,0 +1,26 @@
+.title {
+  position: relative;
+  width: 100%;
+  @include flex(row, space-between, center, center, nowrap);
+  margin: 2.5rem 0;
+
+  h2 {
+    display: inline-block;
+    color: palette(black, text);
+    @include font-size(24px);
+    white-space: nowrap;
+    margin: 0 2.87rem;
+
+    @include mq(560px) {
+      margin: 0 1.5rem;
+    }
+  }
+
+  .title__line {
+    display: inline-block;
+    height: 1px;
+    width: 100%;
+    max-width: 27.6rem;
+    background-color: palette(grey, border);
+  }
+}

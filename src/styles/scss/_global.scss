@@ -22,17 +22,6 @@ body {
   color: #222;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $mainFont-bold;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 h1 {
   @include font-size(62px);
 }
@@ -50,7 +39,7 @@ h4 {
 }
 
 button {
-  font-family: $mainFont-semiBold;
+  background-color: transparent;
 }
 
 input,
@@ -62,6 +51,11 @@ textarea {
   overflow: hidden;
 }
 
-// .container {
-//      border: 1px solid blue;
-// }
+.container {
+  //border: 1px solid blue;
+}
+
+.test {
+  padding: 40px;
+  height: 500px;
+}

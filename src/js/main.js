@@ -25,6 +25,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Sticky Navigation
+  let main = document.getElementsByTagName("main")[0],
+    navbar = document.querySelector(".navbar"),
+    sticky = navbar.offsetTop,
+    navbarHeight = getComputedStyle(navbar).height;
+
+  window.onscroll = function () {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("navbar__sticky");
+      main.style.paddingTop = navbarHeight;
+    } else {
+      navbar.classList.remove("navbar__sticky");
+      main.style.paddingTop = "0px";
+    }
+    if (window.pageYOffset >= 600) {
+      navbar.classList.add("navbar__small");
+    } else {
+      navbar.classList.remove("navbar__small");
+    }
+  };
+
+  // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Mobile Menu
 
   let menuToggle = document.querySelectorAll(".menu-toggle svg"),
@@ -59,11 +81,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   // --------------------------------------------------------------------------------------------------------
-  // ------------------------------------------------------------------- Slider (page2)
-  $(".owl-carousel").owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
+  // -------------------------------------------------------------------  Sliders
+
+  $(".hero__slider").owlCarousel({
+    loop: false,
     items: 1,
+    nav: true,
+    dots: true,
+    center: true,
   });
 });
