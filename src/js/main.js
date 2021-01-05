@@ -66,17 +66,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
     speedAsDuration: true,
   });
 
-  const upElem = document.querySelector(".pageUp");
+  const scrollUp = document.querySelector(".scroll-up");
 
   window.addEventListener("scroll", () => {
     if (document.documentElement.scrollTop > 500) {
-      upElem.style.visibility = "visible";
-      upElem.classList.add("animated", "fadeIn");
-      upElem.classList.remove("fadeOut");
+      scrollUp.style.visibility = "visible";
+      scrollUp.classList.add("animated", "fadeIn");
+      scrollUp.classList.remove("fadeOut");
     } else {
-      upElem.classList.add("fadeOut");
-      upElem.classList.remove("fadeIn");
-      upElem.style.visibility = "hidden";
+      scrollUp.classList.add("fadeOut");
+      scrollUp.classList.remove("fadeIn");
+      scrollUp.style.visibility = "hidden";
     }
   });
 

@@ -4,7 +4,7 @@
   --animate-repeat: 1;
 }
 
-.animate__animated {
+.animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-duration: var(--animate-duration);
@@ -39,7 +39,7 @@
   }
 }
 
-.animate__jackInTheBox {
+.jackInTheBox {
   -webkit-animation-name: jackInTheBox;
   animation-name: jackInTheBox;
 }
@@ -99,4 +99,27 @@
     infinite;
   animation-fill-mode: none, none;
   animation-play-state: running, running;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
