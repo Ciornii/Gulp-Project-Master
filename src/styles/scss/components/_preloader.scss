@@ -23,4 +23,11 @@
     &.show {
         height: 0;
     }
+
+    svg {
+        display: block;
+        margin: 0 auto;
+        max-height: 4rem;
+        fill: #855C11;
+    }
 }

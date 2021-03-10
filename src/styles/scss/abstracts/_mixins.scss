@@ -108,12 +108,10 @@
     src: url("../fonts/#{$folder}/#{$file}.eot");
     src: url("../fonts/#{$folder}/#{$file}.eot?#iefix")
         format("embedded-opentype"),
-      url("../fonts/#{$folder}/#{$file}.woff") format("woff"),
       url("../fonts/#{$folder}/#{$file}.ttf") format("truetype"),
       url("../fonts/#{$folder}/#{$file}.svg?#webfont") format("svg");
     font-weight: $weight;
     font-style: $style;
-    font-display: swap;
   }
 }
 

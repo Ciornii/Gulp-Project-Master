@@ -241,7 +241,7 @@ gulp.task("copy:svg", function () {
       svgSprite({
         mode: {
           stack: {
-            sprite: "../sprite.svg",
+            sprite: "../sprite.svg",  // !!! doesn't work for ie
           },
         },
       })

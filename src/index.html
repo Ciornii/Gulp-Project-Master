@@ -13,65 +13,27 @@
         @@include('./_header.html', {
         "path": "."
         })
+
+        @@include('./_preloader.html', {
+        "path": "."
+        })
+
         <main>
 
-            @@include('./_preloader.html', {
+            @@include('./pages/homepage/_hero.html', {
             "path": "."
             })
-
-            <!-- Hero -->
-            <section class="hero">
-                <div class="hero__slider owl-carousel">
-                    <div class="hero__slide">
-                        <div class="hero__bg"><img src="./assets/img/bg/hero/slide1.jpg" alt=""></div>
-                        <div class="hero__bg-mobile"><img src="./assets/img/bg/hero/slide1.jpg" alt=""></div>
-                        <div class="container">
-                            <div class="hero__inner">
-                                <h1>Kazanele uzbece din fontă </br>
-                                    din Namangan</h1>
-                                <p>Cazane reale cu pereți groși, cu o <br />
-                                    suprafață de lucru șlefuită</p>
-                                <a href="./catalog.html" class="btn btn--icon-right">mai multe</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero__slide">
-                        <div class="hero__bg"><img src="./assets/img/bg/hero/slide1.jpg" alt=""></div>
-                        <div class="hero__bg-mobile"><img src="./assets/img/bg/hero/slide1.jpg" alt=""></div>
-                        <div class="container">
-                            <div class="hero__inner">
-                                <h1>Slide 2</h1>
-                                lorem ipsum...
-                                <a href="./catalog.html" class="btn btn--icon-right">mai multe</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero__slide">
-                        <div class="hero__bg"><img src="./assets/img/bg/hero/slide1.jpg" alt=""></div>
-                        <div class="hero__bg-mobile"><img src="./assets/img/bg/hero/slide1.jpg" alt=""></div>
-                        <div class="container">
-                            <div class="hero__inner">
-                                <h1>Slide 3</h1>
-                                lorem ipsum...
-                                <a href="./catalog.html" class="btn btn--icon-right">mai multe</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- / Hero -->
-            
-            <div class="test"></div>
-
 
 
         </main>
 
-        <a href="#up" class="scroll-up animated fadeOut">
-            <i class="fas fa-chevron-up"></i>
-        </a>
-
         @@include('./_footer.html', {
+        "path": "."
+        })
+        @@include('./_fixed-elem.html', {
+        "path": "."
+        })
+        @@include('./_modals.html', {
         "path": "."
         })
 

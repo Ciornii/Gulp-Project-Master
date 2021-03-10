@@ -1,0 +1,43 @@
+.breadcrumbs {
+   padding: 15px 0 18px;
+   background-color: #f5f5f5;
+
+   h1 {
+      font-family: $mainFont-semiBold;
+      @include font-size(28px);
+      color: #3a3a3a;
+      margin-top: .6rem;
+   }
+
+   ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      font-family: $mainFont-regular;
+      font-size: 11px;
+      color: palette(grey, text-light);
+
+      li {
+         position: relative;
+         white-space: nowrap;
+         cursor: default;
+
+         &:after {
+            content: '/';
+            padding: 0 10px;
+            font-size: 10px;
+            color: palette(grey, text-light);
+         }
+
+         &:last-child {
+            &:after {
+               display: none;
+            }
+         }
+
+         a {
+            color: palette(grey, text-light);
+         }
+      }
+   }
+}

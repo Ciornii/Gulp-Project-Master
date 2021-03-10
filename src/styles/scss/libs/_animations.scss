@@ -4,7 +4,7 @@
   --animate-repeat: 1;
 }
 
-.animated {
+.animate__animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-duration: var(--animate-duration);
@@ -13,35 +13,35 @@
   animation-fill-mode: both;
 }
 
-@keyframes jackInTheBox {
+@keyframes fade {
   from {
-    opacity: 0;
-    -webkit-transform: scale(0.1) rotate(30deg);
-    transform: scale(0.1) rotate(30deg);
-    -webkit-transform-origin: center bottom;
-    transform-origin: center bottom;
-  }
-
-  50% {
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-
-  70% {
-    -webkit-transform: rotate(3deg);
-    transform: rotate(3deg);
+    opacity: .1;
   }
 
   to {
     opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
   }
 }
 
-.jackInTheBox {
-  -webkit-animation-name: jackInTheBox;
-  animation-name: jackInTheBox;
+.fade {
+  animation-name: fade;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+}
+
+@keyframes fadeSlow {
+  from {
+    opacity: .1
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.fadeSlow {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
 @keyframes fadeIn {
@@ -74,18 +74,39 @@
   animation-duration: 1s;
 }
 
-@keyframes opacityFadeIn {
-  0% {
+.animated {
+  animation-fill-mode: both;
+}
+
+@keyframes jackInTheBox {
+  from {
     opacity: 0;
+    -webkit-transform: scale(0.1) rotate(30deg);
+    transform: scale(0.1) rotate(30deg);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
   }
 
   50% {
-    opacity: 1;
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
   }
 
-  100% {
-    opacity: 0;
+  70% {
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
   }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.animate__jackInTheBox {
+  -webkit-animation-name: jackInTheBox;
+  animation-name: jackInTheBox;
 }
 
 .slideDown {
@@ -99,27 +120,4 @@
     infinite;
   animation-fill-mode: none, none;
   animation-play-state: running, running;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.spin {
-  -webkit-animation: spin 1s linear infinite;
-  animation: spin 1s linear infinite;
 }

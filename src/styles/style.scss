@@ -4,10 +4,8 @@
 @import "scss/libs/animations";
 @import "scss/libs/fontAwesome";
 // PLugins
-@import "../../node_modules/owl.carousel/dist/assets/owl.carousel.min";
-@import "../../node_modules/owl.carousel/dist/assets/owl.theme.default.min";
+@import "../../node_modules/swiper/swiper-bundle.min";
 // Abstracts
-
 @import "scss/abstracts/functions";
 @import "scss/abstracts/mixins";
 @import "scss/abstracts/variables";
@@ -19,10 +17,26 @@
 @import "scss/components/reusable/btns";
 @import "scss/components/reusable/sliders";
 @import "scss/components/reusable/section";
+@import "scss/components/reusable/breadcrumbs";
+@import "scss/components/reusable/custom-checkbox";
+@import "scss/components/reusable/pagination";
+@import "scss/components/reusable/tabs";
+@import "scss/components/reusable/single-page";
+@import "scss/components/reusable/social-links";
 // Components
 @import "scss/components/preloader";
 @import "scss/components/header";
 @import "scss/components/mmenu";
 @import "scss/components/footer";
-// Pages
+// Fixed
+@import "scss/components/fixed/scroll-up";
+// Modals and Popups
+@import "scss/components/modals&popups/modals";
+@import "scss/components/modals&popups/catalog";
+@import "scss/components/modals&popups/cart";
+// ============================================ Pages:
+// Home
 @import "scss/components/pages/homepage/hero";
+// Contact Us
+@import "scss/components/pages/contactus/contactus";
+

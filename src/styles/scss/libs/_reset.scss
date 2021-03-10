@@ -203,3 +203,7 @@ textarea {
      border: none;
      outline: none;
 }
+
+input:disabled {
+     background-color: transparent;
+}

@@ -11,14 +11,20 @@
                     </a>
                 </div>
                 <div class="topbar__actions">
+                    <form class="topbar__block topbar__block--search">
+                        <input type="search" placeholder="Căutare">
+                    </form>
                     <div class="topbar__block topbar__block--languages">
                         RO
+                        <div class="topbar__dropdown">
+                            <ul>
+                                <li><a href="#">RU</a></li>
+                                <li><a href="#">EN</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="topbar__block topbar__block--search">
-                        Căutare
-                    </div>
-                    <div class="topbar__block topbar__block--logging">
-                        Intrare
+                    <div class="topbar__block topbar__block--logging" data-modal-trigger>
+                        <span>Intrare</span>
                     </div>
                 </div>
             </div>
@@ -29,14 +35,17 @@
             <div class="navbar__inner">
                 <div class="navbar__logo">
                     <a href="@@path/index.html">
-                        <img src="@@path/assets/img/logo/logo.png" alt="logo">
+                        <svg>
+                            <use xlink:href='assets/img/sprite.svg#logo'></use>
+                        </svg>
                     </a>
                 </div>
                 <nav class="navbar__menu">
                     <ul>
-                        <li><a href="./index.html">Principala</a></li>
-                        <li><a href="./catalog.html">Catalog</a></li>
-                        <li><a href="./shipping.html">Livrare și plată</a></li>
+                        <li>
+                            <div class="btn navbar__dropdown">Catalog</div>
+                        </li>
+                        <li><a href="./delivery-and-payment.html">Livrare și plată</a></li>
                         <li><a href="./contacts.html">Contacte</a></li>
                     </ul>
                 </nav>
@@ -47,41 +56,365 @@
                         </svg>
                         <div class="navbar__counter">0</div>
                     </button>
-                    <button class="navbar__btn navbar__btn--shipping">
+                    <a href="./compare.html" class="navbar__btn navbar__btn--compare">
                         <svg>
                             <use xlink:href="assets/img/sprite.svg#exchange"></use>
                         </svg>
                         <div class="navbar__counter">0</div>
-                    </button>
+                    </a>
                     <button class="navbar__btn navbar__btn--basket">
                         <svg>
                             <use xlink:href="assets/img/sprite.svg#shopping-bag"></use>
                         </svg>
                         <div class="navbar__counter navbar__counter--active">3</div>
                     </button>
+                    <div class="navbar__burger menu-toggle" data-mmenu-trigger>
+                        <a href="#mmenu">
+                            <svg>
+                                <use xlink:href="assets/img/sprite.svg#menu"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Cart Popup -->
+                    <div class="popup-cart">
+                        <ul class="popup-cart__wrapper" data-popup="cart">
+                            <li class="cart-item">
+                                <div class="cart-item__img">
+                                    <img src="@@path/assets/img/modals-popups/cart/35.png" alt="">
+                                </div>
+                                <div class="cart-item__info">
+                                    <div class="cart-item__title">Cazan afgan 10 litri</div>
+                                    <div class="cart-item__details">1 х 2366 mdl</div>
+                                </div>
+                                <button class="cart-item__delete">
+
+                                </button>
+                            </li>
+                            <li class="cart-item">
+                                <div class="cart-item__img">
+                                    <img src="@@path/assets/img/modals-popups/cart/36.png" alt="">
+                                </div>
+                                <div class="cart-item__info">
+                                    <div class="cart-item__title">Cazan afgan 10 litri</div>
+                                    <div class="cart-item__details">1 х 2366 mdl</div>
+                                </div>
+                                <button class="cart-item__delete">
+                                    <svg>
+                                        <use xlink:href="assets/img/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                            </li>
+                            <li class="cart-item">
+                                <div class="cart-item__img">
+                                    <img src="@@path/assets/img/modals-popups/cart/37.png" alt="">
+                                </div>
+                                <div class="cart-item__info">
+                                    <div class="cart-item__title">Cazan afgan 10 litri</div>
+                                    <div class="cart-item__details">1 х 2366 mdl</div>
+                                </div>
+                                <button class="cart-item__delete">
+                                    <svg>
+                                        <use xlink:href="assets/img/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="popup-cart__bottom">
+                            <div class="popup-cart__info">
+                                Total:
+                                <div class="popup-cart__sum">13 500</div>
+                                <div class="popup-cart__currency">mdl</div>
+                            </div>
+
+                            <a href="./cart.html" class="btn btn--no-radius popup-cart__btn">
+                                Vezi coșul
+                            </a>
+                        </div>
+                    </div> <!-- / Cart Popup -->
                 </div>
-                <div class="navbar__burger menu-toggle">
-                    <button>
-                        <svg>
-                            <use xlink:href="assets/img/sprite.svg#menu"></use>
-                        </svg>
-                    </button>
+                <!-- Catalog Popup -->
+                <div class="popup-catalog">
+                    <div class="popup-catalog__inner">
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/1.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Cazane și accesorii</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                                <li><a href="./catalog.html">Casanele afgane</a></li>
+                                <li class="popup-catalog__more"><a href="./catalog.html">Mai mult</a></li>
+                            </ul>
+                        </div>
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/2.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Tandoor</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                            </ul>
+                        </div>
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/3.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Veselă din fontă</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                                <li><a href="./catalog.html">Casanele afgane</a></li>
+                                <li class="popup-catalog__more"><a href="./catalog.html">Mai mult</a></li>
+                            </ul>
+                        </div>
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/4.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Grătare și accesorii</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                                <li><a href="./catalog.html">Casanele afgane</a></li>
+                            </ul>
+                        </div>
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/5.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Cazane și accesorii</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                                <li><a href="./catalog.html">Casanele afgane</a></li>
+                                <li class="popup-catalog__more"><a href="./catalog.html">Mai mult</a></li>
+                            </ul>
+                        </div>
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/6.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Cazane și accesorii</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                                <li><a href="./catalog.html">Casanele afgane</a></li>
+                            </ul>
+                        </div>
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/7.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Cazane și accesorii</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                                <li><a href="./catalog.html">Casanele afgane</a></li>
+                                <li class="popup-catalog__more"><a href="./catalog.html">Mai mult</a></li>
+                            </ul>
+                        </div>
+                        <div class="popup-catalog__block">
+                            <div class="popup-catalog__img">
+                                <img src="@@path/assets/img/modals-popups/catalog/8.png" alt="">
+                            </div>
+                            <ul class="popup-catalog__links">
+                                <li class="popup-catalog__title">Cazane și accesorii</li>
+                                <li><a href="./catalog.html">Cazane din fonta</a></li>
+                                <li><a href="./catalog.html">Accesorii</a></li>
+                                <li><a href="./catalog.html">Seturi gata</a></li>
+                                <li><a href="./catalog.html">Capace pentru cazane</a></li>
+                                <li><a href="./catalog.html">Casanele afgane</a></li>
+                                <li class="popup-catalog__more"><a href="./catalog.html">Mai mult</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+                <!-- / Catalog Popup -->
             </div>
         </div>
     </div>
+</header>
 
-    <div class="mmenu">
-        <div class="menu-toggle">
-            <svg>
-                <use xlink:href="assets/img/sprite.svg#close"></use>
-            </svg>
-        </div>
-        <ul>
-            <li><a href="./index.html">Principala</a></li>
-            <li><a href="./catalog.html">Catalog</a></li>
+<!-- start MMENU -->
+<div class="modal-bg" data-mmenu-trigger data-mmenu-modalBg></div>
+<aside class="mmenu">
+
+    <div class="mmenu__title">
+        Meniu
+    </div>
+
+    <div class="mmenu__close" data-mmenu-trigger>
+        <svg>
+            <use xlink:href="assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+    <!-- start mmenu__inner -->
+    <nav class="mmenu__inner">
+        <ul class="mmenu__links">
+            <li data-categories-parent>
+                <span>Catalog</span>
+                <div class="mmenu__categories" data-categories>
+                    <ul>
+                        <li class="mmenu__subcategories">
+                            <span data-subcategory>Cazane și accesorii</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Cazane și accesorii</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Cazan + cuptor</a></li>
+                        <li class="mmenu__subcategories">
+                            <span class="active" data-subcategory>Tandoor</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Tandoor</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#" class="active">Accesorii</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Grătare de vară și accesorii</a></li>
+                        <li><a href="#">Smokers și grătare de grătar</a></li>
+                        <li class="mmenu__subcategories">
+                            <span data-subcategory>Veselă din Uzbekistan</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Veselă din Uzbekistan</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#">Tandoor</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Saj tigaie</a></li>
+                        <li class="mmenu__subcategories">
+                            <span data-subcategory>Produse pentru dacie și grădină</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Produse pentru dacie și grădină</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#">Tandoor</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mmenu__subcategories">
+                            <span data-subcategory>Veselă din fontă</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Veselă din fontă</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#">Tandoor</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mmenu__subcategories">
+                            <span data-subcategory>Samovarii</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Samovarii</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#">Tandoor</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mmenu__subcategories">
+                            <span data-subcategory>Cuțite și topoare</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Cuțite și topoare</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#">Tandoor</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mmenu__subcategories">
+                            <span data-subcategory>Mantovarki</span>
+                            <div class="mmenu__dropdown">
+                                <div class="mmenu__go-back" data-subcategory>înapoi</div>
+                                <ul>
+                                    <span>Mantovarki</span>
+                                    <li><a href="#">Cazane și accesorii</a></li>
+                                    <li><a href="#">Cazan + cuptor</a></li>
+                                    <li><a href="#">Tandoor</a></li>
+                                    <li><a href="#">Grătare de vară și accesorii</a></li>
+                                    <li><a href="#">Smokers și grătare de grătar</a></li>
+                                    <li><a href="#">Saj tigaie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Orez, condimente, ceai etc.</a></li>
+                        <li><a href="#">Suveniruri</a></li>
+                        <li><a href="#">Reduceri și promoții!</a></li>
+                    </ul>
+                </div>
+            </li>
             <li><a href="./shipping.html">Livrare și plată</a></li>
             <li><a href="./contacts.html">Contacte</a></li>
         </ul>
-    </div>
-</header>
+        <ul class="mmenu__links mmenu__links--account">
+            <li class="mmenu__link mmenu__link--login"><a href="#">Contul meu</a></li>
+        </ul>
+        <div class="mmenu__languages">
+            RO
+            <div class="mmenu__options">
+                <ul>
+                    <li><a href="#">RU</a></li>
+                    <li><a href="#">EN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- end mmenu__inner -->
+</aside><!-- end MMENU -->

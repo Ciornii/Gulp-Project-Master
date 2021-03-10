@@ -3,16 +3,15 @@
   display: block;
   background-color: palette(main, base);
   border-radius: 30px;
-  margin-top: 3rem;
   transition: all 0.2s ease;
   padding: 0 2rem;
   max-width: 15rem;
   // text
+  @include flex;
   @include font-size(14px);
   font-family: $mainFont-semiBold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 3.45;
   letter-spacing: normal;
   color: white;
   text-transform: uppercase;
@@ -31,6 +30,7 @@
   }
 }
 
+
 // font-weight: 600;
 // content: "\f30b";
 .btn--icon-right {
@@ -45,32 +45,65 @@
   }
 }
 
-// ----------------------------------------------------
-.scroll-up {
-  width: 37px;
-  height: 37px;
-  position: fixed;
-  bottom: 33px;
-  right: 2%;
-  z-index: 30;
-  background-color: palette(main, base);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 2s ease;
+
+.btn--transparent {
+  height: 46px;
+  background-color: transparent;
+  color: #343434;
+  text-transform: initial;
+  font-family: $mainFont-regular;
+  @include font-size(17px);
+  border-radius: 23px;
+  border: solid 1px palette(grey, border);
+  padding: 0 24px;
 
   &:hover {
-    background-color: palette(main, dark);
+    color: palette(black, base);
+    text-decoration: none;
+    background-color: transparent;
+    box-shadow: 0 0 10px #e4e4e4;
   }
 
-  i {
-    font-size: 18px;
-    color: white;
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: 49%;
-    left: 50%;
-    transform: translate(-49%, -50%);
+  &:focus,
+  &:active {
+    outline: none;
+    border: solid 1px palette(grey, border);
+    box-shadow: none;
+  }
+}
+
+.btn--no-radius {
+  border-radius: initial;
+}
+
+
+.btn--load-more {
+  width: 112px;
+  height: 33px;
+  padding: 0;
+  line-height: 1;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  text-transform: initial;
+  @include font-size(12px);
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  padding-left: 18px;
+
+  &::after {
+    content: "";
+    @include fontAwesome;
+    font-weight: 600;
+    content: "\f063";
+    font-size: 11px;
+    color: #fff;
+    @include align-center(vertical);
+    margin-top: -2px;
+    right: 16px;
   }
 }

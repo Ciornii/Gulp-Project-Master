@@ -1,0 +1,40 @@
+.single-page__wrapper {
+  margin: 2.5rem 0;
+
+  .single-page__inner {
+    display: flex;
+
+    .single-page__content {
+      position: relative;
+      display: block;
+      width: 74%;
+      max-width: 818px;
+
+      @include mq(1070px) {
+        width: 72%;
+      }
+
+      @include mq(1023px) {
+        width: 71%;
+      }
+    }
+  }
+}
+
+.single-page__wrapper--with-sidebar {
+
+  .single-page__inner {
+
+    @include mq(980px) {
+      flex-wrap: wrap;
+    }
+
+    .single-page__content {
+
+      @include mq(980px) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

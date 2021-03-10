@@ -22,6 +22,15 @@ body {
   color: #222;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $mainFont-semiBold;
+}
+
 h1 {
   @include font-size(62px);
 }
@@ -47,15 +56,7 @@ textarea {
   font-family: $mainFont-regular;
 }
 
-.main-wrapper {
-  overflow: hidden;
-}
-
-.container {
-  //border: 1px solid blue;
-}
-
-.test {
-  padding: 40px;
-  height: 500px;
+a,
+button {
+  cursor: pointer;
 }

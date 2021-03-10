@@ -1,0 +1,64 @@
+.tabs {
+
+  .tablinks-wrapper {
+    width: 100%;
+    display: flex;
+
+    .tablink {
+      position: relative;
+      color: palette(grey, text);
+      background-color: palette(grey, bg-darken);
+      @include font-size(14px);
+      font-family: $mainFont-semiBold;
+      height: 40px;
+      padding: 0 24px;
+      cursor: pointer;
+      @include flex();
+      border: 1px solid palette(grey, border-light);
+      border-bottom: none;
+    }
+
+    .tablink--active {
+      position: relative;
+      z-index: 2;
+      background-color: white;
+      color: palette(main, base);
+      border-top: none;
+      margin-bottom: -10px;
+      height: 41px;
+
+      &:after {
+        content: "";
+        display: block;
+        width: calc(100% + 2px);
+        height: 5px;
+        background-color: palette(main, base);
+        position: absolute;
+        top: 0px;
+        left: -1px;
+        right: -1px;
+      }
+    }
+
+    .tablink:first-of-type {
+      border-right: none;
+    }
+  }
+
+  .tabcontent {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.93rem 1.62rem;
+    transition: 0.3s;
+    border: 1px solid palette(grey, border-light);
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: flex;
+  }
+}

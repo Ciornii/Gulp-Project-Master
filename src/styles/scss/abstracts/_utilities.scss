@@ -38,3 +38,54 @@
           clip: auto;
      }
 }
+
+.no-scroll {
+     overflow: hidden;
+}
+
+.hide {
+     display: none;
+}
+
+.show {
+     display: flex;
+}
+
+.justify-center {
+     justify-content: center;
+}
+
+.justify-between {
+     justify-content: space-between;
+}
+
+.relative {
+     position: relative;
+}
+
+.absolute {
+     position: absolute;
+}
+
+.sticky-sidebar {
+     position: -webkit-sticky;
+     position: sticky;
+     top: 70px;
+
+     @include mq(768px) {
+          position: relative;
+     }
+}
+
+.main-wrapper {
+     overflow: hidden;
+}
+
+.container {
+     //border: 1px solid blue;
+}
+
+.test {
+     padding: 40px;
+     height: 1500px;
+}
