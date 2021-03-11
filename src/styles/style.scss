@@ -3,8 +3,8 @@
 @import "scss/libs/reset";
 @import "scss/libs/animations";
 @import "scss/libs/fontAwesome";
-// PLugins
-@import "../../node_modules/swiper/swiper-bundle.min";
+@import "../vendor/toastr/build/toastr.min";
+@import "../vendor/swiper/swiper-bundle.min";
 // Abstracts
 @import "scss/abstracts/functions";
 @import "scss/abstracts/mixins";
