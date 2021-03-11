@@ -241,7 +241,7 @@ gulp.task("copy:svg", function () {
       svgSprite({
         mode: {
           stack: {
-            sprite: "../sprite.svg",  // !!! doesn't work for ie
+            sprite: "../sprite.svg", // !!! doesn't work for ie
           },
         },
       })
@@ -257,7 +257,7 @@ gulp.task("copy:img", function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task("tinypng", function () {
+gulp.task("tinypng", function () {  // !!! need to pay for key 
   gulp
     .src(paths.dist.img + "/**/*.{png,jpg,jpeg}")
     .pipe(
@@ -292,11 +292,29 @@ gulp.task("imagemin", function () {
 // ===================================================  Tasks
 
 gulp.task(
+  "build-full",
+  gulp.series(
+    "clean:dist",
+    "copy:dist:html",
+    "copy:dist:html:index",
+    "minify:html",
+    "minify:html:index",
+    "copy:fonts",
+    "copy:img",
+    "imagemin",
+    "copy:svg",
+    "compile:scss",
+    "minify:css",
+    "js:main:build"
+  )
+);
+
+gulp.task(
   "build",
   gulp.series(
     "clean:dist",
-    "copy:html",
-    "minify:html",
+    "copy:dist:html",
+    "copy:dist:html:index",
     "copy:fonts",
     "copy:img",
     "copy:svg",
