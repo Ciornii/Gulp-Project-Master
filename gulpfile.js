@@ -261,9 +261,8 @@ gulp.task("copy:img", function () {
 });
 
 gulp.task("tinypng", function () {
-  // !!! need to pay for key
   gulp
-    .src(paths.dist.img + "/**/*.{png,jpg,jpeg}")
+    .src(paths.dist.img + "/**/*.{png,jpg,jpeg}") // !!! need to pay for key
     .pipe(
       tinypng({
         key: "",
@@ -310,7 +309,6 @@ gulp.task("copy:libs:js", function () {
 
 // =======================================================================================================
 // ===================================================  Tasks
-
 gulp.task(
   "build",
   gulp.series(
