@@ -4,7 +4,7 @@
 
    h1 {
       font-family: $mainFont-semiBold;
-      @include font-size(28px);
+      font-size: 2.8rem;
       color: #3a3a3a;
       margin-top: .6rem;
    }

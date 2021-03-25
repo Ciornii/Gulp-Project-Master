@@ -65,7 +65,7 @@
          ul.popup-catalog__links {
 
             li {
-               @include font-size(13px);
+               font-size: 1.3rem;
                line-height: 1.85;
 
                a {

@@ -83,11 +83,6 @@
 }
 
 // ============================================================================= Text
-@mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
-}
-
 @mixin text-shorten {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -188,7 +183,6 @@
 // @include cover-background;
 // @include img-fit;
 // ============================================================================= Text
-// @include font-size(16px);
 // @include text-shorten;
 // text-img(../url, 120px);
 // ============================================================================= Fonts

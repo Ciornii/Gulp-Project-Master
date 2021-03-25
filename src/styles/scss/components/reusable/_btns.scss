@@ -8,7 +8,7 @@
   max-width: 15rem;
   // text
   @include flex;
-  @include font-size(14px);
+  font-size: 1.4rem;
   font-family: $mainFont-semiBold;
   font-stretch: normal;
   font-style: normal;
@@ -52,7 +52,7 @@
   color: #343434;
   text-transform: initial;
   font-family: $mainFont-regular;
-  @include font-size(17px);
+  font-size: 1.7rem;
   border-radius: 23px;
   border: solid 1px palette(grey, border);
   padding: 0 24px;
@@ -86,7 +86,7 @@
   display: block;
   margin: 0 auto;
   text-transform: initial;
-  @include font-size(12px);
+  font-size: 1.2rem;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;

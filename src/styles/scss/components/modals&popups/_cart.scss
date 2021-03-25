@@ -61,12 +61,12 @@
 
             .cart-item__title {
                display: block;
-               @include font-size(14px);
+               font-size: 1.4rem;
                color: palette(black, text);
             }
 
             .cart-item__details {
-               @include font-size(13px);
+               font-size: 1.3rem;
                color: palette(grey, text-light);
             }
          }
@@ -83,7 +83,7 @@
             &:after {
                content: '\f057';
                @include fontAwesome;
-               @include font-size(17px);
+               font-size: 1.7rem;
                color: palette(grey, icons);
                position: absolute;
                left: 0;
@@ -103,7 +103,7 @@
    .popup-cart__bottom {
       height: 57px;
       @include flex(row, space-between, center, center, nowrap);
-      @include font-size(18px);
+      font-size: 1.8rem;
       color: palette(grey, text-light);
 
       .popup-cart__info {
@@ -116,7 +116,7 @@
          }
 
          .popup-cart__currency {
-            @include font-size(14px);
+            font-size: 1.4rem;
             color: palette(black, text);
             margin-left: 5px;
          }
@@ -124,7 +124,7 @@
 
       .popup-cart__btn {
          padding: 0 21px;
-         @include font-size(14px);
+         font-size: 1.4rem;
          text-transform: initial;
          height: 33px;
          transition: background-color 0.2s ease;

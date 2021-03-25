@@ -38,7 +38,7 @@
     position: absolute;
     top: 19px;
     left: 24px;
-    @include font-size(18px);
+    font-size: 1.8rem;
     color: palette(grey, text-light);
     font-family: $mainFont-regular;
 
@@ -99,7 +99,7 @@
       }
 
       a {
-        @include font-size(15px);
+        font-size: 1.5rem;
         font-family: $mainFont-regular;
         color: palette(black, text);
         cursor: pointer;
@@ -125,7 +125,7 @@
       .mmenu__breadcrumbs {
         color: palette(grey, text-light);
         display: inline-block;
-        @include font-size(18px);
+        font-size: 1.8rem;
         font-family: $mainFont-regular;
         cursor: pointer;
         position: relative;
@@ -140,7 +140,7 @@
       }
 
       .mmenu__brake {
-        @include font-size(18px);
+        font-size: 1.8rem;
         font-family: $mainFont-regular;
         color: palette(grey, border);
       }
@@ -155,7 +155,7 @@
         span {
           font-family: $mainFont-regular;
           position: relative;
-          @include font-size(14px);
+          font-size: 1.4rem;
           display: inline-block;
           padding: 9px 0;
           color: palette(black, text);
@@ -167,7 +167,7 @@
           position: relative;
           font-family: $mainFont-bold;
           color: palette(main, dark);
-          @include font-size(13px);
+          font-size: 1.3rem;
           cursor: default;
 
           &:hover {
@@ -240,7 +240,7 @@
           z-index: 10;
 
           span {
-            @include font-size(16px);
+            font-size: 1.6rem;
             font-family: $mainFont-semiBold;
             cursor: default;
 
@@ -277,7 +277,7 @@
               span.active {
                 font-family: $mainFont-bold;
                 color: palette(main, dark);
-                @include font-size(13px);
+                font-size: 1.3rem;
                 cursor: default;
 
                 &:hover {
@@ -299,7 +299,7 @@
 
           .mmenu__go-back {
             position: relative;
-            @include font-size(13px);
+            font-size: 1.3rem;
             font-family: $mainFont-regular;
             color: palette(grey, text-light);
             cursor: pointer;
@@ -310,7 +310,7 @@
               content: "\f104";
               @include fontAwesome;
               font-weight: 600;
-              @include font-size(16px);
+              font-size: 1.6rem;
               @include align-center(vertical);
               color: inherit;
               left: 0px;
@@ -347,7 +347,7 @@
     border-bottom: none;
     margin-top: 0;
     padding-top: 0;
-    @include font-size(15px);
+    font-size: 1.5rem;
 
     li:first-child {
       border-top: 1px solid palette(grey, border);
@@ -392,7 +392,7 @@
     margin-left: 49px;
     margin-top: -10px;
     width: 45px;
-    @include font-size(15px);
+    font-size: 1.5rem;
 
     &:before {
       @include fontAwesome;

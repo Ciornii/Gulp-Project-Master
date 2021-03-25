@@ -17,7 +17,7 @@
         border-radius: 5px;
         padding: 7px 5px;
         text-align: center;
-        @include font-size(18px);
+        font-size:1.8rem;
         font-family: $mainFont-semiBold;
         color: palette(grey, text-light);
         transition: 0.3s ease-in-out;
@@ -53,12 +53,12 @@
         min-width: 24px;
         height: 24px;
         padding: 3px 5px;
-        @include font-size(14px);
+        font-size:1.4rem;
         color: palette(grey, dark);
         font-family: $mainFont-regular;
 
         i {
-          @include font-size(12px);
+          font-size:1.2rem;
         }
       }
     }

@@ -1,5 +1,3 @@
-import calcScroll from "./calcScroll";
-
 const hiddenSidebar = () => {
   function bindHiddenSidebar({
     triggerSelector,
@@ -15,7 +13,7 @@ const hiddenSidebar = () => {
     const triggers = document.querySelectorAll(triggerSelector),
       sidebar = document.querySelector(sidebarSelector),
       modalBg = document.querySelector(modalBgSelector),
-      scroll = calcScroll();
+      scroll = 15;
 
     triggers.forEach((trigger) => {
       trigger.addEventListener("click", () => {

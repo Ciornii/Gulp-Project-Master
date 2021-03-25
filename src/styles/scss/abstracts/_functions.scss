@@ -2,9 +2,6 @@
  * Functions
  */
 
-// ------------------------------------------------------- From px to rem
-// calculateRem($size) 
-
 // ------------------------------------------------------- Half-numbers
 // .example {
 //    width: $element-width;
@@ -14,12 +11,6 @@
 // ------------------------------------------------------- Color palette
 // background-color: palette(main, base);
 
-
-// ------------------------------------------------------- From px to rem
-@function calculateRem($size) {
-   $remSize: $size / 16px;
-   @return $remSize * 1rem;
-}
 
 // ------------------------------------------------------- Half-numbers
 @function h($num) {

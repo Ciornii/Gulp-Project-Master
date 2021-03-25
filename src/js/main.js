@@ -13,11 +13,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
   // --------------------------------------------------------------------------------------------------------
-  // ------------------------------------------------------------------- Toastr
-  toastr.options.timeout = 2000;
-  toastr.info('Toastr works!');
-
-  // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Preloader
   const preloader = document.querySelector(".preloader");
   if (preloader) {
@@ -58,11 +53,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     } else {
       navbar.classList.remove("navbar--sticky");
       main.style.paddingTop = "0px";
-    }
-    if (window.pageYOffset >= 100) {
-      navbar.classList.add("navbar--small");
-    } else {
-      navbar.classList.remove("navbar--small");
     }
   };
 
