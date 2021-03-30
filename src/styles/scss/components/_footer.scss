@@ -9,104 +9,6 @@
     padding-top: 2.87rem;
     @include row-flex;
     white-space: nowrap;
-
-    .footer__block {
-      margin-bottom: 2.3rem;
-      @include col;
-      @include col-3;
-
-      @include mq(768px) {
-        @include col-6;
-      }
-
-      @include mq(375px) {
-        @include col-12;
-      }
-
-      h2 {
-        font-size: 1.3rem;
-        color: palette(grey, text);
-        font-family: $mainFont-regular;
-        border-bottom: 1px solid palette(grey, border);
-        margin-right: 2.12rem;
-        line-height: 2.2;
-        text-transform: uppercase;
-      }
-
-      p {
-        font-size: 1.3rem;
-        color: palette(grey, text);
-        line-height: 1.85;
-        white-space: normal;
-      }
-
-      img {
-        height: 31px;
-      }
-
-      ul {
-        position: relative;
-        margin-top: 0.5rem;
-
-        li {
-          font-size: 1.3rem;
-          color: palette(grey, text);
-          line-height: 1.85;
-
-          @include mq(1107px) {
-            white-space: initial;
-          }
-
-          a {
-            font-size: 1.3rem;
-            color: palette(grey, text);
-            transition: all 0.1s ease;
-            border-bottom: 1px solid transparent;
-
-            &:hover {
-              color: palette(main, dark);
-            }
-          }
-        }
-
-        li.footer__contacts {
-          position: relative;
-          padding-left: 1.5rem;
-          margin: 1rem 0;
-
-          &:before {
-            @include fontAwesome;
-            font-size: 12px;
-            @include align-center(vertical);
-            color: palette(main, base);
-            left: 0px;
-          }
-        }
-
-        .footer__contacts--phone {
-          &:before {
-            content: "\f879";
-          }
-        }
-
-        .footer__contacts--email {
-          &:before {
-            content: "\f2b6";
-          }
-        }
-
-        .footer__contacts--address {
-          line-height: 1.4;
-
-          &:before {
-            content: "\f3c5";
-            top: 10px !important;
-          }
-        }
-      }
-
-
-    }
   }
 
   .copyright {
@@ -122,7 +24,6 @@
     .copyright__left {
       float: left;
       display: block;
-      //text
       font-size: 13px;
       font-weight: normal;
       font-stretch: normal;
@@ -135,49 +36,6 @@
       @media only screen and (max-width: 469px) {
         text-align: center;
         width: 100%;
-      }
-    }
-
-    .copyright__icons {
-      display: flex;
-      margin-top: 10px;
-
-      .copyright__icon {
-        position: relative;
-        height: 34px;
-        min-width: 40px;
-        margin-right: 1rem;
-        overflow: hidden;
-
-        @include mq(903px) {
-          margin-right: 3px;
-        }
-
-        svg {
-          max-height: 34px;
-          @include align-center(both);
-        }
-      }
-
-      .copyright__icon--ssl {
-        min-width: 77px;
-
-        img {
-          height: 24px;
-          margin-top: 4px;
-        }
-      }
-
-      .copyright__icon--visa {
-        min-width: 45px;
-
-        svg {
-          max-height: 40px;
-        }
-      }
-
-      .copyright__icon--mastercard {
-        svg {}
       }
     }
 

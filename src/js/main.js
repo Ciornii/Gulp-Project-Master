@@ -1,7 +1,6 @@
 import sliders from "./modules/sliders";
 import modals from "./modules/modals";
 import popup from "./modules/popup";
-import hiddenSidebar from "./modules/hiddenSidebar";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   "use strict";
@@ -9,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   sliders();
   modals();
   popup();
-  hiddenSidebar();
-
 
   // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Preloader
@@ -24,20 +21,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }, 200);
     }, 1000);
   }
-
-  // --------------------------------------------------------------------------------------------------------
-  // ------------------------------------------------------------------- Search focus
-  const searchBar = document.querySelector(".topbar__block--search");
-  const input = document.querySelector(".topbar__block--search input");
-
-  document.addEventListener("click", (e) => {
-    if (input === document.activeElement) {
-      searchBar.classList.add("active");
-    } else {
-      searchBar.classList.remove("active");
-      input.value = "";
-    }
-  });
 
   // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Sticky Navigation

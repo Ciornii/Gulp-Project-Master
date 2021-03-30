@@ -46,7 +46,7 @@ const modals = () => {
     });
   }
 
-  bindModal('[data-modal-trigger]', '.modal', '.modal__close');
+  // bindModal('[data-modal-trigger]', '.modal', '.modal__close');
 };
 
 export default modals;

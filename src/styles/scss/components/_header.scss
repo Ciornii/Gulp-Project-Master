@@ -8,35 +8,9 @@
     background-color: palette(grey, bg);
 
     .top-header__inner {
-      display: flex;
-      flex-wrap: nowrap;
-      //justify-content: space-between;
-      align-items: center;
-      align-content: center;
+      @include flex(row, space-between, center, center, wrap);
       height: 107px;
       position: relative;
-
-      div {
-        height: 100%;
-        display: inline-block;
-      }
-
-      svg {
-        width: 32px;
-        height: 32px;
-      }
-
-      button {
-        border: 1px solid red;
-      }
-
-      .top-header__logo {
-        display: inline-block;
-
-        img {
-          height: 3.9rem;
-        }
-      }
     }
   }
 
@@ -66,47 +40,5 @@
     top: 0;
     width: 100%;
     box-shadow: 0px 2px 5px 0px rgba(131, 131, 131, 0.2);
-  }
-}
-
-
-.search-bar__search {
-  position: relative;
-  @include width(460px);
-
-  input {
-    position: relative;
-    font-weight: 400;
-    border-width: 1px;
-    border-color: rgb(222, 224, 224);
-    border-style: solid;
-    border-radius: 2px;
-    background-color: rgb(248, 245, 245);
-    width: 100%;
-    height: 50px;
-    outline: none;
-    font-size: 16px;
-    color: rgb(127, 134, 136);
-    padding-left: 20px;
-    position: relative;
-    border-radius: 50px;
-    transition: all 0.4s ease;
-    padding-right: 50px;
-  }
-
-  .search-bar__icon {
-    height: 40px;
-    width: 40px;
-    border-radius: 50px;
-    @include align-center(vertical);
-    right: 15px;
-    overflow: hidden;
-    cursor: text;
-
-    svg {
-      width: 17px;
-      fill: $dark-grey;
-      @include align-center(both);
-    }
   }
 }

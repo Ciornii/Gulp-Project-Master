@@ -20,14 +20,10 @@ function popup() {
     });
   }
 
-  bindPopup({
-    popupSelector: '.popup-catalog',
-    triggerSelector: '.navbar__dropdown',
-  });
-  bindPopup({
-    popupSelector: '.popup-cart',
-    triggerSelector: '.navbar__btn--basket',
-  });
+  // bindPopup({
+  //   popupSelector: '.popup-catalog',
+  //   triggerSelector: '.navbar__dropdown',
+  // });
 }
 
 export default popup;

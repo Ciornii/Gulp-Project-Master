@@ -64,7 +64,6 @@ $palettes: (
 @include font-face(Montserrat-MediumItalic, montserrat);
 @include font-face(Montserrat-Black, montserrat);
 @include font-face(Montserrat-BlackItalic, montserrat);
-@include font-face(BebasNeue-Regular, bebasNeue);
 
 $font-family: Helvetica, Arial, sans-serif, cursive;
 
@@ -86,4 +85,3 @@ $mainFont-extraBold: 'Montserrat-ExtraBold', $font-family;
 $mainFont-extraBoldItalic: 'Montserrat-ExtraBoldItalic', $font-family;
 $mainFont-black: 'Montserrat-Black', $font-family;
 $mainFont-blackItalic: 'Montserrat-BlackItalic', $font-family;
-$logoFont: 'BebasNeue-Regular', $font-family;
