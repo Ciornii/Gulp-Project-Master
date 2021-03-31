@@ -193,36 +193,6 @@
 // @include customScroll($size: 6px, $radius: 0px);
 // @include resizable(vertical);
 // ============================================================================= Media queries
+// @include mq($phone) {}
 // @include mq(768px) {}
 // @include mq(768px, min) {}
-
-// @include mq(1440px) {
-//     desktop
-// }
-// @include mq(1248px) {
-//     laptop
-// }
-// @include mq(1024px) {
-//     tablet-large
-// }
-// @include mq(768px) {
-//     tablet
-// }
-// @include mq(640px) {
-//     tablet-small
-// }
-// @include mq(560px) {
-//     phablet
-// }
-// @include mq(480px) {
-//     phone-wide
-// }
-// @include mq(414px) {
-//     phone
-// }
-// @include mq(375px) {
-//     phone-small
-// }
-// @include mq(320px) {
-//     iphone5
-// }

@@ -2,17 +2,26 @@
  * Variables
  */
 
-// ============================================================================= Colors
+// ============================================================================= Breakpoints
+$desktop: 1440px;
+$laptop: 1248px;
+$tablet-large: 1024px;
+$tablet: 768px;
+$tablet-small: 640px;
+$phablet: 560px;
+$phone-wide: 480px;
+$phone: 425px;
+$phone-small: 375px;
+$phone-extraSmall: 320px;
 
+
+// ============================================================================= Colors
 // background-color: palette(main, base);
-$palettes: (
-  main: (
-    base: #146cda,
-    light: lighten(#146cda,5%),
-    dark: darken(#146cda,5%),
+$palettes: (main: (base: #146cda,
+    light: lighten(#146cda, 5%),
+    dark: darken(#146cda, 5%),
   ),
-  grey: (
-    base: #a5a5a5,
+  grey: (base: #a5a5a5,
     light: #f9f3f3,
     dark: #565656,
     bg:#f6f6f6,
@@ -25,24 +34,19 @@ $palettes: (
     border: #dadada,
     border-light: #eae9ee,
   ),
-  black: (
-    base: #000000,
+  black: (base: #000000,
     text: #242424,
     text-light: #3a3a3a,
   ),
-  red: (
-    base: #f02709,
+  red: (base: #f02709,
     light: #e14337,
     dark: #bd2015,
   ),
-  green: (
-    base: #12a65b,
+  green: (base: #12a65b,
     light: #3c763d,
   ),
-  yellow: (
-    base: #ffd02e,
-  )
-);
+  yellow: (base: #ffd02e,
+  ));
 
 
 // ============================================================================= Fonts
@@ -65,23 +69,44 @@ $palettes: (
 @include font-face(Montserrat-Black, montserrat);
 @include font-face(Montserrat-BlackItalic, montserrat);
 
-$font-family: Helvetica, Arial, sans-serif, cursive;
+$font-family: Helvetica,
+Arial,
+sans-serif,
+cursive;
 
-$mainFont-thin: 'Montserrat-Thin', $font-family;
-$mainFont-italic: 'Montserrat-Italic', $font-family;
-$mainFont-thinItalic: 'Montserrat-ThinItalic', $font-family;
-$mainFont-extraLight: 'Montserrat-ExtraLight', $font-family;
-$mainFont-extraLightItalic: 'Montserrat-ExtraLightItalic', $font-family;
-$mainFont-light: 'Montserrat-Light', $font-family;
-$mainFont-lightItalic: 'Montserrat-LightItalic', $font-family;
-$mainFont-regular: 'Montserrat-Regular', $font-family;
-$mainFont-medium: 'Montserrat-Medium', $font-family;
-$mainFont-mediumItalic: 'Montserrat-MediumItalic', $font-family;
-$mainFont-semiBold: 'Montserrat-SemiBold', $font-family;
-$mainFont-semiBoldItalic: 'Montserrat-SemiBoldItalic', $font-family;
-$mainFont-bold: 'Montserrat-Bold', $font-family;
-$mainFont-boldItalic: 'Montserrat-BoldItalic', $font-family;
-$mainFont-extraBold: 'Montserrat-ExtraBold', $font-family;
-$mainFont-extraBoldItalic: 'Montserrat-ExtraBoldItalic', $font-family;
-$mainFont-black: 'Montserrat-Black', $font-family;
-$mainFont-blackItalic: 'Montserrat-BlackItalic', $font-family;
+$mainFont-thin: 'Montserrat-Thin',
+$font-family;
+$mainFont-italic: 'Montserrat-Italic',
+$font-family;
+$mainFont-thinItalic: 'Montserrat-ThinItalic',
+$font-family;
+$mainFont-extraLight: 'Montserrat-ExtraLight',
+$font-family;
+$mainFont-extraLightItalic: 'Montserrat-ExtraLightItalic',
+$font-family;
+$mainFont-light: 'Montserrat-Light',
+$font-family;
+$mainFont-lightItalic: 'Montserrat-LightItalic',
+$font-family;
+$mainFont-regular: 'Montserrat-Regular',
+$font-family;
+$mainFont-medium: 'Montserrat-Medium',
+$font-family;
+$mainFont-mediumItalic: 'Montserrat-MediumItalic',
+$font-family;
+$mainFont-semiBold: 'Montserrat-SemiBold',
+$font-family;
+$mainFont-semiBoldItalic: 'Montserrat-SemiBoldItalic',
+$font-family;
+$mainFont-bold: 'Montserrat-Bold',
+$font-family;
+$mainFont-boldItalic: 'Montserrat-BoldItalic',
+$font-family;
+$mainFont-extraBold: 'Montserrat-ExtraBold',
+$font-family;
+$mainFont-extraBoldItalic: 'Montserrat-ExtraBoldItalic',
+$font-family;
+$mainFont-black: 'Montserrat-Black',
+$font-family;
+$mainFont-blackItalic: 'Montserrat-BlackItalic',
+$font-family;
