@@ -9,7 +9,8 @@
   // text
   @include flex;
   font-size: 1.4rem;
-  font-family: $mainFont-semiBold;
+  font-family: $mainFont;
+  font-weight: 600;
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
@@ -51,7 +52,8 @@
   background-color: transparent;
   color: #343434;
   text-transform: initial;
-  font-family: $mainFont-regular;
+  font-family: $mainFont;
+  font-weight: normal;
   font-size: 1.7rem;
   border-radius: 23px;
   border: solid 1px palette(grey, border);

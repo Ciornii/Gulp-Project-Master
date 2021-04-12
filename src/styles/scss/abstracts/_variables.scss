@@ -50,63 +50,11 @@ $palettes: (main: (base: #146cda,
 
 
 // ============================================================================= Fonts
-@include font-face(Montserrat-Thin, montserrat);
-@include font-face(Montserrat-ThinItalic, montserrat);
-@include font-face(Montserrat-ExtraLight, montserrat);
-@include font-face(Montserrat-ExtraLightItalic, montserrat);
-@include font-face(Montserrat-ExtraBold, montserrat);
-@include font-face(Montserrat-ExtraBoldItalic, montserrat);
-@include font-face(Montserrat-Italic, montserrat);
-@include font-face(Montserrat-Light, montserrat);
-@include font-face(Montserrat-LightItalic, montserrat);
-@include font-face(Montserrat-Regular, montserrat);
-@include font-face(Montserrat-SemiBold, montserrat);
-@include font-face(Montserrat-SemiBoldItalic, montserrat);
-@include font-face(Montserrat-Bold, montserrat);
-@include font-face(Montserrat-BoldItalic, montserrat);
-@include font-face(Montserrat-Medium, montserrat);
-@include font-face(Montserrat-MediumItalic, montserrat);
-@include font-face(Montserrat-Black, montserrat);
-@include font-face(Montserrat-BlackItalic, montserrat);
+@include font-face(Montserrat-Italic, montserrat, 400, italic);
+@include font-face(Montserrat-Light, montserrat, 300);
+@include font-face(Montserrat-Regular, montserrat, 500);
+@include font-face(Montserrat-SemiBold, montserrat, 600);
+@include font-face(Montserrat-Bold, montserrat, 800);
+@include font-face(Montserrat-Black, montserrat, 900);
 
-$font-family: Helvetica,
-Arial,
-sans-serif,
-cursive;
-
-$mainFont-thin: 'Montserrat-Thin',
-$font-family;
-$mainFont-italic: 'Montserrat-Italic',
-$font-family;
-$mainFont-thinItalic: 'Montserrat-ThinItalic',
-$font-family;
-$mainFont-extraLight: 'Montserrat-ExtraLight',
-$font-family;
-$mainFont-extraLightItalic: 'Montserrat-ExtraLightItalic',
-$font-family;
-$mainFont-light: 'Montserrat-Light',
-$font-family;
-$mainFont-lightItalic: 'Montserrat-LightItalic',
-$font-family;
-$mainFont-regular: 'Montserrat-Regular',
-$font-family;
-$mainFont-medium: 'Montserrat-Medium',
-$font-family;
-$mainFont-mediumItalic: 'Montserrat-MediumItalic',
-$font-family;
-$mainFont-semiBold: 'Montserrat-SemiBold',
-$font-family;
-$mainFont-semiBoldItalic: 'Montserrat-SemiBoldItalic',
-$font-family;
-$mainFont-bold: 'Montserrat-Bold',
-$font-family;
-$mainFont-boldItalic: 'Montserrat-BoldItalic',
-$font-family;
-$mainFont-extraBold: 'Montserrat-ExtraBold',
-$font-family;
-$mainFont-extraBoldItalic: 'Montserrat-ExtraBoldItalic',
-$font-family;
-$mainFont-black: 'Montserrat-Black',
-$font-family;
-$mainFont-blackItalic: 'Montserrat-BlackItalic',
-$font-family;
+$mainFont: 'Montserrat', Helvetica, Arial, sans-serif;

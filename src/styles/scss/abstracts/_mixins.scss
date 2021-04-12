@@ -97,14 +97,10 @@
 }
 
 // ============================================================================= Fonts
-@mixin font-face($file, $folder, $weight: normal, $style: normal) {
+@mixin font-face($file, $folder, $weight: 400, $style: normal) {
   @font-face {
     font-family: "#{$file}";
-    src: url("../fonts/#{$folder}/#{$file}.eot");
-    src: url("../fonts/#{$folder}/#{$file}.eot?#iefix")
-        format("embedded-opentype"),
-      url("../fonts/#{$folder}/#{$file}.ttf") format("truetype"),
-      url("../fonts/#{$folder}/#{$file}.svg?#webfont") format("svg");
+    src: url("../../assets/fonts/#{$folder}/#{$file}.ttf") format("truetype");
     font-weight: $weight;
     font-style: $style;
   }
