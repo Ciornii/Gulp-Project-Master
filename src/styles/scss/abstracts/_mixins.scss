@@ -97,14 +97,21 @@
 }
 
 // ============================================================================= Fonts
-@mixin font-face($file, $folder, $weight: 400, $style: normal) {
+@mixin font-face($name, $folder, $weight: normal, $style: normal, $extension: null) {
   @font-face {
-    font-family: "#{$file}";
-    src: url("../../assets/fonts/#{$folder}/#{$file}.ttf") format("truetype");
+    font-family: "#{$name}";
+    src: url("../../assets/fonts/#{$folder}/#{$name}.#{$extension}");
     font-weight: $weight;
     font-style: $style;
   }
 }
+
+// url("../fonts/#{$folder}/#{$file}.eot");
+// url("../fonts/#{$folder}/#{$file}.eot?#iefix") format("embedded-opentype");
+// url("../fonts/#{$folder}/#{$file}.svg?#webfont") format("svg");
+// url("../fonts/#{$folder}/#{$file}.ttf") format("truetype");
+// url("../fonts/#{$folder}/#{$file}.otf") format("opentype");
+
 
 // ============================================================================= Media queries
 @mixin mq($breakpoint, $type: max) {
