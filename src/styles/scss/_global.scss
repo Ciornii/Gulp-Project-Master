@@ -5,11 +5,15 @@
 html {
   font-size: 62.5%;
 
-  @media only screen and (max-width: 768px) {
-    font-size: 50%;
+  @include mq(tablet-large) {
+    font-size: 55%;
   }
 
-  @media only screen and (max-width: 576px) {
+  @include mq(tablet) {
+    font-size: 50%;
+  }
+  
+  @include mq(phone) {
     font-size: 45%;
   }
 }
