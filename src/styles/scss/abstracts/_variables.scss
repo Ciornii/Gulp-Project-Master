@@ -3,16 +3,27 @@
  */
 
 // ============================================================================= Breakpoints
-$desktop: 1440px;
-$laptop: 1248px;
-$tablet-large: 1024px;
-$tablet: 768px;
-$tablet-small: 640px;
-$phablet: 560px;
-$phone-wide: 480px;
-$phone: 425px;
-$phone-small: 375px;
-$phone-extraSmall: 320px;
+// @include mq(phone)
+$breakpoints: (
+  laptop-large: '(max-device-width : 1440px)',
+  laptop: '(max-device-width : 1280px)',
+  tablet-large: '(max-device-width : 1024px)',
+  tablet: '(max-device-width : 768px)',
+  phone: '(max-device-width : 480px)',
+  phone-small: '(max-device-width : 374px)'
+);
+
+// ================================================= Mobile first
+// $breakpoints: (
+//   phone-small: '(max-device-width : 320px)',
+//   phone: '(min-device-width : 375px)',
+//   tablet-small: '(min-device-width : 480px)',
+//   tablet: '(min-device-width : 640px)',
+//   tablet-large: '(min-device-width : 769px)',
+//   laptop: '(min-device-width : 1024px)',
+//   laptop-large: '(min-device-width : 1280px)',
+//   desktop: '(min-device-width : 1441px)'
+// );
 
 
 // ============================================================================= Colors

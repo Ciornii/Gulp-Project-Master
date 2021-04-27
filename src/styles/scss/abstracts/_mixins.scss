@@ -107,9 +107,17 @@
 }
 
 // ============================================================================= Media queries
-@mixin mq($width, $type: max) {
-  @media only screen and (#{$type}-width: $width) {
-    @content;
+@mixin mq($breakpoint, $type: max) {
+  @each $name, $point in $breakpoints {
+    @if $name == $breakpoint {
+      @media #{$point} {
+        @content;
+      }
+    } @else {
+      @media only screen and (#{$type}-width: $breakpoint) {
+        @content;
+      }
+    }
   }
 }
 
@@ -189,6 +197,6 @@
 // @include customScroll($size: 6px, $radius: 0px);
 // @include resizable(vertical);
 // ============================================================================= Media queries
-// @include mq($phone) {}
 // @include mq(768px) {}
 // @include mq(768px, min) {}
+// @include mq(tablet)

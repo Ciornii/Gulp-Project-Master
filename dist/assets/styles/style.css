@@ -762,35 +762,105 @@ input:disabled {
     -o-animation-name: jackInTheBox;
        animation-name: jackInTheBox; }
 
-.slideDown {
-  -webkit-animation: slideOutDown, opacityFadeIn;
-     -moz-animation: slideOutDown, opacityFadeIn;
-       -o-animation: slideOutDown, opacityFadeIn;
-          animation: slideOutDown, opacityFadeIn;
-  -webkit-animation-duration: 3s, 3s;
-     -moz-animation-duration: 3s, 3s;
-       -o-animation-duration: 3s, 3s;
-          animation-duration: 3s, 3s;
-  -webkit-animation-timing-function: ease, ease;
-     -moz-animation-timing-function: ease, ease;
-       -o-animation-timing-function: ease, ease;
-          animation-timing-function: ease, ease;
-  -webkit-animation-delay: 0s, 0s;
-     -moz-animation-delay: 0s, 0s;
-       -o-animation-delay: 0s, 0s;
-          animation-delay: 0s, 0s;
-  -webkit-animation-iteration-count: infinite, infinite;
-     -moz-animation-iteration-count: infinite, infinite;
-       -o-animation-iteration-count: infinite, infinite;
-          animation-iteration-count: infinite, infinite;
-  -webkit-animation-fill-mode: none, none;
-     -moz-animation-fill-mode: none, none;
-       -o-animation-fill-mode: none, none;
-          animation-fill-mode: none, none;
-  -webkit-animation-play-state: running, running;
-     -moz-animation-play-state: running, running;
-       -o-animation-play-state: running, running;
-          animation-play-state: running, running; }
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@-moz-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    -moz-transform: translate3d(0, -100%, 0);
+         transform: translate3d(0, -100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+         transform: translate3d(0, 0, 0); } }
+
+@-o-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    -moz-transform: translate3d(0, -100%, 0);
+         transform: translate3d(0, -100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+         transform: translate3d(0, 0, 0); } }
+
+.animate__slideInDown {
+  -webkit-animation-name: slideInDown;
+  -moz-animation-name: slideInDown;
+    -o-animation-name: slideInDown;
+       animation-name: slideInDown;
+  -webkit-animation-duration: .3s;
+     -moz-animation-duration: .3s;
+       -o-animation-duration: .3s;
+          animation-duration: .3s; }
+
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@-moz-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+         transform: translate3d(0, 100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+         transform: translate3d(0, 0, 0); } }
+
+@-o-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+         transform: translate3d(0, 100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+         transform: translate3d(0, 0, 0); } }
+
+.animate__slideInUp {
+  -webkit-animation-name: slideInUp;
+  -moz-animation-name: slideInUp;
+    -o-animation-name: slideInUp;
+       animation-name: slideInUp;
+  -webkit-animation-duration: .3s;
+     -moz-animation-duration: .3s;
+       -o-animation-duration: .3s;
+          animation-duration: .3s; }
 
 /*!
  * Font Awesome Free 5.11.2 by @fontawesome - https://fontawesome.com
@@ -6313,6 +6383,21 @@ button.swiper-pagination-bullet {
   @media only screen and (max-width: 768px) {
     .sticky-sidebar {
       position: relative; } }
+  @media only screen and (max-width: 768px) {
+    .sticky-sidebar {
+      position: relative; } }
+  @media only screen and (max-width: 768px) {
+    .sticky-sidebar {
+      position: relative; } }
+  @media only screen and (max-width: 768px) {
+    .sticky-sidebar {
+      position: relative; } }
+  @media only screen and (max-width: 768px) {
+    .sticky-sidebar {
+      position: relative; } }
+  @media only screen and (max-width: 768px) {
+    .sticky-sidebar {
+      position: relative; } }
 
 .main-wrapper {
   overflow: hidden; }
@@ -6582,6 +6667,21 @@ button {
     @media only screen and (max-width: 560px) {
       .title h2 {
         margin: 0 1.5rem; } }
+    @media only screen and (max-width: 560px) {
+      .title h2 {
+        margin: 0 1.5rem; } }
+    @media only screen and (max-width: 560px) {
+      .title h2 {
+        margin: 0 1.5rem; } }
+    @media only screen and (max-width: 560px) {
+      .title h2 {
+        margin: 0 1.5rem; } }
+    @media only screen and (max-width: 560px) {
+      .title h2 {
+        margin: 0 1.5rem; } }
+    @media only screen and (max-width: 560px) {
+      .title h2 {
+        margin: 0 1.5rem; } }
   .title .title__line {
     display: inline-block;
     height: 1px;
@@ -6671,6 +6771,66 @@ button {
     .form-group label:before,
     .form-group input {
       margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 768px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -2px; } }
+  @media only screen and (max-width: 560px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -1px; } }
+  @media only screen and (max-width: 560px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -1px; } }
+  @media only screen and (max-width: 560px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -1px; } }
+  @media only screen and (max-width: 560px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -1px; } }
+  @media only screen and (max-width: 560px) {
+    .form-group label:before,
+    .form-group input {
+      margin-top: -1px; } }
   @media only screen and (max-width: 560px) {
     .form-group label:before,
     .form-group input {
@@ -7027,6 +7187,36 @@ button {
       @media only screen and (max-width: 1070px) {
         .single-page__wrapper .single-page__inner .single-page__content {
           width: 72%; } }
+      @media only screen and (max-width: 1070px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 72%; } }
+      @media only screen and (max-width: 1070px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 72%; } }
+      @media only screen and (max-width: 1070px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 72%; } }
+      @media only screen and (max-width: 1070px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 72%; } }
+      @media only screen and (max-width: 1070px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 72%; } }
+      @media only screen and (max-width: 1023px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 71%; } }
+      @media only screen and (max-width: 1023px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 71%; } }
+      @media only screen and (max-width: 1023px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 71%; } }
+      @media only screen and (max-width: 1023px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 71%; } }
+      @media only screen and (max-width: 1023px) {
+        .single-page__wrapper .single-page__inner .single-page__content {
+          width: 71%; } }
       @media only screen and (max-width: 1023px) {
         .single-page__wrapper .single-page__inner .single-page__content {
           width: 71%; } }
@@ -7036,6 +7226,61 @@ button {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner .single-page__content {
+    width: 100%;
+    max-width: 100%; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner .single-page__content {
+    width: 100%;
+    max-width: 100%; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner .single-page__content {
+    width: 100%;
+    max-width: 100%; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner .single-page__content {
+    width: 100%;
+    max-width: 100%; } }
+
+@media only screen and (max-width: 980px) {
+  .single-page__wrapper--with-sidebar .single-page__inner .single-page__content {
+    width: 100%;
+    max-width: 100%; } }
 
 @media only screen and (max-width: 980px) {
   .single-page__wrapper--with-sidebar .single-page__inner .single-page__content {
@@ -7409,6 +7654,51 @@ button {
     .scroll-up {
       bottom: 90px;
       right: 0; } }
+  @media only screen and (max-width: 844px) {
+    .scroll-up {
+      bottom: 90px;
+      right: 0; } }
+  @media only screen and (max-width: 844px) {
+    .scroll-up {
+      bottom: 90px;
+      right: 0; } }
+  @media only screen and (max-width: 844px) {
+    .scroll-up {
+      bottom: 90px;
+      right: 0; } }
+  @media only screen and (max-width: 844px) {
+    .scroll-up {
+      bottom: 90px;
+      right: 0; } }
+  @media only screen and (max-width: 844px) {
+    .scroll-up {
+      bottom: 90px;
+      right: 0; } }
+  @media only screen and (max-width: 500px) {
+    .scroll-up {
+      width: 2.5rem;
+      height: 2.5rem;
+      bottom: 80px; } }
+  @media only screen and (max-width: 500px) {
+    .scroll-up {
+      width: 2.5rem;
+      height: 2.5rem;
+      bottom: 80px; } }
+  @media only screen and (max-width: 500px) {
+    .scroll-up {
+      width: 2.5rem;
+      height: 2.5rem;
+      bottom: 80px; } }
+  @media only screen and (max-width: 500px) {
+    .scroll-up {
+      width: 2.5rem;
+      height: 2.5rem;
+      bottom: 80px; } }
+  @media only screen and (max-width: 500px) {
+    .scroll-up {
+      width: 2.5rem;
+      height: 2.5rem;
+      bottom: 80px; } }
   @media only screen and (max-width: 500px) {
     .scroll-up {
       width: 2.5rem;
@@ -7486,33 +7776,111 @@ button {
   width: 300px;
   height: 300px;
   background-color: black; }
-  @media only screen and (max-width: 1440px) {
-    .hero .block {
-      background-color: #00eeff; } }
-  @media only screen and (max-width: 1248px) {
+  @media (max-device-width: 1440px) {
     .hero .block {
       background-color: #ae00ff; } }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: laptop-large) {
+    .hero .block {
+      background-color: #ae00ff; } }
+  @media only screen and (max-width: laptop-large) {
+    .hero .block {
+      background-color: #ae00ff; } }
+  @media only screen and (max-width: laptop-large) {
+    .hero .block {
+      background-color: #ae00ff; } }
+  @media only screen and (max-width: laptop-large) {
+    .hero .block {
+      background-color: #ae00ff; } }
+  @media only screen and (max-width: laptop-large) {
+    .hero .block {
+      background-color: #ae00ff; } }
+  @media only screen and (max-width: laptop) {
+    .hero .block {
+      background-color: #a8ff07; } }
+  @media (max-device-width: 1280px) {
+    .hero .block {
+      background-color: #a8ff07; } }
+  @media only screen and (max-width: laptop) {
+    .hero .block {
+      background-color: #a8ff07; } }
+  @media only screen and (max-width: laptop) {
+    .hero .block {
+      background-color: #a8ff07; } }
+  @media only screen and (max-width: laptop) {
+    .hero .block {
+      background-color: #a8ff07; } }
+  @media only screen and (max-width: laptop) {
+    .hero .block {
+      background-color: #a8ff07; } }
+  @media only screen and (max-width: tablet-large) {
     .hero .block {
       background-color: #0077ff; } }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: tablet-large) {
+    .hero .block {
+      background-color: #0077ff; } }
+  @media (max-device-width: 1024px) {
+    .hero .block {
+      background-color: #0077ff; } }
+  @media only screen and (max-width: tablet-large) {
+    .hero .block {
+      background-color: #0077ff; } }
+  @media only screen and (max-width: tablet-large) {
+    .hero .block {
+      background-color: #0077ff; } }
+  @media only screen and (max-width: tablet-large) {
+    .hero .block {
+      background-color: #0077ff; } }
+  @media only screen and (max-width: tablet) {
+    .hero .block {
+      background-color: blue; } }
+  @media only screen and (max-width: tablet) {
+    .hero .block {
+      background-color: blue; } }
+  @media only screen and (max-width: tablet) {
+    .hero .block {
+      background-color: blue; } }
+  @media (max-device-width: 768px) {
+    .hero .block {
+      background-color: blue; } }
+  @media only screen and (max-width: tablet) {
+    .hero .block {
+      background-color: blue; } }
+  @media only screen and (max-width: tablet) {
+    .hero .block {
+      background-color: blue; } }
+  @media only screen and (max-width: phone) {
     .hero .block {
       background-color: #ffae00; } }
-  @media only screen and (max-width: 640px) {
-    .hero .block {
-      background-color: #16911c; } }
-  @media only screen and (max-width: 560px) {
-    .hero .block {
-      background-color: red; } }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: phone) {
     .hero .block {
       background-color: #ffae00; } }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: phone) {
+    .hero .block {
+      background-color: #ffae00; } }
+  @media only screen and (max-width: phone) {
+    .hero .block {
+      background-color: #ffae00; } }
+  @media (max-device-width: 480px) {
+    .hero .block {
+      background-color: #ffae00; } }
+  @media only screen and (max-width: phone) {
+    .hero .block {
+      background-color: #ffae00; } }
+  @media only screen and (max-width: phone-small) {
     .hero .block {
       background-color: #16911c; } }
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: phone-small) {
     .hero .block {
-      background-color: red; } }
-  @media only screen and (max-width: 320px) {
+      background-color: #16911c; } }
+  @media only screen and (max-width: phone-small) {
     .hero .block {
-      background-color: #00ff15; } }
+      background-color: #16911c; } }
+  @media only screen and (max-width: phone-small) {
+    .hero .block {
+      background-color: #16911c; } }
+  @media only screen and (max-width: phone-small) {
+    .hero .block {
+      background-color: #16911c; } }
+  @media (max-device-width: 374px) {
+    .hero .block {
+      background-color: #16911c; } }
