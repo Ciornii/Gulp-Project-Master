@@ -1,36 +1,94 @@
 .hero {
-  .block {
-    width: 300px;
-    height: 300px;
-    background-color: black;
 
-    @include mq(laptop-large) {
-      background-color: rgb(174, 0, 255);
+  .hero__inner {
+    @include row-flex;
+
+    .block {
+      width: 300px;
+      height: 300px;
+      background-color: black;
+      @include col;
+      @include col-3;
+
+      &:nth-child(2) {
+        background-color: red;
+      }
+
+      &:nth-child(3) {
+        background-color: rgb(0, 255, 42);
+      }
+
+      &:nth-child(4) {
+        background-color: rgb(21, 137, 204);
+      }
+
+      @include mq(laptop-large) {
+        background-color: rgb(174, 0, 255);
+      }
+
+      @include mq(laptop) {
+        background-color: rgb(168, 255, 7);
+      }
+
+      @include mq(tablet-large) {
+        background-color: rgb(0, 119, 255);
+      }
+
+      @include mq(tablet) {
+        background-color: blue;
+      }
+
+      // @include mq(768px) {
+      //   background-color: rgb(0, 119, 255);
+      // }
+
+      @include mq(phone) {
+        background-color: rgb(255, 174, 0);
+      }
+
+      @include mq(phone-small) {
+        background-color: rgb(22, 145, 28);
+      }
+
     }
+  }
 
-    @include mq(laptop) {
-      background-color: rgb(168, 255, 7);
+  .hero__inner-2 {
+    @include flex;
+
+    .block-2 {
+      width: 300px;
+      height: 300px;
+      background-color: rgb(0, 174, 255);
+      @include flex-percentage(50%);
+
+      &:nth-child(2) {
+        background-color: yellow;
+      }
     }
+  }
 
-    @include mq(tablet-large) {
-      background-color: rgb(0, 119, 255);
-    }
+  .h2 {
+    font-size: 24px;
+    color: #515151;
+    font-family: $secondaryFont-Bold;
+  }
 
-    @include mq(tablet) {
-      background-color: blue;
-    }
+  .h3 {
+    font-size: 24px;
+    color: #515151;
+    font-family: $secondaryFont-Regular;
+  }
 
-    // @include mq(768px) {
-    //   background-color: rgb(0, 119, 255);
-    // }
+  .h4 {
+    font-size: 24px;
+    color: #515151;
+    font-family: $secondaryFont-Italic;
+  }
 
-    @include mq(phone) {
-      background-color: rgb(255, 174, 0);
-    }
-
-    @include mq(phone-small) {
-      background-color: rgb(22, 145, 28);
-    }
-
+  span {
+    font-size: 36px;
+    color: #434343;
+    font-weight: 600;
   }
 }

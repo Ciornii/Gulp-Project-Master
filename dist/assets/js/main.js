@@ -1909,11 +1909,11 @@ var tabs = function tabs() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\modals.js */"./src/js/modules/modals.js");
-__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\popup.js */"./src/js/modules/popup.js");
-__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\sliders.js */"./src/js/modules/sliders.js");
-__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\tabs.js */"./src/js/modules/tabs.js");
-module.exports = __webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\main.js */"./src/js/main.js");
+__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\modals.js */"./src/js/modules/modals.js");
+__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\popup.js */"./src/js/modules/popup.js");
+__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\sliders.js */"./src/js/modules/sliders.js");
+__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\tabs.js */"./src/js/modules/tabs.js");
+module.exports = __webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\main.js */"./src/js/main.js");
 
 
 /***/ })

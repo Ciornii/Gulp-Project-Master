@@ -16,14 +16,14 @@ $breakpoints: (
 
 // ================================================= Mobile first
 // $breakpoints: (
-//   phone-small: '(max-device-width : 320px)',
-//   phone: '(min-device-width : 375px)',
-//   tablet-small: '(min-device-width : 480px)',
-//   tablet: '(min-device-width : 640px)',
-//   tablet-large: '(min-device-width : 769px)',
-//   laptop: '(min-device-width : 1024px)',
-//   laptop-large: '(min-device-width : 1280px)',
-//   desktop: '(min-device-width : 1441px)'
+//   phone-small: '(max-width : 320px)',
+//   phone: '(min-width : 375px)',
+//   tablet-small: '(min-width : 480px)',
+//   tablet: '(min-width : 640px)',
+//   tablet-large: '(min-width : 769px)',
+//   laptop: '(min-width : 1024px)',
+//   laptop-large: '(min-width : 1280px)',
+//   desktop: '(min-width : 1441px)'
 // );
 
 
@@ -62,11 +62,15 @@ $palettes: (main: (base: #146cda,
 
 
 // ============================================================================= Fonts
-@include font-face(Montserrat-Italic, montserrat, 400, italic);
-@include font-face(Montserrat-Light, montserrat, 300);
-@include font-face(Montserrat-Regular, montserrat, 500);
-@include font-face(Montserrat-SemiBold, montserrat, 600);
-@include font-face(Montserrat-Bold, montserrat, 800);
-@include font-face(Montserrat-Black, montserrat, 900);
 
-$mainFont: 'Montserrat', Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+$mainFont: 'Open Sans', sans-serif;
+
+@include font-face(LeMondeCourrierPro-Italic, LeMondeCourrierPro, 400, italic, otf);
+@include font-face(LeMondeCourrierPro-Regular, LeMondeCourrierPro, 400, normal, otf);
+@include font-face(LeMondeCourrierPro-Bold, LeMondeCourrierPro, 700, normal, otf);
+
+$secondaryFont-Italic: 'LeMondeCourrierPro-Italic', Cambria, Georgia, serif;
+$secondaryFont-Regular: 'LeMondeCourrierPro-Regular', Cambria, Georgia, serif;
+$secondaryFont-Bold: 'LeMondeCourrierPro-Bold', Cambria, Georgia, serif;

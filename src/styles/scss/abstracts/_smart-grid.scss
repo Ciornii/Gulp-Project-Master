@@ -14,6 +14,8 @@
 // @include col-1;
 // @include col-12;
 
+// @include flex-percentage(50%);
+
 // @include offset($n);
 // @include offset-left($n);
 // @include offset-right($n);
@@ -166,6 +168,18 @@ $offset_one_side--mob: ($offset--mob / 2);
 
 @mixin col-12() {
   @include size(12);
+}
+
+@mixin flex-percentage($percentage: 1) {
+  @if $percentage != 1 {
+    box-sizing: border-box;
+    flex: 1 1 $percentage;
+    max-width: $percentage;
+  } @else {
+    box-sizing: border-box;
+    flex: 1;
+    max-width: 100%;
+  }
 }
 
 @mixin offset($n) {
