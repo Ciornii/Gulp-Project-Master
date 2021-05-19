@@ -9,8 +9,9 @@ $breakpoints: (
   laptop: '(max-device-width : 1280px)',
   tablet-large: '(max-device-width : 1024px)',
   tablet: '(max-device-width : 768px)',
-  phone: '(max-device-width : 480px)',
-  phone-small: '(max-device-width : 374px)'
+  phone-large: '(max-width : 480px)',
+  phone: '(max-width : 375px)',
+  phone-small: '(max-width : 374px)'
 );
 
 // ================================================= Mobile first
