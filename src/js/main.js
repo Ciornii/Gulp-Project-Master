@@ -25,19 +25,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Sticky Navigation
   let main = document.getElementsByTagName("main")[0],
-    navbar = document.querySelector(".navbar"),
-    sticky = navbar.offsetTop,
-    navbarHeight = getComputedStyle(navbar).height;
+    body = document.getElementsByTagName("body")[0],
+    navbar = document.querySelector(".navbar");
 
-  window.onscroll = function () {
-    if (window.pageYOffset >= sticky) {
-      navbar.classList.add("navbar--sticky");
-      main.style.paddingTop = navbarHeight;
-    } else {
-      navbar.classList.remove("navbar--sticky");
-      main.style.paddingTop = "0px";
-    }
-  };
+  if (navbar) {
+    let sticky = navbar.offsetTop,
+      navbarHeight = getComputedStyle(navbar).height,
+      navbarHeightInteger = parseInt(
+        navbarHeight.substring(0, navbarHeight.length - 2)
+      ),
+      bodyHeightInteger = parseInt(getComputedStyle(body).height),
+      fullHeight = window.innerHeight + navbarHeightInteger;
+
+    window.onscroll = function () {
+      if (window.pageYOffset >= sticky && bodyHeightInteger > fullHeight) {
+        navbar.classList.add("navbar--sticky");
+        main.style.paddingTop = navbarHeight;
+      } else {
+        navbar.classList.remove("navbar--sticky");
+        main.style.paddingTop = "0px";
+      }
+    };
+  }
 
   // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Smooth scroll , Scroll up
