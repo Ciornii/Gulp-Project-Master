@@ -5,11 +5,12 @@
 // ============================================================================= Breakpoints
 // @include mq(phone)
 $breakpoints: (
-  laptop-large: '(max-width : 1440px)',
-  laptop: '(max-width : 1280px)',
-  tablet-large: '(max-width : 1024px)',
-  tablet: '(max-width : 768px)',
-  phone: '(max-width : 480px)',
+  laptop-large: '(max-device-width : 1440px)',
+  laptop: '(max-device-width : 1280px)',
+  tablet-large: '(max-device-width : 1024px)',
+  tablet: '(max-device-width : 768px)',
+  phone-large: '(max-width : 480px)',
+  phone: '(max-width : 375px)',
   phone-small: '(max-width : 374px)'
 );
 
