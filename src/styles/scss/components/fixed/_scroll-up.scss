@@ -1,9 +1,9 @@
 .scroll-up {
-  width: 4rem;
-  height: 4rem;
+  width: 40px;
+  height: 40px;
   position: fixed;
-  bottom: 33px;
-  right: 10px;
+  bottom: 8rem;
+  right: 1rem;
   z-index: 30;
   background-color: palette(main, base);
   cursor: pointer;
@@ -16,13 +16,12 @@
 
   @include mq(844px) {
     bottom: 90px;
-    right: 0;
+    right: 5px;
   }
 
   @include mq(500px) {
-    width: 2.5rem;
-    height: 2.5rem;
-    bottom: 80px;
+    width: 30px;
+    height: 30px;
   }
 
   i {
