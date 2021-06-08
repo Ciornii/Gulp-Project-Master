@@ -8,6 +8,7 @@
   background-color: palette(main, base);
   cursor: pointer;
   transition: all 0.3s;
+  visibility: hidden;
 
   &:hover {
     background-color: palette(main, dark);
