@@ -1,6 +1,7 @@
 .form-group {
   display: block;
-  margin-bottom: 15px;
+  position: relative;
+  width: 100%;
 }
 
 .form-group input {
@@ -38,9 +39,11 @@
   @include mq(768px) {
     margin-top: -2px;
   }
+
   @include mq(768px) {
     margin-top: -2px;
   }
+
   @include mq(560px) {
     margin-top: -1px;
   }
