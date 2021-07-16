@@ -107,6 +107,7 @@
     src: url("../../assets/fonts/#{$folder}/#{$name}.#{$extension}");
     font-weight: $weight;
     font-style: $style;
+    font-display: swap;
   }
 }
 
