@@ -4,8 +4,7 @@
 
 // ============================================================================= Breakpoints
 // @include mq(phone)
-$breakpoints: (
-  laptop-large: '(max-device-width : 1440px)',
+$breakpoints: (laptop-large: '(max-device-width : 1440px)',
   laptop: '(max-device-width : 1280px)',
   tablet-large: '(max-device-width : 1024px)',
   tablet: '(max-device-width : 768px)',
@@ -18,6 +17,7 @@ $breakpoints: (
 // $breakpoints: (
 //   phone-small: '(max-width : 320px)',
 //   phone: '(min-width : 375px)',
+//   phone-large: '(min-width : 376px)',
 //   tablet-small: '(min-width : 480px)',
 //   tablet: '(min-width : 640px)',
 //   tablet-large: '(min-width : 769px)',
@@ -65,12 +65,22 @@ $palettes: (main: (base: #146cda,
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
-$mainFont: 'Open Sans', sans-serif;
+$mainFont: 'Open Sans',
+sans-serif;
 
 @include font-face(LeMondeCourrierPro-Italic, LeMondeCourrierPro, 400, italic, otf);
 @include font-face(LeMondeCourrierPro-Regular, LeMondeCourrierPro, 400, normal, otf);
 @include font-face(LeMondeCourrierPro-Bold, LeMondeCourrierPro, 700, normal, otf);
 
-$secondaryFont-Italic: 'LeMondeCourrierPro-Italic', Cambria, Georgia, serif;
-$secondaryFont-Regular: 'LeMondeCourrierPro-Regular', Cambria, Georgia, serif;
-$secondaryFont-Bold: 'LeMondeCourrierPro-Bold', Cambria, Georgia, serif;
+$secondaryFont-Italic: 'LeMondeCourrierPro-Italic',
+Cambria,
+Georgia,
+serif;
+$secondaryFont-Regular: 'LeMondeCourrierPro-Regular',
+Cambria,
+Georgia,
+serif;
+$secondaryFont-Bold: 'LeMondeCourrierPro-Bold',
+Cambria,
+Georgia,
+serif;

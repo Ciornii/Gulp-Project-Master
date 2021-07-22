@@ -112,7 +112,7 @@
 }
 
 // ============================================================================= Media queries
-@mixin mq($breakpoint, $type: max) {
+@mixin mq($breakpoint) {
 
   @each $name,
   $point in $breakpoints {
@@ -123,7 +123,7 @@
     }
 
     @else {
-      @media only screen and (#{$type}-width: $breakpoint) {
+      @media only screen and ($breakpoint) {
         @content;
       }
     }
