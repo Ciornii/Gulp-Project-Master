@@ -75,17 +75,15 @@
   position: relative;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-  /* On mouse-over, add a grey background color */
-  &:hover {
-    .checkmark {
-      background-color: palette(grey, bg);
-    }
+  .check-title {
+    padding-left: 47px;
+    line-height: 29px;
   }
 
   /* Hide the browser's default checkbox */
@@ -96,6 +94,7 @@
     height: 0;
     width: 0;
 
+    /* When the checkbox is checked */
     /* When the checkbox is checked */
     &:checked~.checkmark {
       background-color: palette(main, base);
@@ -108,11 +107,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 23px;
-    height: 23px;
+    width: 29px;
+    height: 29px;
     background-color: white;
-    border-radius: 3px;
-    border: 2px solid palette(grey, dark);
+    border: 2px solid palette(grey, base);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
 
     /* Create the checkmark/indicator (hidden when not checked) */
@@ -120,14 +118,14 @@
       content: "";
       position: absolute;
       display: none;
-      left: 8px;
-      top: 4px;
-      width: 5px;
-      height: 10px;
-      border: solid white;
-      border-width: 0 3px 3px 0;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
+      left: 9px;
+      top: 3px;
+      width: 8px;
+      height: 14px;
+      border: solid $blue;
+      border-width: 0 2px 2px 0;
+      //-webkit-transform: rotate(45deg);
+      //-ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
   }
