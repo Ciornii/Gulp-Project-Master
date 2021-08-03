@@ -1,9 +1,15 @@
 function popup() {
-  function bindPopup({ popupSelector, triggerSelector, close }) {
+  function bindPopup({
+    popupSelector,
+    triggerSelector,
+    close,
+    closeOnScroll = false,
+    scrollHeight,
+  }) {
     const popup = document.querySelector(popupSelector),
       trigger = document.querySelector(triggerSelector);
 
-    document.addEventListener('click', e => {
+    document.addEventListener('click', (e) => {
       if (e.target.closest(close)) {
         popup.classList.remove('active');
         trigger.classList.remove('active');
@@ -18,11 +24,26 @@ function popup() {
         trigger.classList.remove('active');
       }
     });
+
+    if (closeOnScroll) {
+      window.addEventListener('scroll', () => {
+        if (document.documentElement.scrollTop > scrollHeight) {
+          popup.classList.remove('active');
+          trigger.classList.remove('active');
+        }
+      });
+    }
   }
 
   // bindPopup({
-  //   popupSelector: '.popup-catalog',
+  //   popupSelector: '.mega-menu',
   //   triggerSelector: '.navbar__dropdown',
+  // });
+  // bindPopup({
+  //   popupSelector: '.popup-cart',
+  //   triggerSelector: '.header-main__link--cart',
+  //   closeOnScroll: true,
+  //   scrollHeight: 187,
   // });
 }
 
