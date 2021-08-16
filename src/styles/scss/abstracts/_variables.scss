@@ -8,17 +8,17 @@ $breakpoints: (laptop-large: '(max-width : 1440px)',
   laptop: '(max-width : 1280px)',
   tablet-large: '(max-width : 1024px)',
   tablet: '(max-width : 768px)',
-  phone-large: '(max-width : 480px)',
+  phablet: '(max-width : 639px)',
+  phone-large: '(max-width : 425px)',
   phone: '(max-width : 375px)',
   phone-small: '(max-width : 374px)'
 );
 
 // ================================================= Mobile first
-// $breakpoints: (
-//   phone-small: '(max-width : 320px)',
+// $breakpoints: (phone-small: '(max-width : 320px)',
 //   phone: '(min-width : 375px)',
 //   phone-large: '(min-width : 376px)',
-//   tablet-small: '(min-width : 480px)',
+//   phablet: '(min-width : 426px)',
 //   tablet: '(min-width : 640px)',
 //   tablet-large: '(min-width : 769px)',
 //   laptop: '(min-width : 1024px)',
