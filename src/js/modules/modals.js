@@ -1,10 +1,12 @@
+import calcScroll from "./calcScroll";
+
 const modals = () => {
   function bindModal(triggerSelector, modalSelector, closeSelector) {
     const trigger = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
       close = document.querySelector(closeSelector),
       windows = document.querySelectorAll('[data-modal]'),
-      scroll = 15;
+      scroll = calcScroll();
 
     trigger.forEach(item => {
       item.addEventListener('click', e => {

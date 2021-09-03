@@ -5,6 +5,7 @@
 @import "scss/libs/fontAwesome";
 @import "../vendor/toastr/build/toastr.min";
 @import "../vendor/swiper/swiper-bundle.min";
+@import "../vendor/select2/dist/css/select2.min";
 // Abstracts
 @import "scss/abstracts/functions";
 @import "scss/abstracts/mixins";
@@ -23,18 +24,36 @@
 @import "scss/components/reusable/tabs";
 @import "scss/components/reusable/single-page";
 @import "scss/components/reusable/social-links";
+@import "scss/components/reusable/inputs";
+@import "scss/components/reusable/select";
+@import "scss/components/reusable/product-card";
+@import "scss/components/reusable/radio";
 // Components
 @import "scss/components/preloader";
 @import "scss/components/header";
+@import "scss/components/mega-menu";
 @import "scss/components/mmenu";
 @import "scss/components/footer";
 // Fixed
 @import "scss/components/fixed/scroll-up";
 // Modals and Popups
 @import "scss/components/modals&popups/modals";
+@import "scss/components/modals&popups/cart";
 // ============================================ Pages:
 // Home
 @import "scss/components/pages/homepage/hero";
+
+// Catalog
+@import "scss/components/pages/catalog/catalog";
+@import "scss/components/pages/catalog/filter";
+@import "scss/components/pages/catalog/filter-mobile";
+@import "scss/components/pages/catalog/_asRange";
+
 // Contact Us
 @import "scss/components/pages/contactus/contactus";
 
+// single product
+@import "scss/components/pages/single-product/single-product";
+@import "scss/components/pages/single-product/single-product2";
+@import "scss/components/pages/single-product/recommended-products";
+@import "scss/components/pages/single-product/features";

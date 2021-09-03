@@ -1,0 +1,122 @@
+.mega-menu {
+  position: absolute;
+  top: 4.8rem;
+  transition: top .5s ease;
+  width: 100%;
+  min-height: 41.4rem;
+  box-shadow: 0px 6px 14px 0px rgba(0, 0, 0, 0.1);
+  border-top: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #ffffff;
+  overflow: hidden;
+  z-index: 100;
+  visibility: hidden;
+
+  @include mq(1180px) {
+    width: 100%;
+    left: 0;
+  }
+
+  @include mq(1024px) {
+    min-height: 56.4rem;
+  }
+
+  &.active {
+    visibility: visible;
+    animation: fadeIn 0.2s;
+  }
+
+  .mega-menu__inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.2);
+
+    ul {
+      height: 100%;
+      max-width: 23rem;
+      padding: 2.2rem 0;
+      border-right: 1px solid palette(grey, seashell);
+
+      .mega-menu__cat {
+        color: palette(black, text);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 2.45;
+        @include flex(row, flex-start, center, center, nowrap);
+        cursor: pointer;
+        padding-left: 3.6rem;
+        background-color: white;
+
+        &.active {
+          background-color: palette(grey, seashell);
+
+          .mega-menu__subcat {
+            display: flex;
+          }
+        }
+
+        .mega-menu__subcat {
+          position: absolute;
+          height: 100%;
+          top: 0;
+          width: 100%;
+          max-width: 112rem;
+          margin-left: 19.4rem;
+          @include flex(row, flex-start, flex-start, flex-start, wrap);
+          cursor: default;
+          border: none;
+          padding: 5.5rem 10rem;
+          display: none;
+
+          @include mq(1300px) {
+            max-width: 79rem;
+            padding: 5rem;
+          }
+
+          @include mq(tablet-large) {
+            max-width: 83rem;
+          }
+
+          @include mq(1023px) {
+            max-width: 79rem;
+          }
+
+          li {
+            a {
+              font-size: 14px;
+              font-weight: normal;
+              color: palette(grey, text);
+              margin-right: 8rem;
+              margin-bottom: 3.7rem;
+              @include flex(column, center, center, center, wrap);
+
+              &:hover {
+                color: palette(main, base);
+              }
+
+              img {
+                max-height: 9.2rem;
+                max-width: 9.2rem;
+              }
+            }
+          }
+
+          svg {
+            fill: palette(grey, alabaster);
+            width: 17.5rem;
+            height: 17.5rem;
+            position: absolute;
+            bottom: 6rem;
+            right: 0rem;
+
+            @include mq(tablet) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

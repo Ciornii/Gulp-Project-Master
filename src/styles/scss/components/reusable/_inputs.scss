@@ -1,0 +1,187 @@
+.input {
+  position: relative;
+  width: 100%;
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 25px;
+  }
+
+  input {
+    border-radius: 5px;
+    background-color: palette(grey, bg);
+    border: 0px;
+    display: block;
+    height: 40px;
+    padding-left: 18px;
+    position: relative;
+    width: 100%;
+
+    &::placeholder {
+      color: palette(grey, base);
+    }
+  }
+}
+
+// ---------------------------------------------------
+.input.error {
+
+  input {
+    border-radius: 5px;
+    border: solid 1px palette(red, dark);
+    background-color: rgba(242, 61, 45, 0.1);
+
+    &:hover {
+      background-color: rgba(242, 61, 45, 0.1);
+    }
+
+    &::placeholder {
+      color: palette(red, dark);
+    }
+  }
+}
+
+// --------------------------------------------------- Search
+
+.input.search {
+  position: relative;
+  width: 100%;
+
+  @include mq(768px) {
+    max-width: 100%;
+  }
+
+  input {
+    position: relative;
+    font-weight: 400;
+    border-width: 1px;
+    border-color: palette(grey, border);
+    border-style: solid;
+    background-color: white;
+    width: 100%;
+    height: 5rem;
+    outline: none;
+    font-size: 1.4rem;
+    color: palette(black, text);
+    padding-left: 2.9rem;
+    position: relative;
+    transition: all 0.4s ease;
+    padding-right: 8rem;
+    border-radius: 0;
+
+    @include mq(768px) {
+      border-radius: 0;
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+}
+
+.search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 43.9rem;
+  margin: 0 3rem;
+
+  &:hover,
+  &:focus {
+    .input input {
+      background-color: white;
+      border-color: palette(grey, ebb);
+    }
+  }
+
+  .input.search {
+    max-width: 73.9rem;
+  }
+
+  .input input {
+    background-color: palette(grey, wild-sand);
+    border-radius: 5px;
+    border-color: palette(grey, wild-sand);
+    color: palette(grey, text);
+
+    &::placeholder {
+      color: inherit;
+      font-size: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      border-color: palette(grey, ebb);
+    }
+  }
+
+  button {
+    @include align-center(vertical);
+    right: 1.1rem;
+    @include flex;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    transition: all .2s ease;
+
+    svg {
+      height: 1.7rem;
+      width: 1.6rem;
+      fill: palette(black, text);
+    }
+
+    &:hover {
+      background-color: rgba(105, 105, 105, 0.1);
+    }
+  }
+}
+
+.search-bar--small {
+  margin: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  max-width: 22.5rem;
+
+  .input input {
+    padding-left: 2rem;
+    padding-right: 4rem;
+    color: palette(grey, dove);
+    height: 4rem;
+    font-size: 14px;
+  }
+
+  button {
+    right: 0.5rem;
+    height: 3.3rem;
+    width: 3.3rem;
+  }
+}
+
+.search-bar--white {
+  margin: 0;
+
+  &:hover,
+  &:focus {
+    .input input {
+      background-color: white;
+      border-color: transparent;
+    }
+  }
+
+  .input input {
+    background-color: white;
+    border-color: transparent;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      border-color: transparent;
+    }
+  }
+}

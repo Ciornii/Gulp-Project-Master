@@ -1760,6 +1760,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
   Object(_modules_sliders__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_modals__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_modules_popup__WEBPACK_IMPORTED_MODULE_4__["default"])(); // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Lozad
+
+  var observer = lozad(); // lazy loads elements with default selector as '.lozad'
+  // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Preloader
 
   var preloader = document.querySelector(".preloader");
@@ -1814,8 +1818,174 @@ document.addEventListener("DOMContentLoaded", function (event) {
       upElem.classList.remove("fadeIn");
       upElem.style.visibility = "hidden";
     }
-  });
+  }); // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Select2
+  // $('select[name="hp-filter__occasion"]').select2({
+  //   placeholder: 'Alegeti ocazia',
+  //   allowClear: true,
+  // });
+  // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Product quantity
+  // document.querySelectorAll('.product-qty').forEach((item) => {
+  //   item.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     const parent = e.target.closest('.product-qty');
+  //     const input = parent.querySelector('.product-qty__input');
+  //     let value = parseInt(input.value);
+  //     if (e.target.value == '-' && input.value > 1) {
+  //       value = value - 1;
+  //       input.value = value;
+  //       input.setAttribute('value', value);
+  //     } else if (e.target.value == '+') {
+  //       value = value + 1;
+  //       input.value = value;
+  //       input.setAttribute('value', value);
+  //     }
+  //   });
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/calcScroll.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/calcScroll.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var calcScroll = function calcScroll() {
+  var div = document.createElement('div');
+  div.style.width = '50px';
+  div.style.height = '50px';
+  div.style.overflowY = 'scroll';
+  div.style.visibility = 'hidden';
+  document.body.appendChild(div);
+  var scrollWidth = div.offsetWidth - div.clientWidth;
+  div.remove();
+  return scrollWidth;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (calcScroll);
+
+/***/ }),
+
+/***/ "./src/js/modules/hiddenSidebar.js":
+/*!*****************************************!*\
+  !*** ./src/js/modules/hiddenSidebar.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _calcScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./calcScroll */ "./src/js/modules/calcScroll.js");
+
+
+
+
+var hiddenSidebar = function hiddenSidebar() {
+  function bindHiddenSidebar() {
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        triggerSelector = _ref.triggerSelector,
+        sidebarSelector = _ref.sidebarSelector,
+        modalBgSelector = _ref.modalBgSelector,
+        categoriesTriggerSelector = _ref.categoriesTriggerSelector,
+        categoriesParentSelector = _ref.categoriesParentSelector,
+        categoriesSelector = _ref.categoriesSelector,
+        subcategoryTriggerSelector = _ref.subcategoryTriggerSelector,
+        subcategoryParentSelector = _ref.subcategoryParentSelector,
+        subcategoriesSelector = _ref.subcategoriesSelector;
+
+    var triggers = document.querySelectorAll(triggerSelector),
+        sidebar = document.querySelector(sidebarSelector),
+        modalBg = document.querySelector(modalBgSelector),
+        scroll = Object(_calcScroll__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        sidebar.classList.toggle("active");
+        modalBg.classList.toggle("active");
+
+        if (modalBg.classList.contains("active")) {
+          document.body.style.overflow = "hidden";
+          document.body.style.marginRight = "".concat(scroll, "px");
+        } else {
+          document.body.style.overflow = "";
+          document.body.style.marginRight = "0px";
+        } // close all subcategories when menu is closed
+
+
+        if (categoriesTriggerSelector, categoriesParentSelector, categoriesSelector, subcategoryTriggerSelector, subcategoryParentSelector, subcategoriesSelector) {
+          var subcategories = document.querySelectorAll(subcategoriesSelector),
+              categories = document.querySelectorAll(categoriesSelector);
+          categories.forEach(function (category) {
+            if (category.classList.contains("active")) {
+              category.classList.remove("active");
+            }
+          });
+          subcategories.forEach(function (subcategory) {
+            if (subcategory.classList.contains("active")) {
+              subcategory.classList.remove("active");
+            }
+          });
+        }
+      });
+    });
+
+    if (categoriesTriggerSelector, categoriesParentSelector, categoriesSelector, subcategoryTriggerSelector, subcategoryParentSelector, subcategoriesSelector) {
+      // ------------------------------------------------------- Categories
+      var categoriesTrigger = document.querySelectorAll(categoriesTriggerSelector);
+      categoriesTrigger.forEach(function (trigger) {
+        trigger.addEventListener("click", function (e) {
+          e.preventDefault();
+          sidebar.scrollTo(0, 0);
+          var categoriesParent = e.target.closest(categoriesParentSelector),
+              categories = categoriesParent.querySelector(categoriesSelector),
+              subcategories = categoriesParent.querySelectorAll(subcategoriesSelector);
+          categories.classList.toggle("active");
+          subcategories.forEach(function (subcategory) {
+            if (subcategory.classList.contains("active")) {
+              subcategory.classList.remove("active");
+            }
+          });
+        });
+      }); // ------------------------------------------------------- Subcategories
+
+      var subcategoryTrigger = document.querySelectorAll(subcategoryTriggerSelector);
+      subcategoryTrigger.forEach(function (trigger) {
+        trigger.addEventListener("click", function (e) {
+          e.preventDefault();
+          sidebar.scrollTo(0, 0);
+          var subcategoryParent = e.target.closest(subcategoryParentSelector),
+              subcategories = subcategoryParent.querySelector(subcategoriesSelector);
+          subcategories.classList.toggle("active");
+        });
+      });
+    }
+  } // bindHiddenSidebar({
+  //   triggerSelector: "[data-mfilter-trigger]",
+  //   sidebarSelector: ".hidden-filter",
+  //   modalBgSelector: "[data-mfilter-modalBg]",
+  // });
+  // bindHiddenSidebar({
+  //   triggerSelector: "[data-mmenu-trigger]",
+  //   sidebarSelector: ".mmenu",
+  //   modalBgSelector: "[data-mmenu-modalBg]",
+  //   categoriesParentSelector: "[data-categories-parent]",
+  //   categoriesSelector: "[data-categories]",
+  //   subcategoryTriggerSelector: "[data-subcategory]",
+  //   subcategoryParentSelector: ".mmenu__subcategories",
+  //   subcategoriesSelector: ".mmenu__dropdown",
+  // });
+
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (hiddenSidebar);
 
 /***/ }),
 
@@ -1832,6 +2002,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _calcScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./calcScroll */ "./src/js/modules/calcScroll.js");
+
 
 
 
@@ -1841,7 +2013,7 @@ var modals = function modals() {
         modal = document.querySelector(modalSelector),
         close = document.querySelector(closeSelector),
         windows = document.querySelectorAll('[data-modal]'),
-        scroll = 15;
+        scroll = Object(_calcScroll__WEBPACK_IMPORTED_MODULE_2__["default"])();
     trigger.forEach(function (item) {
       item.addEventListener('click', function (e) {
         if (e.target) {
@@ -1896,27 +2068,48 @@ function popup() {
   function bindPopup(_ref) {
     var popupSelector = _ref.popupSelector,
         triggerSelector = _ref.triggerSelector,
-        close = _ref.close;
+        close = _ref.close,
+        _ref$closeOnScroll = _ref.closeOnScroll,
+        closeOnScroll = _ref$closeOnScroll === void 0 ? false : _ref$closeOnScroll,
+        scrollHeight = _ref.scrollHeight;
     var popup = document.querySelector(popupSelector),
         trigger = document.querySelector(triggerSelector);
-    document.addEventListener('click', function (e) {
-      if (e.target.closest(close)) {
-        popup.classList.remove('active');
-        trigger.classList.remove('active');
-      } else if (e.target.closest(triggerSelector)) {
-        popup.classList.toggle('active');
-        trigger.classList.toggle('active');
-      } else if (e.target == popup || popup.contains(e.target)) {
-        popup.classList.add('active');
-        trigger.classList.add('active');
-      } else {
-        popup.classList.remove('active');
-        trigger.classList.remove('active');
+
+    if (popup && trigger) {
+      document.addEventListener('click', function (e) {
+        if (e.target.closest(close)) {
+          popup.classList.remove('active');
+          trigger.classList.remove('active');
+        } else if (e.target.closest(triggerSelector)) {
+          popup.classList.toggle('active');
+          trigger.classList.toggle('active');
+        } else if (e.target == popup || popup.contains(e.target)) {
+          popup.classList.add('active');
+          trigger.classList.add('active');
+        } else {
+          popup.classList.remove('active');
+          trigger.classList.remove('active');
+        }
+      });
+
+      if (closeOnScroll) {
+        window.addEventListener('scroll', function () {
+          if (document.documentElement.scrollTop > scrollHeight) {
+            popup.classList.remove('active');
+            trigger.classList.remove('active');
+          }
+        });
       }
-    });
+    }
   } // bindPopup({
-  //   popupSelector: '.popup-catalog',
+  //   popupSelector: '.mega-menu',
   //   triggerSelector: '.navbar__dropdown',
+  // });
+  // bindPopup({
+  //   popupSelector: '.popup-cart',
+  //   triggerSelector: '.header-main__block--cart',
+  //   closeOnScroll: true,
+  //   scrollHeight: 187,
   // });
 
 }
@@ -1937,16 +2130,76 @@ __webpack_require__.r(__webpack_exports__);
 var sliders = function sliders() {
   // --------------------------------------------------------------------------------------------------------
   // -------------------------------------------------------------------  Homepage Sliders
-  var swiper = new Swiper(".swiper-container", {
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
+  var hero = new Swiper('.hero', {
+    slidesPerView: 1,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    speed: 900,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+      autoplayHoverPause: true
     },
+    lazy: true,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
     }
-  });
+  }); // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Product Gallery on Single Page
+  // const sProductSliderThumbs = new Swiper(
+  //   '[data-slider="single-product__slider--thumbs"]',
+  //   {
+  //     spaceBetween: 10,
+  //     slidesPerView: 3,
+  //     speed: 900,
+  //     watchSlidesVisibility: true,
+  //     watchSlidesProgress: true,
+  //   }
+  // );
+  // const sProductSliderTop = new Swiper(
+  //   '[data-slider="single-product__slider--top"]',
+  //   {
+  //     spaceBetween: 10,
+  //     speed: 900,
+  //     thumbs: {
+  //       swiper: sProductSliderThumbs,
+  //     },
+  //     navigation: {
+  //       nextEl: '.swiper-button-next',
+  //       prevEl: '.swiper-button-prev',
+  //     },
+  //   }
+  // );
+  // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Recommended products
+  // new Swiper('.recommended-products__slider', {
+  //   slidesPerView: 2,
+  //   spaceBetween: 20,
+  //   speed: 900,
+  //   autoplay: {
+  //     delay: 3000,
+  //     disableOnInteraction: true,
+  //     autoplayHoverPause: true,
+  //   },
+  //   responsiveClass: true,
+  //   breakpoints: {
+  //     680: {
+  //       slidesPerView: 3,
+  //     },
+  //     1124: {
+  //       slidesPerView: 4,
+  //     },
+  //     1390: {
+  //       slidesPerView: 5,
+  //     },
+  //   },
+  // });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sliders);
@@ -2010,17 +2263,19 @@ var tabs = function tabs() {
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************************************************************************************!*\
-  !*** multi ./src/js/modules/modals.js ./src/js/modules/popup.js ./src/js/modules/sliders.js ./src/js/modules/tabs.js ./src/js/main.js ***!
-  \****************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** multi ./src/js/modules/calcScroll.js ./src/js/modules/hiddenSidebar.js ./src/js/modules/modals.js ./src/js/modules/popup.js ./src/js/modules/sliders.js ./src/js/modules/tabs.js ./src/js/main.js ***!
+  \*********************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\modals.js */"./src/js/modules/modals.js");
-__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\popup.js */"./src/js/modules/popup.js");
-__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\sliders.js */"./src/js/modules/sliders.js");
-__webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\modules\tabs.js */"./src/js/modules/tabs.js");
-module.exports = __webpack_require__(/*! D:\Docs C\Desktop\Programare\Gulp-Project-Master\src\js\main.js */"./src/js/main.js");
+__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\calcScroll.js */"./src/js/modules/calcScroll.js");
+__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\hiddenSidebar.js */"./src/js/modules/hiddenSidebar.js");
+__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\modals.js */"./src/js/modules/modals.js");
+__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\popup.js */"./src/js/modules/popup.js");
+__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\sliders.js */"./src/js/modules/sliders.js");
+__webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\modules\tabs.js */"./src/js/modules/tabs.js");
+module.exports = __webpack_require__(/*! C:\Users\Creativsoft\Desktop\zzz\Gulp-Project-Master\src\js\main.js */"./src/js/main.js");
 
 
 /***/ })

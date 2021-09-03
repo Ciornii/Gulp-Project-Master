@@ -1,0 +1,21 @@
+.recommended-products {
+  position: relative;
+  padding: 6rem 0;
+  background-color: palette(grey, wild-sand);
+
+  h2 {
+    font-family: $mainFont;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 5rem;
+  }
+
+  .product-card {
+    margin: 0 auto;
+    
+    @include mq(464px) {
+      width: 100%;
+    }
+  }
+}

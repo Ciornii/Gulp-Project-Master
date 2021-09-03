@@ -1,44 +1,63 @@
 .breadcrumbs {
-   padding: 15px 0 18px;
-   background-color: #f5f5f5;
+   padding: 24px 0 24px;
+   background-color: palette(grey, wild-sand);
 
-   h1 {
-      font-family: $mainFont;
-      font-weight: 600;
-      font-size: 2.8rem;
-      color: #3a3a3a;
-      margin-top: .6rem;
-   }
+   &__inner {
+      @include flex(row, space-between, space-between, space-between, wrap);
+      width: calc(100% - 3rem);
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
 
-   ul {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      font-family: $mainFont;
-      font-weight: normal;
-      font-size: 11px;
-      color: palette(grey, text-light);
+      h1 {
+         font-family: $mainFont;
+         font-weight: 600;
+         font-size: 2.4rem;
+         line-height: 2.4rem;
+         color: palette(black, base);
+         margin-right: 3rem;
+      }
 
-      li {
-         position: relative;
-         white-space: nowrap;
-         cursor: default;
+      ul {
+         display: inline-flex;
+         flex-wrap: wrap;
+         font-family: $mainFont;
+         font-weight: normal;
+         font-size: 12px;
+         color: palette(grey, text-light);
 
-         &:after {
-            content: '/';
-            padding: 0 10px;
-            font-size: 10px;
-            color: palette(grey, text-light);
-         }
+         li {
+            position: relative;
+            white-space: nowrap;
+            cursor: default;
 
-         &:last-child {
             &:after {
-               display: none;
+               content: '\f105';
+               font-family: "Font Awesome 5 Free";
+               font-weight: 900;
+               padding: 0 10px;
+               font-size: 10px;
+               color: #000;
             }
-         }
 
-         a {
-            color: palette(grey, text-light);
+            &:last-child {
+               &:after {
+                  display: none;
+               }
+            }
+
+            a,
+            span {
+               color: #000;
+               line-height: 2.5rem;
+            }
+
+            a {
+
+               &:hover,
+               &:focus {
+                  text-decoration: underline;
+               }
+            }
          }
       }
    }

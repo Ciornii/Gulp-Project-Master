@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    @@include('./_head.html', {
+    "path": ".",
+    "title": ""
+    })
+</head>
+
+<body>
+    <div class="main-wrapper">
+        @@include('./_header.html', {
+        "path": "."
+        })
+
+        @@include('./_preloader.html', {
+        "path": "."
+        })
+
+        <main>
+
+            @@include('./_breadcrumbs.html', {
+            "path": "."
+            })
+
+            @@include('./pages/single-product/single-product.html', {
+            "path": "."
+            })
+            @@include('./pages/single-product/recommended-products.html', {
+            "path": "."
+            })
+            @@include('./pages/single-product/features.html', {
+            "path": "."
+            })
+
+        </main>
+
+        @@include('./_footer.html', {
+        "path": "."
+        })
+        @@include('./_fixed-elem.html', {
+        "path": "."
+        })
+        @@include('./_mmenu.html', {
+        "path": "."
+        })
+        @@include('./_modals.html', {
+        "path": "."
+        })
+
+    </div> <!-- main-wrapper -->
+
+    @@include('./_scripts.html', {
+    "path": "."
+    })
+</body>
+
+</html>

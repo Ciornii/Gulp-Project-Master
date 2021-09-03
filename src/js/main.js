@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   modals();
   popup();
 
+
+  // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Lozad
+  const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+
   // --------------------------------------------------------------------------------------------------------
   // ------------------------------------------------------------------- Preloader
   const preloader = document.querySelector(".preloader");
@@ -69,4 +74,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
       upElem.style.visibility = "hidden";
     }
   });
+
+  // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Select2
+
+  // $('select[name="hp-filter__occasion"]').select2({
+  //   placeholder: 'Alegeti ocazia',
+  //   allowClear: true,
+  // });
+
+  // --------------------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------- Product quantity
+  // document.querySelectorAll('.product-qty').forEach((item) => {
+  //   item.addEventListener('click', (e) => {
+  //     e.preventDefault();
+
+  //     const parent = e.target.closest('.product-qty');
+  //     const input = parent.querySelector('.product-qty__input');
+  //     let value = parseInt(input.value);
+
+  //     if (e.target.value == '-' && input.value > 1) {
+  //       value = value - 1;
+  //       input.value = value;
+  //       input.setAttribute('value', value);
+  //     } else if (e.target.value == '+') {
+  //       value = value + 1;
+  //       input.value = value;
+  //       input.setAttribute('value', value);
+  //     }
+  //   });
 });

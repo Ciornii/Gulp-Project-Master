@@ -1,26 +1,30 @@
-.main-pagination {
+.pagination {
   @include flex;
-  margin: 4.5rem 0;
+  margin: 5.7rem 0;
 
-  .main-pagination__inner {
+  .pagination__inner {
     @include flex;
 
     li {
-      margin-left: 5px;
-      margin-right: 5px;
+      margin: 0 5px;
+      @include flex;
+
+      @include mq(374px) {
+        margin: 0 3px;
+      }
 
       a,
       span {
         display: block;
         min-width: 35px;
         height: 35px;
-        border-radius: 5px;
+        border-radius: 50%;
         padding: 7px 5px;
         text-align: center;
-        font-size:1.8rem;
+        font-size: 16px;
         font-family: $mainFont;
         font-weight: 600;
-        color: palette(grey, text-light);
+        color: palette(grey, text);
         transition: 0.3s ease-in-out;
 
         &:hover {
@@ -29,6 +33,7 @@
       }
 
       &.active {
+
         a,
         span {
           background-color: palette(main, base);
@@ -39,69 +44,25 @@
   }
 }
 
-.main-pagination--mt {
-  margin: 2rem 0 4.5rem 0;
-}
-
-.main-pagination--small {
+.pagination--small {
   margin: 1rem 0 3.75rem 0;
 
-  .main-pagination__inner {
+  .pagination__inner {
 
     li {
+
       a,
       span {
         min-width: 24px;
         height: 24px;
         padding: 3px 5px;
-        font-size:1.4rem;
+        font-size: 1.4rem;
         color: palette(grey, dark);
         font-family: $mainFont;
 
         i {
-          font-size:1.2rem;
+          font-size: 1.2rem;
         }
-      }
-    }
-  }
-}
-
-//---------------------
-
-.pagination {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  a ,span{
-    min-width: 35px;
-    height: 35px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 17px;
-    color: #7e7e7e;
-    transition: 0.2s ease-in-out;
-  }
-
-  li {
-    margin-left: 5px;
-    margin-right: 5px;
-    &:hover {
-      a {
-        background-color: #eaeaea;
-
-      }
-    }
-    &.active {
-      a,span {
-        background-color: palette(main, base);
-        color: #ffffff;
-        font-size: 18px;
-        font-weight: 600;
-
       }
     }
   }

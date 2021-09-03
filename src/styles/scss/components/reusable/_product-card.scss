@@ -1,0 +1,198 @@
+.product-card {
+  position: relative;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 26rem;
+  min-height: 39rem;
+  transition: all .2s ease;
+
+  @include mq(464px) {
+    width: calc(50% - 6px);
+    border-radius: 7px;
+    min-height: 249px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-card__fire {
+    position: absolute;
+    left: 1.8rem;
+    top: 1.6rem;
+    background-color: palette(yellow, base);
+    height: 2.3rem;
+    width: 2.9rem;
+    border-radius: 5px;
+
+    &::after {
+      content: "";
+      @include fontAwesome;
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: palette(black, base);
+      @include align-center(both);
+      content: "\f06d";
+      transition: all .2s ease;
+    }
+  }
+
+  .product-card__heart {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.6rem;
+    cursor: pointer;
+    height: 2.3rem;
+    width: 2.3rem;
+
+    &::after {
+      content: "";
+      @include fontAwesome;
+      font-weight: 500;
+      font-size: 16px;
+      color: palette(black, base);
+      @include align-center(both);
+      content: "\f004";
+      transition: all .2s ease;
+    }
+
+    &:hover {
+      &::after {
+        color: palette(main, second);
+      }
+    }
+
+    &.active {
+      &::after {
+        color: palette(main, second);
+        font-weight: 600;
+      }
+    }
+  }
+
+  .product-card__img {
+    width: 100%;
+    max-height: 25rem;
+    padding: .5rem;
+    overflow: hidden;
+
+    @include mq(464px) {
+      min-height: 134px;
+      height: initial;
+      max-height: 202px;
+    }
+
+    img {
+      @include responsive_img;
+    }
+  }
+
+  .product-card__bottom {
+    @include flex(column, space-between, flex-start, flex-start, wrap);
+    padding: 2.2rem;
+    gap: 1.3rem;
+
+    @include mq(464px) {
+      gap: 5px;
+    }
+
+    .product-card__title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: palette(black, base);
+      transition: all .2s ease;
+
+      &:hover {
+        color: palette(main, base);
+      }
+    }
+
+    .product-card__price {
+      @include flex(row, flex-start, center, center, wrap);
+      gap: 10px;
+
+      @include mq(464px) {
+        gap: 5px;
+      }
+
+      .product-card__price-old {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: palette(grey, silver);
+        text-decoration: line-through;
+
+        @include mq(464px) {
+          font-size: 12px;
+        }
+      }
+
+      .product-card__price-new {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: palette(main, second);
+
+        @include mq(464px) {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .product-card__row {
+      width: 100%;
+      @include flex(row, space-between, center, center, wrap);
+      gap: 1rem;
+
+      .btn {
+        height: 3rem;
+        padding-left: 2.3rem;
+        padding-right: 3.9rem;
+        font-size: 13px;
+        font-weight: 500;
+
+        @include mq(464px) {
+          order: 2;
+          border-radius: 3px;
+          font-size: 12px;
+          padding-left: 11px;
+          padding-right: 26px;
+        }
+
+        &::after {
+          font-weight: 600;
+          content: "\f291";
+          font-size: 10px;
+          right: 1.7rem;
+
+          @include mq(464px) {
+            font-size: 9px;
+            right: 10px;
+          }
+        }
+      }
+
+      .product-card__code {
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: palette(grey, text);
+
+        @include mq(464px) {
+          order: 1;
+        }
+
+        &::after {
+          content: "";
+          @include fontAwesome;
+          font-weight: 500;
+          font-size: 1.1rem;
+          color: palette(main, base);
+          @include align-center(vertical);
+          content: "\f02e";
+          left: 0px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.asRange {
+   width: 94%;
+   margin-left: 8px;
+   height: 4px;
+   border-radius: 2px;
+   box-shadow: inset 0px 1px 1px 0 rgba(0, 0, 0, 0.14);
+   background-color: #ededed;
+
+   .asRange-selected {
+      height: 4px;
+      background-color: palette(main, base);
+   }
+
+   .asRange-pointer {
+      height: 6px;
+      width: 6px;
+      cursor: pointer;
+
+      &:before {
+         background: palette(main, base);
+      }
+
+      &:after {
+         background: palette(main, base);
+      }
+   }
+}
+
+.price-range__values {
+   margin: 2.5rem 0 1.62rem 0;
+   width: 100%;
+   @include flex(row, space-between, center, center, nowrap);
+   font-size: 12px;
+   color: palette(black, text);
+   position: relative;
+
+   .price-range__val {
+      margin: 0 3px;
+      background-color: palette(grey, wild-sand);
+      min-width: 7.6rem;
+      line-height: 2.4rem;
+      text-align: center;
+      border-radius: 5px;
+
+      span {
+         margin-right: 3px;
+      }
+   }
+
+   .price-range__break {
+      margin: 0 3px 0 6px;
+   }
+}

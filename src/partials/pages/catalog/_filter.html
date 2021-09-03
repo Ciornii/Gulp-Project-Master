@@ -1,0 +1,98 @@
+ <!-- start filter -->
+ <aside class="filter">
+   <div class="search-bar search-bar--white">
+     <div class="input search">
+       <input name="filter-search-bar" id="filter-search-bar" type="search" placeholder="Cautare" value="">
+     </div>
+     <button type="submit">
+       <svg>
+         <use xlink:href='assets/img/sprite.svg#search'></use>
+       </svg>
+     </button>
+   </div>
+   <div class="filter-by">
+     <div class="filter-by__title">
+       Category
+     </div>
+     <ul>
+       <li><span>Sortiment de flori</span></li>
+       <li>Trandafiri</li>
+       <li>Collectia de vara</li>
+       <li class="active">Flori Mixate</li>
+       <li>Flori in ghiveci</li>
+       <li>Delicii</li>
+       <li>Baloane</li>
+       <li>Jucarii Moi</li>
+       <li>Cadouri</li>
+       <li>Totul pentru nunta</li>
+       <li>Accesorii</li>
+     </ul>
+   </div>
+   <div class="filter-by filter-by--price">
+     <div class="filter-by__title">
+       Gama de preturi
+     </div>
+     <div data-min="0" data-max="4200" data-init-min="0" data-init-max="3200" class="price-range"></div>
+     <div class="price-range__values">
+       <div class="price-range__val" value="0"><span data="price-range__val-1">0</span>lei</div>
+       <span class="price-range__break">-</span>
+       <div class="price-range__val" value="3200"><span data="price-range__val-2">3200</span>lei</div>
+     </div>
+   </div>
+ </aside><!-- end filter -->
+
+
+ <!-- Hidden filter - for Mobile -->
+ <div class="modal-bg" data-mfilter-trigger data-mfilter-modalBg></div>
+ <aside class="hidden-filter">
+   <div class="hidden-filter__close" data-mfilter-trigger>
+     <svg>
+       <use xlink:href="assets/img/sprite.svg#close"></use>
+     </svg>
+   </div>
+   <!-- start filter - Mobile version-->
+   <div class="filter filter--mobile">
+     <div class="filter__title">
+       Filtrare
+     </div>
+     <div class="search-bar">
+       <div class="input search">
+         <input name="filter-search-bar" id="filter-search-bar" type="search" placeholder="Cautare" value="">
+       </div>
+       <button type="submit">
+         <svg>
+           <use xlink:href='assets/img/sprite.svg#search'></use>
+         </svg>
+       </button>
+     </div>
+     <div class="filter-by">
+       <div class="filter-by__title">
+         Category
+       </div>
+       <ul>
+         <li><span>Sortiment de flori</span></li>
+         <li>Trandafiri</li>
+         <li>Collectia de vara</li>
+         <li>Flori Mixate</li>
+         <li>Flori in ghiveci</li>
+         <li>Delicii</li>
+         <li>Baloane</li>
+         <li>Jucarii Moi</li>
+         <li>Cadouri</li>
+         <li>Totul pentru nunta</li>
+         <li>Accesorii</li>
+       </ul>
+     </div>
+     <div class="filter-by filter-by--price">
+       <div class="filter-by__title">
+         Gama de preturi
+       </div>
+       <div data-min="0" data-max="4200" data-init-min="0" data-init-max="3200" class="price-range"></div>
+       <div class="price-range__values">
+         <div class="price-range__val" value="0"><span data="price-range__val-1">0</span>lei</div>
+         <span class="price-range__break">-</span>
+         <div class="price-range__val" value="3200"><span data="price-range__val-2">3200</span>lei</div>
+       </div>
+     </div>
+   </div><!-- end filter -->
+ </aside> <!-- / Hidden filter - for Mobile -->

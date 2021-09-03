@@ -92,3 +92,20 @@
     font-weight: 600;
   }
 }
+
+.radio-btns {
+  margin-top: 4rem;
+
+  &:before {
+    content: attr(aria-label);
+    color: palette(grey, text-light);
+    margin-bottom: 10px;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+   .radio {
+    margin-right: 0px;
+  }
+}
