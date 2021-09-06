@@ -1,10 +1,10 @@
-.form-group {
+.checkbox {
   display: block;
   position: relative;
   width: 100%;
 }
 
-.form-group input {
+.checkbox input {
   padding: 0;
   height: initial;
   width: initial;
@@ -13,14 +13,14 @@
   cursor: pointer;
 }
 
-.form-group label {
+.checkbox label {
   position: absolute;
   cursor: pointer;
   left: 3px;
 }
 
-.form-group label:before,
-.form-group input {
+.checkbox label:before,
+.checkbox input {
   content: '';
   -webkit-appearance: none;
   background-color: transparent;
@@ -49,7 +49,7 @@
   }
 }
 
-.form-group input:checked+label:after {
+.checkbox input:checked+label:after {
   content: '';
   display: block;
   position: absolute;
@@ -62,7 +62,7 @@
   transform: rotate(45deg);
 }
 
-.form-group input:checked+label:before {
+.checkbox input:checked+label:before {
   background-color: palette(main, base);
   border-color: palette(main, base);
 }
