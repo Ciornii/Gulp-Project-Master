@@ -1779,12 +1779,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // ------------------------------------------------------------------- Sticky Navigation
 
 
-  var main = document.getElementsByTagName("main")[0],
+  let main = document.getElementsByTagName("main")[0],
       body = document.getElementsByTagName("body")[0],
       navbar = document.querySelector(".navbar");
 
   if (navbar) {
-    var sticky = navbar.offsetTop,
+    let sticky = navbar.offsetTop,
         navbarHeight = getComputedStyle(navbar).height,
         navbarHeightInteger = parseInt(navbarHeight.substring(0, navbarHeight.length - 2)),
         bodyHeightInteger = parseInt(getComputedStyle(body).height),
